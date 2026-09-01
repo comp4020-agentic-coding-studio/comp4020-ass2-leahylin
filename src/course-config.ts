@@ -44,19 +44,25 @@ export const slopCourseMetaSchema = z
 // this API contract when the course is published.
 //
 // The code's last three digits were assigned to this repo when it was
-// provisioned, and no other course in the cohort has them. Change the first
-// digit to your course's level (and `level` to match); keep the other three.
-// STARTER_CONTENT: replace this course record, then remove this comment.
+// provisioned, and no other course in the cohort has them. `364` stays; the
+// leading 8 is the level, and postgraduate is the honest reading of a course
+// that asks for fieldwork and sets Douglas, Goffman and Zuboff.
+//
+// The teaching period runs the twelve Mondays of Semester 1 2027 either side
+// of the mid-semester break: weeks 1--6 from 22 February, weeks 7--12 from 12
+// April, ending 28 May. Every dated item in the content collections has to
+// fall inside it --- see spec/data-integrity.test.ts.
 export const courseMeta = slopCourseMetaSchema.parse({
-  code: "SLOP1364",
-  title: "Course Title Goes Here",
+  code: "SLOP8364",
+  title: "The Political Economy of the Refrigerator",
   session: "Semester 1",
   year: 2027,
-  level: 1,
+  level: 8,
   startDate: "2027-02-22",
   endDate: "2027-05-28",
   description:
-    "One concise paragraph explaining what this course is, who it is for, " +
-    "and why somebody would choose to spend a semester taking it.",
-  tags: ["replace me"],
+    "The refrigerator promises to stop time, and the bill arrives as waste. " +
+    "A seminar reading the household's coldest appliance as an instrument of " +
+    "micro-political power, manufactured abundance and expiration anxiety.",
+  tags: ["material culture", "food politics", "consumption"],
 }) satisfies CourseMetaInput;
