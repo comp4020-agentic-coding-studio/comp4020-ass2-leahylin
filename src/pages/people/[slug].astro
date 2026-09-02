@@ -101,7 +101,12 @@ const description = person.data.description;
 }
 <style is:global>
   .at-hero {
-    background: var(--at-bg-alt, #f5edde);
+    /* Sampled from the portraits themselves, not taken from --at-bg-alt. The
+       token is a near-neutral computed off the primary (oklch 96.5% L, 0.006
+       C) and the illustrations sit on a warmer cream, which left a visible
+       seam where the contained image met the band. A baked raster cannot
+       follow a theme token, so the band matches the art instead. */
+    background: #f5eede;
   }
 
   .at-hero-image {
