@@ -1,9 +1,8 @@
 ---
 title: Dr Simone Ravel
 description:
-  Convenor. Reads objects for the arrangements they make invisible, and came to
-  the refrigerator by way of pantries, larders and the domestic knowledge that
-  went with them.
+  The material culture of domestic storage — pantries, larders, and the
+  household knowledge that mechanical cooling made unnecessary.
 affiliation: Slop University School of Domestic Infrastructure
 role: convenor
 photo: ./simone-ravel.avif

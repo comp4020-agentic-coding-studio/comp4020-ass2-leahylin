@@ -7,15 +7,19 @@ const people = await getPublishedCollection("people");
 
 const roleOrder: Record<string, number> = {
   convenor: 0,
-  tutor: 1,
-  guest: 2,
-  other: 3,
+  "co-convenor": 1,
+  tutor: 2,
+  guest: 3,
+  other: 4,
 };
 
-// Map the role enum (convenor|tutor|guest|other) to display labels rather than
-// rendering the raw lowercase value.
+// Display labels for the roles this course uses. A role with no entry here
+// renders no label at all, which is how "co-convenor" silently lost its line
+// while "convenor" kept one — the two cards then disagreed for no visible
+// reason. Add the role here as well as using it in frontmatter.
 const roleLabels: Record<string, string> = {
   convenor: "Convenor",
+  "co-convenor": "Co-convenor",
   tutor: "Tutor",
   guest: "Guest lecturer",
   other: "",
