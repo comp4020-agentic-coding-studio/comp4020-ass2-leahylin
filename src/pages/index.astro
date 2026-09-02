@@ -5,45 +5,165 @@ import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
 import heroImage from "../assets/images/hero-home.avif";
 import { courseMeta } from "../course-config";
 import { sessionLabels, siteConfig } from "../site-config";
-
-// STARTER_CONTENT: replace the hero artwork and its alt text below, then
-// remove this comment.
 ---
 
 <ContentLayout
   title={`${courseMeta.code}: ${courseMeta.title}`}
   description={courseMeta.description}
   heroImage={heroImage}
-  heroImageAlt="A lecture theatre reduced to flat gold and black shapes, rows of seats sweeping past the frame, in a two-ink risograph print"
+  heroImageAlt="A refrigerator interior drawn as an archaeological section: five numbered strata of shelving on black, their contents rendered in gold. The second stratum, at eye level, is bright and evenly spaced; each stratum below it is dimmer and more crowded, until the lowest is barely visible."
   {...siteConfig}
 >
   <ul class="course-tags" aria-label="Course tags">
     {courseMeta.tags.map((tag) => <li>{tag}</li>)}
   </ul>
 
-  <!-- STARTER_CONTENT: replace the authored page below, then remove this comment. -->
+  <p>
+    There is a machine in your kitchen that has run without interruption since
+    the day you moved in. You did not choose its shape. You have never
+    questioned its necessity. You would struggle to describe how a household
+    managed before it existed — and that struggle is not a gap in your
+    education. It is the product.
+  </p>
+
+  <h2>The argument</h2>
+  <p>
+    This course takes one position and holds it for twelve weeks. The
+    refrigerator is not a neutral appliance. It is the control centre of
+    micropolitics in the modern household, and an <strong
+      >illusory fortress</strong
+    > against temporal decay. By manufacturing expiration anxiety and hoarding illusions,
+    it colludes with and sustains late capitalism's logic of food waste and overconsumption.
+  </p>
+  <p>
+    The fortress works, which is the awkward part. Food really is colder and
+    really does last longer. It simply does not matter, because the binding
+    constraint was never the rate of decay — it was attention. The fridge does
+    not prevent waste. It relocates it: out of the shop, where you would have
+    had to decide against buying, and into your own bin three weeks later, where
+    time has made the decision for you and nobody has to feel they chose it.
+  </p>
+  <p>
+    You are not required to agree. You are required to argue, and the assessment
+    rewards the student who presses the strongest objection — vaccine cold
+    chains, reduced foodborne illness, year-round nutrition — over the one who
+    agrees fluently.
+  </p>
+
   <h2>What you will do</h2>
   <p>
-    Say what a student spends their time on — the making, reading, arguing or
-    measuring that fills the weeks. Name the artefact they walk out with.
+    This course cannot be passed from the library. Almost every week asks you to
+    bring evidence from a real kitchen, usually your own, and the seminar runs
+    on what you found rather than on what you read.
   </p>
+  <ul>
+    <li>
+      <strong>Taste blind</strong> — fresh, three days refrigerated, and freeze-dried,
+      without knowing which is which, and then argue about whether "freshness" is
+      a physical state or a marketing achievement.
+    </li>
+    <li>
+      <strong>Excavate a fridge</strong> — map a real interior as governed space,
+      with its authority zones, its marginal shelves, and the unclaimed territory
+      nobody will admit to owning.
+    </li>
+    <li>
+      <strong>Run label forensics</strong> — bring ten confusing date labels, work
+      out what the regulations actually require, and draft an honest replacement for
+      each.
+    </li>
+    <li>
+      <strong>Audit your own waste</strong> — record a week of everything you throw
+      out, then cost it in money and in calories. This is the number that changes
+      people.
+    </li>
+    <li>
+      <strong>Design the dystopia</strong> — build the most exploitative smart fridge
+      you can imagine, pitch it sincerely, then discover how much of it already exists.
+    </li>
+    <li>
+      <strong>Make something that needs no plug</strong> — a jar of quick ferment,
+      or the operating rules for a community pantry.
+    </li>
+  </ul>
+  <p>
+    You leave with four things: an ethnography of a real household, a critical
+    essay, a counter-fridge proposal you have defended in front of the room, and
+    a jar of pickles.
+  </p>
+
+  <h2>The shape of the semester</h2>
+  <p>
+    Four modules of three weeks. Each one takes the same claim and turns it
+    another degree.
+  </p>
+  <ol>
+    <li>
+      <strong>Disenchantment</strong> — the commodification of cold, from the ice
+      trade to Freon, and the myth of modernity sold alongside it.
+    </li>
+    <li>
+      <strong>Micropolitics</strong> — the interior as a jurisdiction, and the door
+      as a stage.
+    </li>
+    <li>
+      <strong>The tyranny of time</strong> — date labels, systemic waste, and the
+      stuffed fridge as emotional solace. Where the argument stops being interpretive
+      and becomes measurable.
+    </li>
+    <li>
+      <strong>Resistance and reconstruction</strong> — surveillance capitalism in
+      the kitchen, degrowth, fermentation, and what could be built instead.
+    </li>
+  </ol>
 
   <h2>Who it is for</h2>
   <p>
-    Say who this is aimed at and what they need to already know. Be specific
-    enough that someone can rule themselves in or out without emailing you.
+    A postgraduate seminar, open across disciplines. It suits anthropology,
+    design, environmental studies, science and technology studies, food studies,
+    sociology and media. There is no technical prerequisite and no assumed
+    background in food science — the theory is taught as we go.
   </p>
+  <p>
+    What it does assume is a willingness to look at your own kitchen and report
+    honestly what is in it, including the parts that are embarrassing. The
+    fieldwork is not optional and it cannot be borrowed.
+  </p>
+  <p>Rule yourself out if you want:</p>
+  <ul>
+    <li>a food science or nutrition course — this is not one</li>
+    <li>to learn to cook — you will make exactly one thing, badly</li>
+    <li>
+      to be told that refrigeration is simply good, or simply bad — the course
+      argues neither and will make you defend whichever you arrive holding
+    </li>
+  </ul>
 
   <h2>Where to go next</h2>
   <CardGrid columns={2}>
     <Card title={sessionLabels.plural} href="/sessions/">
-      <p>The weekly schedule and what happens in each teaching session.</p>
+      <p>
+        The twelve tutorials, and what to bring to each. This is where the
+        course actually happens.
+      </p>
+    </Card>
+    <Card title="Lectures" href="/lectures/">
+      <p>
+        The weekly argument and its readings, including the week 7 deck on the
+        tyranny of date labels.
+      </p>
     </Card>
     <Card title="Assessment" href="/assessments/">
-      <p>What is marked, what it is worth, and when it is due.</p>
+      <p>
+        An ethnography, an essay, a counter-fridge, and participation. What each
+        is worth and when it is due.
+      </p>
     </Card>
     <Card title="People" href="/people/">
-      <p>Who teaches the course and how to reach them.</p>
+      <p>
+        Two convenors — one who reads objects, one who weighs what households
+        throw away.
+      </p>
     </Card>
   </CardGrid>
 </ContentLayout>
