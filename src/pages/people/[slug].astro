@@ -6,7 +6,10 @@ import { siteConfig } from "../../site-config";
 
 export async function getStaticPaths() {
   const people = await getPublishedCollection("people");
-  return people.map((person) => ({ params: { slug: person.id }, props: { person } }));
+  return people.map((person) => ({
+    params: { slug: person.id },
+    props: { person },
+  }));
 }
 
 const { person } = Astro.props;
@@ -38,37 +41,92 @@ const description = person.data.description;
   {...siteConfig}
 >
   <dl>
-    {roleLabel && (
-      <>
-        <dt>Role</dt>
-        <dd>{roleLabel}</dd>
-      </>
-    )}
-    {person.data.affiliation && (
-      <>
-        <dt>Affiliation</dt>
-        <dd>{person.data.affiliation}</dd>
-      </>
-    )}
-    {person.data.email && (
-      <>
-        <dt>Email</dt>
-        <dd>
-          <a href={`mailto:${person.data.email}`}>{person.data.email}</a>
-        </dd>
-      </>
-    )}
-    {person.data.url && (
-      <>
-        <dt>Web</dt>
-        <dd>
-          <a href={person.data.url}>{person.data.url}</a>
-        </dd>
-      </>
-    )}
+    {
+      roleLabel && (
+        <>
+          <dt>Role</dt>
+          <dd>{roleLabel}</dd>
+        </>
+      )
+    }
+    {
+      person.data.affiliation && (
+        <>
+          <dt>Affiliation</dt>
+          <dd>{person.data.affiliation}</dd>
+        </>
+      )
+    }
+    {
+      person.data.email && (
+        <>
+          <dt>Email</dt>
+          <dd>
+            <a href={`mailto:${person.data.email}`}>{person.data.email}</a>
+          </dd>
+        </>
+      )
+    }
+    {
+      person.data.url && (
+        <>
+          <dt>Web</dt>
+          <dd>
+            <a href={person.data.url}>{person.data.url}</a>
+          </dd>
+        </>
+      )
+    }
     <dt>Contact</dt>
     <dd>{person.data.contact}</dd>
   </dl>
 
   <Content />
 </ContentLayout>
+
+{
+  /*
+  The theme's hero is a ~4.4:1 full-bleed band with `object-fit: cover`, built
+  for photographic art that survives a hard crop. These portraits are a centred
+  object on empty ground at 16:9, so cover blew the subject up and cut the top
+  and bottom off it. Switch this one page type to `contain`: the whole
+  illustration sits to the right, the title takes the cream space at the left,
+  and the scrim goes — it existed to keep white text legible over a photograph,
+  and there is no photograph here to darken.
+
+  Astro only ships a component's styles on the pages that render it, so
+  `is:global` here reaches .at-hero without touching the home page's hero,
+  which is dark art that does want the cover-and-scrim treatment.
+*/
+}
+<style is:global>
+  .at-hero {
+    background: var(--at-bg-alt, #f5edde);
+  }
+
+  .at-hero-image {
+    object-fit: contain;
+    object-position: right center;
+    outline: none;
+  }
+
+  /* No photograph underneath, so the scrim and the white-on-dark text
+     treatment both come off. */
+  .at-hero-content {
+    background: none;
+  }
+
+  .at-hero-title {
+    color: var(--at-text);
+    text-shadow: none;
+  }
+
+  /* Narrow screens: the contained image fills the width and the title would
+     land on top of it, so stop overlapping and let the band be text only. */
+  @media (width < 48rem) {
+    .at-hero-image {
+      object-position: center top;
+      opacity: 0.16;
+    }
+  }
+</style>
