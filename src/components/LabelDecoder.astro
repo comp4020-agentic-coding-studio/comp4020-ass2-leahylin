@@ -1,0 +1,295 @@
+---
+/**
+ * Label Decoder — the public form of the week 7 Label Forensics tutorial.
+ *
+ * It asks for a verdict before it explains anything. The argument of week 7 is
+ * that a printed number overrules senses and knowledge people already have, and
+ * an explainer that simply states that is a much weaker version of watching
+ * yourself do it. So: four labels, a snap judgement on each, then what the date
+ * legally is. The tally at the end is the visitor's own data.
+ *
+ * Deliberately server-rendered with progressive enhancement — the items and
+ * their explanations are in the HTML, so the argument survives with JavaScript
+ * off; the script only adds the guess-then-reveal sequencing.
+ */
+
+interface Item {
+  id: string;
+  food: string;
+  printed: string;
+  kind: "quality" | "safety";
+  /** The honest answer, and why. */
+  verdict: string;
+}
+
+const items: Item[] = [
+  {
+    id: "yoghurt",
+    food: "A tub of plain yoghurt, opened two days ago",
+    printed: "BEST BEFORE 12 MAR",
+    kind: "quality",
+    verdict:
+      "A quality prediction, not a safety limit. Yoghurt is cultured and acidic — an environment actively hostile to the organisms that make people ill. Past this date it gets tangier, not dangerous. Your nose is better informed than the printer was.",
+  },
+  {
+    id: "salad",
+    food: "A bag of washed salad leaves, unopened",
+    printed: "USE BY 12 MAR",
+    kind: "safety",
+    verdict:
+      "Respect this one. Ready-to-eat leaves are the genuine high-risk case: nothing here will be cooked, so there is no step that kills anything, and some pathogens grow at refrigerator temperature. This narrow category is what use by exists for.",
+  },
+  {
+    id: "pasta",
+    food: "An unopened packet of dried pasta",
+    printed: "BEST BEFORE MAR 2029",
+    kind: "quality",
+    verdict:
+      "A formality. Dried pasta is shelf-stable and close to inert; it will comfortably outlast the packet it came in. This is a date printed because the format expects a date, not because anything happens on it.",
+  },
+  {
+    id: "cheese",
+    food: "A wedge of hard cheese, wrapped",
+    printed: "BEST BEFORE 12 MAR",
+    kind: "quality",
+    verdict:
+      "A quality prediction. Hard cheese is itself a preservation technology — low moisture, salted, deliberately aged. Surface mould cuts away and the rest is cheese. Ageing is the point of it.",
+  },
+];
+
+const kindLabel = {
+  quality: "Quality opinion",
+  safety: "Safety instruction",
+} as const;
+---
+
+<section class="decoder" aria-labelledby="decoder-heading" data-decoder>
+  <!-- h2: this sits above the page's first "## …" heading, so an h3 here skips
+       a level and fails the build's heading-order check. -->
+  <h2 id="decoder-heading">Would you eat it?</h2>
+  <p class="decoder-intro">
+    Four labels, as printed. Decide before you read the answer — the gap between
+    what you decide and what the date legally means is this week's argument, and
+    it works better on your own judgement than on ours.
+  </p>
+
+  <ol class="decoder-items">
+    {
+      items.map((item) => (
+        <li class="decoder-item" data-item data-kind={item.kind}>
+          <p class="decoder-food">{item.food}</p>
+          <p class="decoder-printed">{item.printed}</p>
+
+          <div class="decoder-choice" data-choice>
+            <button type="button" class="decoder-button" data-answer="eat">
+              Eat it
+            </button>
+            <button type="button" class="decoder-button" data-answer="bin">
+              Bin it
+            </button>
+          </div>
+
+          <div class="decoder-reveal" data-reveal>
+            <p class="decoder-kind" data-kind-label={item.kind}>
+              {kindLabel[item.kind]}
+            </p>
+            <p class="decoder-verdict">{item.verdict}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+
+  <p class="decoder-tally" data-tally hidden aria-live="polite"></p>
+</section>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>("[data-decoder]")) {
+    const items = [...root.querySelectorAll<HTMLElement>("[data-item]")];
+    const tally = root.querySelector<HTMLElement>("[data-tally]");
+    const answers = new Map<HTMLElement, string>();
+
+    // Hide the explanations only once the script is running. With JS off they
+    // stay visible and the section still reads as a piece of writing.
+    root.dataset.enhanced = "true";
+    for (const reveal of root.querySelectorAll<HTMLElement>("[data-reveal]")) {
+      reveal.hidden = true;
+    }
+
+    const report = () => {
+      if (!tally || answers.size < items.length) return;
+      let binnedFine = 0;
+      let ateTheRisky = 0;
+      for (const [item, answer] of answers) {
+        const safety = item.dataset.kind === "safety";
+        if (!safety && answer === "bin") binnedFine += 1;
+        if (safety && answer === "eat") ateTheRisky += 1;
+      }
+
+      const lines: string[] = [];
+      if (binnedFine > 0) {
+        lines.push(
+          `You binned ${binnedFine} of the 3 items that were safe to eat. That is the mechanism in miniature: a printed number overruled what you already knew.`,
+        );
+      } else {
+        lines.push("You kept all three of the items that were safe to eat.");
+      }
+      if (ateTheRisky > 0) {
+        lines.push(
+          "You ate the one item whose date was a real safety instruction — which is the other half of the problem. When every date reads the same, the one that matters gets ignored along with the rest.",
+        );
+      } else {
+        lines.push(
+          "You also spotted the one date that was a genuine safety instruction.",
+        );
+      }
+
+      tally.textContent = lines.join(" ");
+      tally.hidden = false;
+    };
+
+    for (const item of items) {
+      const reveal = item.querySelector<HTMLElement>("[data-reveal]");
+      for (const button of item.querySelectorAll<HTMLButtonElement>(
+        "[data-answer]",
+      )) {
+        button.addEventListener("click", () => {
+          if (answers.has(item)) return;
+          answers.set(item, button.dataset.answer ?? "");
+          item.dataset.answered = button.dataset.answer ?? "";
+          for (const other of item.querySelectorAll<HTMLButtonElement>(
+            "[data-answer]",
+          )) {
+            other.disabled = true;
+            other.setAttribute("aria-pressed", String(other === button));
+          }
+          if (reveal) reveal.hidden = false;
+          report();
+        });
+      }
+    }
+  }
+</script>
+
+<style>
+  .decoder {
+    margin-block: var(--at-spacing-xl);
+    padding: var(--at-spacing-lg);
+    border: 1px solid var(--at-divider);
+    border-radius: var(--at-border-radius);
+    background: var(--at-bg-alt);
+  }
+
+  .decoder > h2 {
+    margin-block-start: 0;
+  }
+
+  .decoder-intro {
+    color: var(--at-text-secondary);
+  }
+
+  .decoder-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--at-spacing-md);
+  }
+
+  .decoder-item {
+    padding: var(--at-spacing-md);
+    border: 1px solid var(--at-divider);
+    border-radius: var(--at-border-radius);
+    background: var(--at-bg);
+  }
+
+  .decoder-food {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  /* The label as it appears on the packet: the whole point is that it looks
+     authoritative and says almost nothing. */
+  .decoder-printed {
+    margin-block: var(--at-spacing-xs) var(--at-spacing-md);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: var(--at-font-size-sm);
+    letter-spacing: 0.14em;
+    color: var(--at-text-secondary);
+  }
+
+  .decoder-choice {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--at-spacing-sm);
+  }
+
+  .decoder-button {
+    padding: 0.5rem 1.1rem;
+    border: 1px solid var(--at-primary);
+    border-radius: var(--at-border-radius);
+    background: transparent;
+    color: var(--at-text);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .decoder-button:hover:not(:disabled) {
+    background: var(--at-accent-soft);
+  }
+
+  .decoder-button:disabled {
+    cursor: default;
+    opacity: 0.55;
+  }
+
+  .decoder-button[aria-pressed="true"] {
+    background: var(--at-primary);
+    border-color: var(--at-primary);
+    color: var(--at-white);
+    opacity: 1;
+  }
+
+  .decoder-reveal {
+    margin-block-start: var(--at-spacing-md);
+    padding-block-start: var(--at-spacing-md);
+    border-block-start: 1px solid var(--at-divider);
+  }
+
+  .decoder-kind {
+    margin: 0 0 var(--at-spacing-xs);
+    font-size: var(--at-font-size-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .decoder-kind[data-kind-label="safety"] {
+    color: var(--at-secondary);
+  }
+
+  .decoder-verdict {
+    margin: 0;
+  }
+
+  .decoder-tally {
+    margin-block-end: 0;
+    padding: var(--at-spacing-md);
+    border-inline-start: 4px solid var(--at-primary);
+    background: var(--at-bg);
+  }
+
+  /* Progressive enhancement: the choices only appear, and the answers only
+     hide, once the script has claimed the section. */
+  .decoder [data-choice] {
+    display: none;
+  }
+
+  .decoder[data-enhanced="true"] [data-choice] {
+    display: flex;
+  }
+
+  .decoder[data-enhanced="true"] [data-reveal][hidden] {
+    display: none;
+  }
+</style>
