@@ -2,6 +2,7 @@
 import Callout from "astro-theme-university/components/Callout.astro";
 import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
 import SessionsGrid from "../../components/SessionsGrid.astro";
+import heroImage from "../../assets/images/sessions-hero.avif";
 import { sessionLabels, siteConfig } from "../../site-config";
 
 // Raw anchors in .astro are emitted verbatim — unlike markdown links, nothing
@@ -13,6 +14,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 <ContentLayout
   title={sessionLabels.plural}
   description="Twelve tutorials, and the twelve things you have to bring to them. This is where the course actually happens."
+  heroImage={heroImage}
+  heroImageAlt="A fieldwork table seen from above: an open handwritten notebook, a kitchen scale, a mason jar mid-ferment, a tape measure, a magnifying glass over a torn label, a pencil, index cards and a screwdriver, arranged across a teal tabletop on a warm cream ground."
   {...siteConfig}
 >
   <p>
@@ -50,3 +53,41 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   <SessionsGrid />
 </ContentLayout>
+
+{
+  /*
+  Same treatment as the Lectures hero and the people detail pages: this
+  illustration is a vignette on its own cream, not a full-bleed scene, so the
+  theme's default cover-and-scrim (built for art that survives a hard crop)
+  would enlarge and cut it. object-fit: contain, right-aligned, dark title on
+  the art's own cream — sampled at #f9f4de, not the theme's --at-bg-alt token,
+  for the same near-miss-seam reason recorded on those other pages.
+
+  is:global reaches .at-hero because it belongs to the theme's Hero markup,
+  outside this component's own tree; scoped by construction to this file, so
+  the home page's dark full-bleed hero is untouched.
+*/
+}
+<style is:global>
+  .at-hero {
+    background: #f9f4de;
+  }
+  .at-hero-image {
+    object-fit: contain;
+    object-position: right center;
+    outline: none;
+  }
+  .at-hero-content {
+    background: none;
+  }
+  .at-hero-title {
+    color: var(--at-text);
+    text-shadow: none;
+  }
+  @media (width < 48rem) {
+    .at-hero-image {
+      object-position: center top;
+      opacity: 0.2;
+    }
+  }
+</style>
