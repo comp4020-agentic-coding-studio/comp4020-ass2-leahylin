@@ -8,10 +8,11 @@ affiliation: Slop University School of Domestic Infrastructure
 role: convenor
 photo: ./simone-ravel.avif
 photoAlt:
-  A stoneware larder crock drawn as a half-section, flat gold on cream. The
-  right half is cut away to show the vessel wall and the level of what it
-  holds. Staff here are pictured by the object their method depends on rather
-  than by a photograph.
+  An illustration of a wide gold stoneware crock with a teal interior, holding
+  a row of pale ruled cards standing upright like filed records rather than
+  food. A teal leaf and a gold seed rest beside it, with dried sprigs and seed
+  pods to the right, on a cream ground inside a thin ruled border. Staff here
+  are pictured by the objects their method depends on, not by a photograph.
 email: simone.ravel@slop.university
 contact:
   Email for anything about the course's argument, the reading, or ethnographic

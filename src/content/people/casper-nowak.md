@@ -7,9 +7,12 @@ affiliation: Slop University School of Domestic Infrastructure
 role: co-convenor
 photo: ./casper-nowak.avif
 photoAlt:
-  A two-pan balance drawn flat in gold on cream. The left pan is high and
-  nearly empty; the right sits low under a stack of weights. Staff here are
-  pictured by the object their method depends on rather than by a photograph.
+  An illustration of a two-pan balance tipped hard to one side. The low pan is
+  heaped with discarded food — a bread roll, a labelled jar, a teal leafy
+  vegetable and a folded wrapper; the empty pan has swung up past the top of
+  the frame. Dried grasses stand at either corner on a cream ground inside a
+  thin ruled border. Staff here are pictured by the objects their method
+  depends on, not by a photograph.
 email: casper.nowak@slop.university
 contact:
   Email for anything numerical, and for the Counter-Fridge project.
