@@ -22,12 +22,13 @@ import LecturesGrid from "../../components/LecturesGrid.astro";
   title) is built for a scene that survives a hard crop; forced onto a
   vignette it would enlarge the books past the frame and crop the lamp.
 
-  Same fix as the people detail pages: object-fit: contain so the whole
-  illustration stays visible, no scrim since there is no photograph to
-  darken, and a dark title on the art's own cream (#faf6e4, sampled from the
-  asset — the theme's --at-bg-alt token is a slightly different near-neutral
-  and the two would meet at a seam, exactly as happened on the people pages
-  before that got fixed).
+  Same fix as the people detail pages: object-fit: contain, right-aligned, so
+  the whole illustration stays visible and the title's own column on the left
+  has clear cream behind it rather than fighting the shelf for space. No scrim,
+  since there is no photograph to darken, and a dark title on the art's own
+  cream (#faf6e4, sampled from the asset — the theme's --at-bg-alt token is a
+  slightly different near-neutral and the two would meet at a seam, exactly as
+  happened on the people pages before that got fixed).
 
   Astro does not apply its scoped-style transform inside .mdx bodies, so this
   plain <style> tag (no is:global) already lands in the page unscoped.
@@ -40,6 +41,7 @@ import LecturesGrid from "../../components/LecturesGrid.astro";
     }
     .at-hero-image {
       object-fit: contain;
+      object-position: right center;
       outline: none;
     }
     .at-hero-content {
