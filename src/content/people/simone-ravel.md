@@ -6,6 +6,12 @@ description:
   went with them.
 affiliation: Slop University School of Domestic Infrastructure
 role: convenor
+photo: ./simone-ravel.avif
+photoAlt:
+  A stoneware larder crock drawn as a half-section, flat gold on cream. The
+  right half is cut away to show the vessel wall and the level of what it
+  holds. Staff here are pictured by the object their method depends on rather
+  than by a photograph.
 email: simone.ravel@slop.university
 contact:
   Email for anything about the course's argument, the reading, or ethnographic

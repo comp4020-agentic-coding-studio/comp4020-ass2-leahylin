@@ -5,6 +5,11 @@ description:
   stockpiling — the evidence behind the course's central claim.
 affiliation: Slop University School of Domestic Infrastructure
 role: co-convenor
+photo: ./casper-nowak.avif
+photoAlt:
+  A two-pan balance drawn flat in gold on cream. The left pan is high and
+  nearly empty; the right sits low under a stack of weights. Staff here are
+  pictured by the object their method depends on rather than by a photograph.
 email: casper.nowak@slop.university
 contact:
   Email for anything numerical, and for the Counter-Fridge project.
