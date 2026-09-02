@@ -41,6 +41,35 @@ Learned the hard way in this repo. Each one cost a red build.
   concluding an image did not change; `rm -rf node_modules/.astro .astro dist`
   if a build still shows it.
 
+## Failures the checks cannot see
+
+The four above all turned the build red, which means they announced themselves.
+These did not. `pnpm check` passed, the accessibility and link checks passed,
+and the page was still wrong — which is the class of failure that reaches a
+marker, and the reason "open the page and look at it" is the first rule in this
+file rather than a nicety.
+
+- **A theme lookup table with no entry for your value renders nothing, silently.**
+  `roleLabels` in `PeopleGrid.astro` maps `convenor|tutor|guest|other`; a person
+  with `role: co-convenor` resolved to `undefined`, so that card rendered no role
+  line while the other did, and the two disagreed for no visible reason. Its
+  `roleOrder` twin has the same gap and sorts the unknown value last via `?? 99`.
+  Adding a value to frontmatter is not enough — add it to the map too, and check
+  both the grid component and the detail route.
+- **`heroTitle` does nothing without `heroImage`.** BaseLayout gates the hero on
+  `heroTitle && heroImage`, and `MdxPageLayout` renders the lead but never an
+  `<h1>`, so four MDX pages shipped with a `heroTitle` in frontmatter and no
+  visible heading at all. Count headings in `dist/` rather than trusting the
+  frontmatter to have had an effect.
+- **The hero crops hard and the theme's cover treatment assumes photography.**
+  `.at-hero` is a ~4.4:1 band with `object-fit: cover` and a dark scrim for white
+  text. Art that is a centred subject on empty ground gets enlarged and cut off
+  instead. Nothing errors; it just looks wrong.
+- **Two near-identical creams read as a seam.** `--at-bg-alt` is computed off the
+  primary and does not match a baked raster's own background. A theme token
+  cannot follow an image, so sample the colour out of the asset and set it
+  literally when the two have to meet.
+
 ## What the submission gate actually checks
 
 `pnpm check:evidence` is stricter than `pnpm check` and is easy to leave until
