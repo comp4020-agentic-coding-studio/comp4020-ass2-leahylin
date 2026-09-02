@@ -1,0 +1,235 @@
+---
+/**
+ * Unplugged Pledge — the last of the three interactions, on the week 12 page.
+ *
+ * Week 11 establishes that the boundary between "needs cold" and "doesn't" is a
+ * hardened convention rather than a physical fact. This is that argument made
+ * small enough to accept: pick one thing, take it out for a week, see what
+ * happens. It is the page-level equivalent of the unplugged picnic — the course
+ * ending in an action rather than a conclusion.
+ *
+ * The honesty matters more than the interaction here. Week 11's session is
+ * explicit that de-refrigeration overreaches when it stops distinguishing a
+ * vaccine cold chain from a door shelf, so each item says what actually happens
+ * and the egg says plainly that the answer depends on where you live.
+ */
+
+interface Candidate {
+  id: string;
+  label: string;
+  /** What actually happens, and why — no hedging, no cheerleading. */
+  outcome: string;
+}
+
+const candidates: Candidate[] = [
+  {
+    id: "butter",
+    label: "Butter",
+    outcome:
+      "Salted butter keeps for days in a covered dish at room temperature, which is how it was kept for most of its history. It also spreads, which cold butter famously does not. Keep it covered and out of the sun, and buy it in smaller amounts.",
+  },
+  {
+    id: "tomatoes",
+    label: "Tomatoes",
+    outcome:
+      "Cold actively damages a tomato: below about 12°C the compounds responsible for its flavour stop being produced and the flesh goes mealy. Refrigeration is close to the worst thing you can do to one. This is the easiest pledge on the list to keep.",
+  },
+  {
+    id: "bread",
+    label: "Bread",
+    outcome:
+      "The fridge is the fastest way to stale bread — starch retrogrades quickest a little above freezing, so chilled bread goes stale faster than bread left on the counter. A bin or a bag for a few days; the freezer for longer. The fridge is the one option that is worse than doing nothing.",
+  },
+  {
+    id: "roots",
+    label: "Onions, garlic and potatoes",
+    outcome:
+      "All three want dark, dry and ventilated, not cold and humid. Cold turns potato starch to sugar, which is why refrigerated potatoes taste faintly sweet and go gritty. Keep them out of the fridge and away from each other.",
+  },
+  {
+    id: "condiments",
+    label: "Unopened condiments",
+    outcome:
+      "Soy sauce, vinegar, honey and most hot sauces are shelf-stable by design — they are preserved things, which is the entire point of them. Check the label for whether it asks for refrigeration after opening, and ignore the door shelf until then.",
+  },
+  {
+    id: "eggs",
+    label: "Eggs",
+    outcome:
+      "This one depends on where you live, and that is exactly why it is on the list. Where eggs are washed before sale the protective cuticle is removed and they need refrigeration; where they are not washed they sit out quite safely, which is why supermarket shelves look different in different countries. Same egg, same biology, opposite advice — the boundary is regulation, not physics.",
+  },
+];
+---
+
+<section class="pledge" aria-labelledby="pledge-heading" data-pledge>
+  <h2 id="pledge-heading">Take one thing out</h2>
+  <p class="pledge-intro">
+    Week 11 argues that most of the line between <em>needs cold</em> and
+    <em>doesn't</em> is convention that hardened rather than physics. Here is that
+    argument at a scale you can test this week. Pick one.
+  </p>
+
+  <fieldset class="pledge-set">
+    <legend class="pledge-legend">One item leaving my fridge</legend>
+    {
+      candidates.map((candidate) => (
+        <p class="pledge-option">
+          <input
+            type="radio"
+            id={`pledge-${candidate.id}`}
+            name="pledge"
+            value={candidate.id}
+          />
+          <label for={`pledge-${candidate.id}`}>{candidate.label}</label>
+        </p>
+      ))
+    }
+  </fieldset>
+
+  <div class="pledge-outcome" data-outcome hidden aria-live="polite">
+    <p class="pledge-statement" data-statement></p>
+    <p class="pledge-detail" data-detail></p>
+  </div>
+
+  <details class="pledge-notes">
+    <summary>What actually happens to each of these</summary>
+    <dl>
+      {
+        candidates.map((candidate) => (
+          <>
+            <dt>{candidate.label}</dt>
+            <dd>{candidate.outcome}</dd>
+          </>
+        ))
+      }
+    </dl>
+  </details>
+
+  <p class="pledge-caveat">
+    Nothing on this list is a safety risk, which is why nothing riskier is on
+    it. Refrigeration earns its place for raw meat, fish, dairy after opening
+    and ready-to-eat food — and for the vaccine cold chain, which is not the
+    same argument and never was.
+  </p>
+</section>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>("[data-pledge]")) {
+    const outcome = root.querySelector<HTMLElement>("[data-outcome]");
+    const statement = root.querySelector<HTMLElement>("[data-statement]");
+    const detail = root.querySelector<HTMLElement>("[data-detail]");
+    const notes = root.querySelector<HTMLDetailsElement>(".pledge-notes");
+    if (!outcome || !statement || !detail) continue;
+
+    // With the script running, the full list becomes the fallback rather than
+    // the main event: the chosen item is quoted back instead.
+    const byId = new Map<string, { label: string; outcome: string }>();
+    for (const dt of root.querySelectorAll("dt")) {
+      const dd = dt.nextElementSibling;
+      byId.set(dt.textContent?.trim() ?? "", {
+        label: dt.textContent?.trim() ?? "",
+        outcome: dd?.textContent?.trim() ?? "",
+      });
+    }
+
+    for (const input of root.querySelectorAll<HTMLInputElement>(
+      'input[name="pledge"]',
+    )) {
+      input.addEventListener("change", () => {
+        const label = root.querySelector<HTMLLabelElement>(
+          `label[for="${input.id}"]`,
+        );
+        const key = label?.textContent?.trim() ?? "";
+        const entry = byId.get(key);
+        if (!entry) return;
+        statement.textContent = `${entry.label} is leaving the fridge for a week.`;
+        detail.textContent = entry.outcome;
+        outcome.hidden = false;
+        // The list has served its purpose once a choice is made; leave it
+        // reachable rather than removing it.
+        if (notes) notes.open = false;
+      });
+    }
+  }
+</script>
+
+<style>
+  .pledge {
+    margin-block: var(--at-spacing-xl);
+    padding: var(--at-spacing-lg);
+    border: 1px solid var(--at-divider);
+    border-radius: var(--at-border-radius);
+    background: var(--at-bg-alt);
+  }
+
+  .pledge > h2 {
+    margin-block-start: 0;
+  }
+
+  .pledge-intro {
+    color: var(--at-text-secondary);
+  }
+
+  .pledge-set {
+    margin: var(--at-spacing-lg) 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .pledge-legend {
+    padding: 0;
+    font-weight: 700;
+  }
+
+  .pledge-option {
+    display: flex;
+    align-items: baseline;
+    gap: var(--at-spacing-sm);
+    margin-block: var(--at-spacing-xs);
+  }
+
+  .pledge-option input {
+    accent-color: var(--at-primary);
+  }
+
+  .pledge-outcome {
+    padding: var(--at-spacing-md);
+    border-inline-start: 4px solid var(--at-primary);
+    background: var(--at-bg);
+  }
+
+  .pledge-statement {
+    margin-block-start: 0;
+    font-weight: 700;
+  }
+
+  .pledge-detail {
+    margin-block-end: 0;
+  }
+
+  .pledge-notes {
+    margin-block: var(--at-spacing-lg);
+  }
+
+  .pledge-notes summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .pledge-notes dt {
+    margin-block-start: var(--at-spacing-md);
+    font-weight: 700;
+  }
+
+  .pledge-notes dd {
+    margin-inline-start: 0;
+  }
+
+  .pledge-caveat {
+    margin-block-end: 0;
+    padding-block-start: var(--at-spacing-md);
+    border-block-start: 1px solid var(--at-divider);
+    color: var(--at-text-secondary);
+    font-size: var(--at-font-size-sm);
+  }
+</style>
