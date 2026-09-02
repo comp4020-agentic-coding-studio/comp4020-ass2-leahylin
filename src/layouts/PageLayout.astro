@@ -1,8 +1,25 @@
 ---
 import MdxPageLayout from "astro-theme-university/layouts/MdxPageLayout.astro";
 import { siteConfig } from "../site-config";
+
+// The theme only emits a page heading when a hero image is present: BaseLayout
+// gates <Hero> on `heroTitle && heroImage`, and MdxPageLayout renders the lead
+// paragraph but never an <h1>. Left alone, every .md/.mdx page here ships with
+// no visible heading at all, while ContentLayout routes like /sessions/ do have
+// one — so the index pages disagreed with each other.
+//
+// Render the heading and lead here instead, in that order, and turn the theme's
+// own lead off so it isn't emitted twice. Pages that do supply a hero image keep
+// the theme's Hero and skip this <h1>.
+const fm = (Astro.props.frontmatter ?? Astro.props) as {
+  title?: string;
+  description?: string;
+  heroImage?: unknown;
+};
 ---
 
-<MdxPageLayout siteConfig={siteConfig} {...Astro.props}>
+<MdxPageLayout siteConfig={siteConfig} lead={false} {...Astro.props}>
+  {!fm.heroImage && fm.title && <h1>{fm.title}</h1>}
+  {fm.description && <p class="lead">{fm.description}</p>}
   <slot />
 </MdxPageLayout>
