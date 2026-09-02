@@ -10,9 +10,9 @@ photo: ./simone-ravel.avif
 photoAlt:
   An illustration of a wide gold stoneware crock with a teal interior, holding
   a row of pale ruled cards standing upright like filed records rather than
-  food. A teal leaf and a gold seed rest beside it, with dried sprigs and seed
-  pods to the right, on a cream ground inside a thin ruled border. Staff here
-  are pictured by the objects their method depends on, not by a photograph.
+  food. A teal leaf and a gold seed rest beside it, with dried sprigs and two
+  seed pods to the right, on a cream ground. Staff here are pictured by the
+  objects their method depends on, not by a photograph.
 email: simone.ravel@slop.university
 contact:
   Email for anything about the course's argument, the reading, or ethnographic
@@ -31,21 +31,13 @@ unnecessary, then made it unavailable, and then made its own necessity look
 like a fact of nature rather than the outcome of a century of manufacturing,
 electrification and advertising.
 
-Ravel convenes the course, gives the lectures in weeks 1–6 and 10–12, and
-supervises the Fridge Ethnography. They are the person to ask when a fieldwork
-question turns out to be an ethics question, which it usually does.
+Ravel supervises the Fridge Ethnography, and is the person to ask when a
+fieldwork question turns out to be an ethics question — which it usually does.
+Disagreement with the course's central claim is welcome, and is worth marks in
+the essay.
 
 ## Consultation
 
 After each session, in the room, for as long as anyone stays. Otherwise by
 appointment — email with two or three times that suit you rather than asking
 what suits.
-
-## Who to ask first
-
-Ask Ravel about the argument, the readings, the ethnography, and any
-disagreement you want to have with the course's central claim (these are
-welcome and are worth marks in the essay). Ask
-[Casper Nowak](/people/casper-nowak/) about the waste and consumption figures,
-the label literature, and the Counter-Fridge project. If you are not sure,
-either of us will redirect you rather than send you away.

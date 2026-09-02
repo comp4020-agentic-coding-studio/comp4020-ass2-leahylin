@@ -7,12 +7,11 @@ affiliation: Slop University School of Domestic Infrastructure
 role: co-convenor
 photo: ./casper-nowak.avif
 photoAlt:
-  An illustration of a two-pan balance tipped hard to one side. The low pan is
-  heaped with discarded food — a bread roll, a labelled jar, a teal leafy
-  vegetable and a folded wrapper; the empty pan has swung up past the top of
-  the frame. Dried grasses stand at either corner on a cream ground inside a
-  thin ruled border. Staff here are pictured by the objects their method
-  depends on, not by a photograph.
+  An illustration of a two-pan balance on a slender column. The left pan hangs
+  high and empty, drawn as an outline; the right pan sits low under a heaped
+  bowl of jars and vessels. Teal and brown grass stalks stand at either side on
+  a cream ground. Staff here are pictured by the objects their method depends
+  on, not by a photograph.
 email: casper.nowak@slop.university
 contact:
   Email for anything numerical, and for the Counter-Fridge project.
@@ -33,18 +32,11 @@ shoppers, and the resulting confusion is a documented, quantified contributor
 to household waste. It is the cleanest available case of a technical threshold
 that reads as neutral and is nothing of the kind.
 
-Nowak gives the lectures in weeks 7–9, including the week 7 deck, and
-supervises the Counter-Fridge Design Project.
+Nowak supervises the Counter-Fridge Design Project, and will tell you whether a
+proposal is buildable before you spend three weeks finding out.
 
 ## Consultation
 
 Wednesdays, 14:00–16:00, and after each of the weeks 7–9 sessions. Bring the
 data if the question is about data — a photograph of the label beats a
 description of it.
-
-## Who to ask first
-
-Ask Nowak about the figures, the label literature, and whether a Counter-Fridge
-proposal is buildable. Ask [Simone Ravel](/people/simone-ravel/) about the
-argument, the theory and the ethnography. Neither of us minds being the wrong
-first choice.
