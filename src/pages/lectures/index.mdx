@@ -4,10 +4,59 @@ description:
   "Weekly two-hour lectures: the week's claim, the evidence behind it, and the
   reading that carries it. Each one sets up Wednesday's tutorial."
 heroTitle: Lectures
+heroImage: "/src/assets/images/lectures-hero.avif"
+heroImageAlt:
+  A shelf of book spines in gold, teal and dark brown, seen straight on with a
+  small hanging desk lamp lighting the centre from above. Two blank index cards
+  and a handwritten sheet are tucked into the row of books, on a warm cream
+  ground.
 ---
 
 import Callout from "astro-theme-university/components/Callout.astro";
 import LecturesGrid from "../../components/LecturesGrid.astro";
+
+{/*
+  This illustration is a centred vignette on its own cream ground, not a
+  full-bleed scene — the opposite of the home page's edge-to-edge shelf art.
+  The theme's default hero treatment (object-fit: cover, dark scrim, white
+  title) is built for a scene that survives a hard crop; forced onto a
+  vignette it would enlarge the books past the frame and crop the lamp.
+
+  Same fix as the people detail pages: object-fit: contain so the whole
+  illustration stays visible, no scrim since there is no photograph to
+  darken, and a dark title on the art's own cream (#faf6e4, sampled from the
+  asset — the theme's --at-bg-alt token is a slightly different near-neutral
+  and the two would meet at a seam, exactly as happened on the people pages
+  before that got fixed).
+
+  Astro does not apply its scoped-style transform inside .mdx bodies, so this
+  plain <style> tag (no is:global) already lands in the page unscoped.
+*/}
+
+<style>
+  {`
+    .at-hero {
+      background: #faf6e4;
+    }
+    .at-hero-image {
+      object-fit: contain;
+      outline: none;
+    }
+    .at-hero-content {
+      background: none;
+    }
+    .at-hero-title {
+      color: var(--at-text);
+      text-shadow: none;
+    }
+    @media (width < 48rem) {
+      .at-hero-image {
+        object-position: center top;
+        opacity: 0.2;
+      }
+    }
+  `}
+</style>
 
 Every lecture runs to the same shape: the week's claim stated and defended, an
 outline of how it is built, the reading, and what to bring to the tutorial. Each
