@@ -2,9 +2,50 @@
 title: People
 description: Two convenors, teaching in two registers.
 heroTitle: People
+heroImage: "/src/assets/images/people-hero.avif"
+heroImageAlt:
+  A wooden wall shelf holding a stoneware crock, a brass balance scale, glass
+  apothecary bottles, a leather-bound notebook propped against a pressed-leaf
+  print, a mortar and pestle, an ink bottle and a rolled scroll, with dried
+  leaves scattered along the shelf, on a warm cream ground.
 ---
 
 import PeopleGrid from "../../components/PeopleGrid.astro";
+
+{/*
+  Same contain/right-align override as the Lectures and Sessions heroes: a
+  vignette on its own cream, not a full-bleed scene, so the theme's default
+  cover-and-scrim crop would enlarge and cut it. Background sampled at
+  #f5edd2 straight from this asset (nudged to #f7f3da per request — still
+  close enough that no seam reappears), not the theme's --at-bg-alt token,
+  for the same seam reason recorded on those pages.
+*/}
+
+<style>
+  {`
+    .at-hero {
+      background: #f7f3da;
+    }
+    .at-hero-image {
+      object-fit: contain;
+      object-position: right center;
+      outline: none;
+    }
+    .at-hero-content {
+      background: none;
+    }
+    .at-hero-title {
+      color: var(--at-text);
+      text-shadow: none;
+    }
+    @media (width < 48rem) {
+      .at-hero-image {
+        object-position: center top;
+        opacity: 0.2;
+      }
+    }
+  `}
+</style>
 
 Reading a fridge as governed space is interpretive work. Establishing that it
 produces waste is quantitative. An argument built on one without the other is

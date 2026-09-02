@@ -4,10 +4,50 @@ description:
   Four pieces of work, each testing a different module — an ethnography, an
   essay, a design project, and showing up with your fieldwork.
 heroTitle: Assessment
+heroImage: "/src/assets/images/assessments-hero.avif"
+heroImageAlt:
+  A fanned stack of marked paper, teal and gold folders showing between the
+  sheets, a binder clip holding the top corner. The uppermost page carries
+  handwritten notes with corrections in red ink, a grading stamp, and a
+  percentage symbol, on a warm cream ground.
 ---
 
 import Callout from "astro-theme-university/components/Callout.astro";
 import AssessmentsGrid from "../../components/AssessmentsGrid.astro";
+
+{/*
+  Same contain/right-align override as the other index heroes: a vignette on
+  its own cream, not a full-bleed scene. Background sampled at #faf3da
+  straight from this asset (nudged to #fbf7de per request — still close
+  enough to the sampled tone that no seam reappears), not the theme's
+  --at-bg-alt token, for the same seam reason recorded on those pages.
+*/}
+
+<style>
+  {`
+    .at-hero {
+      background: #fbf7de;
+    }
+    .at-hero-image {
+      object-fit: contain;
+      object-position: right center;
+      outline: none;
+    }
+    .at-hero-content {
+      background: none;
+    }
+    .at-hero-title {
+      color: var(--at-text);
+      text-shadow: none;
+    }
+    @media (width < 48rem) {
+      .at-hero-image {
+        object-position: center top;
+        opacity: 0.2;
+      }
+    }
+  `}
+</style>
 
 Each assessment takes one module and asks you to do something with it rather
 than recall it. The [Fridge Ethnography](/assessments/fridge-ethnography/)

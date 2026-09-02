@@ -3,7 +3,47 @@ title: Policies and support
 description:
   Fieldwork ethics, food safety, attendance, extensions and academic integrity —
   the rules this course runs on, and who to ask when they do not fit.
+heroTitle: Policies and support
+heroImage: "/src/assets/images/policies-hero.avif"
+heroImageAlt:
+  A wall of filing cabinets and box files seen at an angle, drawn in sepia
+  ink. One drawer stands open, holding a thick stack of papers with a rubber
+  stamp resting on top and a bundle of documents tied with string, on a warm
+  cream ground.
 ---
+
+{/*
+  Same contain/right-align override as the other index heroes: a vignette on
+  its own cream, not a full-bleed scene. Background sampled at #f4ebd2
+  straight from this asset, not the theme's --at-bg-alt token, for the same
+  seam reason recorded on those pages.
+*/}
+
+<style>
+  {`
+    .at-hero {
+      background: #f4ebd2;
+    }
+    .at-hero-image {
+      object-fit: contain;
+      object-position: right center;
+      outline: none;
+    }
+    .at-hero-content {
+      background: none;
+    }
+    .at-hero-title {
+      color: var(--at-text);
+      text-shadow: none;
+    }
+    @media (width < 48rem) {
+      .at-hero-image {
+        object-position: center top;
+        opacity: 0.2;
+      }
+    }
+  `}
+</style>
 
 This course asks more of your private life than most. You will observe real
 kitchens, write about people you live with, eat things in class, and in week 9
