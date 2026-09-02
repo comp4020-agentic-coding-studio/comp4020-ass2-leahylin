@@ -1,0 +1,179 @@
+---
+/**
+ * Fridge Audit — the home page's opening move.
+ *
+ * The site could assert that refrigeration produces waste. It is a much shorter
+ * distance to have the visitor produce the number themselves, about their own
+ * kitchen, in about five seconds, before they have read any of the syllabus.
+ *
+ * Two sliders and a closing question. The sliders start equal, so the gap is
+ * something the visitor creates rather than something the page arrives holding.
+ * The last line takes no input and is the part that actually lands: almost
+ * nobody can answer it, and not being able to is the course's week 4 argument
+ * about visibility and its week 8 argument about attention, in one sentence.
+ *
+ * Server-rendered: with JavaScript off the sliders are inert but the closing
+ * question still reads, so the section is never a dead control.
+ */
+---
+
+<section class="audit" aria-labelledby="audit-heading" data-audit>
+  <h2 id="audit-heading">Before you read any further</h2>
+  <p class="audit-intro">
+    Two questions about the fridge you actually own. Nothing is sent anywhere —
+    the numbers stay in this page.
+  </p>
+
+  <div class="audit-controls">
+    <p class="audit-field">
+      <label for="audit-full">How full is it right now?</label>
+      <input
+        type="range"
+        id="audit-full"
+        name="audit-full"
+        min="0"
+        max="100"
+        step="5"
+        value="60"
+        data-full
+      />
+      <output for="audit-full" data-full-out>60% full</output>
+    </p>
+
+    <p class="audit-field">
+      <label for="audit-eaten"
+        >Of what is in there, how much will actually be eaten?</label
+      >
+      <input
+        type="range"
+        id="audit-eaten"
+        name="audit-eaten"
+        min="0"
+        max="100"
+        step="5"
+        value="60"
+        data-eaten
+      />
+      <output for="audit-eaten" data-eaten-out>60% of it</output>
+    </p>
+  </div>
+
+  <p class="audit-result" data-result hidden aria-live="polite"></p>
+
+  <p class="audit-sting">
+    Now, without opening it: <strong
+      >what is at the back of the bottom shelf?</strong
+    >
+  </p>
+  <p class="audit-close">
+    That is the course. Not what the fridge preserves — what it lets you stop
+    noticing, and what that costs.
+  </p>
+</section>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>("[data-audit]")) {
+    const full = root.querySelector<HTMLInputElement>("[data-full]");
+    const eaten = root.querySelector<HTMLInputElement>("[data-eaten]");
+    const fullOut = root.querySelector<HTMLElement>("[data-full-out]");
+    const eatenOut = root.querySelector<HTMLElement>("[data-eaten-out]");
+    const result = root.querySelector<HTMLElement>("[data-result]");
+    if (!full || !eaten || !result) continue;
+
+    // Phrase the outcome from the visitor's own two numbers. No external
+    // statistic is quoted here: the course is strict about unmethodical figures
+    // (week 8), and it would be a poor look to break that rule on the home page.
+    const phrase = (wasted: number, fullness: number) => {
+      if (fullness === 0) {
+        return "An empty fridge. Week 9 is about what that feels like, and why the feeling is out of all proportion to the risk.";
+      }
+      if (wasted <= 5) {
+        return `You expect to eat almost all of it. Worth testing rather than trusting: in week 8 students weigh a week of their own discards, and the measured figure is reliably higher than the remembered one.`;
+      }
+      if (wasted <= 20) {
+        return `So roughly ${wasted}% of a ${fullness}%-full fridge is not going to be eaten. Small enough to feel like nothing, repeated every week for as long as you have owned a fridge.`;
+      }
+      if (wasted <= 40) {
+        return `So roughly ${wasted}% of a ${fullness}%-full fridge is not going to be eaten. You bought it, cooled it for weeks, and will pay to have it taken away. The appliance did its job perfectly throughout.`;
+      }
+      return `So roughly ${wasted}% of a ${fullness}%-full fridge is not going to be eaten. At that point the fridge is less a store than a queue, and the thing it is preserving is mostly your not having decided yet.`;
+    };
+
+    const update = () => {
+      const fullness = Number(full.value);
+      const eatenShare = Number(eaten.value);
+      const wasted = 100 - eatenShare;
+      if (fullOut) fullOut.textContent = `${fullness}% full`;
+      if (eatenOut) eatenOut.textContent = `${eatenShare}% of it`;
+      result.textContent = phrase(wasted, fullness);
+      result.hidden = false;
+    };
+
+    for (const input of [full, eaten]) {
+      input.addEventListener("input", update);
+    }
+    update();
+  }
+</script>
+
+<style>
+  .audit {
+    margin-block: var(--at-spacing-xl);
+    padding: var(--at-spacing-lg);
+    border: 1px solid var(--at-divider);
+    border-radius: var(--at-border-radius);
+    background: var(--at-bg-alt);
+  }
+
+  .audit > h2 {
+    margin-block-start: 0;
+  }
+
+  .audit-intro {
+    color: var(--at-text-secondary);
+  }
+
+  .audit-controls {
+    display: grid;
+    gap: var(--at-spacing-md);
+    margin-block: var(--at-spacing-lg);
+  }
+
+  .audit-field {
+    display: grid;
+    gap: var(--at-spacing-xs);
+    margin: 0;
+  }
+
+  .audit-field label {
+    font-weight: 600;
+  }
+
+  .audit-field input[type="range"] {
+    width: 100%;
+    max-width: 34rem;
+    accent-color: var(--at-primary);
+  }
+
+  .audit-field output {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: var(--at-font-size-sm);
+    color: var(--at-text-secondary);
+  }
+
+  .audit-result {
+    padding: var(--at-spacing-md);
+    border-inline-start: 4px solid var(--at-primary);
+    background: var(--at-bg);
+  }
+
+  .audit-sting {
+    margin-block-start: var(--at-spacing-lg);
+    font-size: 1.15em;
+  }
+
+  .audit-close {
+    margin-block-end: 0;
+    color: var(--at-text-secondary);
+  }
+</style>
