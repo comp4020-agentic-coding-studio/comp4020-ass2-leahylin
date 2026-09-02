@@ -27,104 +27,92 @@ the fortress is what fills the bin.
 
 ### The 12-week arc
 
-Four movements of three weeks. Each movement is a different way of holding the
-same claim, and each week ends where the next one starts.
+Four named modules of three weeks. Each module has its own objective, and each
+week states the claim it inherits from the one before.
 
-**Weeks 1–3 — Disenchantment.** Strip the appliance of its obviousness.
+**Module 1 — Disenchantment: the commodification of cold and the myth of
+modernity (weeks 1–3).** *Objective:* shatter the common-sense notion that the
+refrigerator is a natural necessity, revealing it as a specific historical,
+technological and gendered construction.
 
-1. **The birth of artificial cold.** *Key question:* what did households have
-   to stop doing — and stop knowing — once cold became something you could
-   buy? Establishes the course's method: read the ordinary object for the
-   relations frozen inside it.
-2. **Gender and the second shift.** *Key question:* the fridge was sold as
-   liberation from domestic labour, so why did the hours never fall? (Cowan's
-   *More Work for Mother*, Hochschild's *The Second Shift*.) The labour didn't
-   disappear; it changed shape and stayed put.
-3. **Global cold chains and the erasure of locality.** *Key question:* what
-   does a kitchen lose when every ingredient is available in every season?
-   The one week that looks outward — and it looks outward only to explain what
-   arrives in the domestic box.
+1. **The birth of artificial cold: from the ice trade to Freon.** *Key
+   question:* is "freshness" an objective physical state or a cultural myth
+   constructed by cold-chain technology? *Tutorial:* sensory blind tasting —
+   fresh, three-days-refrigerated, and freeze-dried samples. *Reading:* Rees,
+   _Refrigeration Nation_.
+2. **The totem of modernity: advertising, gender and the second shift.** *Key
+   question:* what is a refrigerator advertisement selling, if not
+   refrigeration? *Tutorial:* visual semiotics workshop on 1950–1980 posters —
+   who operates the fridge, what is the white enamel doing? *Reading:* Cowan,
+   _More Work for Mother_.
+3. **The terminal of the global supply chain: the erasure of locality.** *Key
+   question:* what does a kitchen lose when every ingredient is available in
+   every month? *Tutorial:* food-mileage map — photograph three off-season
+   items, reverse-track origins and cost them. *Reading:* Freidberg, _Fresh_;
+   Twilley, _Frostbite_.
 
-**Weeks 4–6 — Micro-politics.** The interior as a jurisdiction.
+**Module 2 — Micropolitics: power and symbols within domestic space (weeks
+4–6).** *Objective:* treat the refrigerator as a micro-sociological laboratory,
+dissecting power relations and identity performances in family and share-house
+space.
 
-4. **Spatial power in the fridge.** *Key question:* who decides what belongs
-   on the top shelf, and whose food gets pushed to the back? Shelf position as
-   a record of household hierarchy — and the back of the fridge as the place
-   where things go to be forgotten legitimately.
-5. **The semiotics of leftovers.** *Key question:* when does food become
-   "leftovers," and when do leftovers become rubbish? Neither transition is
-   about the food. (Douglas's *Purity and Danger* — dirt as matter out of
-   place; the fridge as the machine that decides placement.)
-6. **The fridge door as curatorial space.** *Key question:* the door is the
-   only surface of the appliance that faces outward — what is being performed
-   on it, and for whom? (Goffman's *Presentation of Self*.) Magnets, schedules
-   and children's drawings as a household's front stage.
+4. **Who holds the right to refrigerate?** *Key question:* how does vertical
+   space inside the fridge map onto household power? *Tutorial:* "Fridge
+   Archaeology" — the class builds one power map marking authority zones,
+   marginal zones and tragedy-of-the-commons zones. *Reading:* Miller; Shove.
+5. **The semiotics of leftovers: frugality and the boundaries of disgust.**
+   *Key question:* when does food become leftovers, and leftovers become
+   rubbish? *Tutorial:* structured ethical debate — roommate A binned roommate
+   B's unlabelled week-old food. *Reading:* Douglas, _Purity and Danger_.
+6. **The fridge door as curatorial space.** *Key question:* what personas are
+   we constructing in public digital versus semi-private physical space?
+   *Tutorial:* dual curation — compare your fridge door with your feed. Doubles
+   as the ethnography workshop. *Reading:* Goffman.
 
-**Weeks 7–9 — The tyranny of time.** Where the thesis is proved.
+**Module 3 — The tyranny of time: anxiety, illusions, and complicity with
+capital (weeks 7–9).** *Objective:* strike at the core of the course —
+deconstruct how the refrigerator manipulates our perception of time and drives
+overconsumption.
 
-7. **"Best Before" vs "Use By."** *Key question:* who wrote the date on this
-   jar, what does it legally mean, and what does obeying it cost you? The
-   distinction almost nobody knows, doing enormous work. **This is the deck
-   week** and the spine of the course.
+7. **The tyranny of labels.** *Key question:* who wrote the date, what does it
+   legally mean, and what does obeying it cost? *Tutorial:* "Label Forensics" —
+   bring 5–10 items, consult the regulations, draft an honest label. **This is
+   the deck week.** *Reading:* Stuart, _Waste_.
 8. **The illusion of preservation and systemic waste.** *Key question:* if the
-   fridge preserves, why does the household throw away more than it did
-   before? The thesis stated plainly, with the numbers.
-9. **Hoarding and doomsday psychology.** *Key question:* what is a full fridge
-   *for*, if most of it will not be eaten? Scarcity feeling under conditions
-   of abundance; anxiety not as a side effect but as an output the appliance is
-   good at producing.
+   fridge preserves, why does the household throw away more? *Tutorial:*
+   personal waste audit — a week of records, costed in money and calories.
+   *Reading:* Bauman, _Liquid Modernity_; Stuart.
+9. **Hoarding and doomsday psychology.** *Key question:* is consumer behaviour
+   the purchase of emotional value rather than use value? *Tutorial:*
+   psychological mapping — draw your ideal fridge and your anxious fridge.
+   *Reading:* Evans; hoarding-psychology papers.
 
-**Weeks 10–12 — Resistance.** What can actually be refused.
+**Module 4 — Resistance and reconstruction: towards a post-refrigerator era
+(weeks 10–12).** *Objective:* explore how to break the illusory fortress and
+find more ecologically conscious and agentic alternatives.
 
-10. **Smart fridges and surveillance capitalism.** *Key question:* the fridge
-    now watches its own contents, and you — who is that inventory really for?
-    (Zuboff.) The fortress starts reporting.
-11. **The de-refrigeration movement.** *Key question:* what can genuinely
-    leave the fridge, and what does the answer reveal about which fears were
-    ever real? Eggs, butter, tomatoes, bread — the practical and the cultural
-    pulled apart.
-12. **The unplugged project.** *Key question:* what would you keep cold if
-    cold were expensive, and what would you have to relearn to manage without
-    it? Returns explicitly to week 1's question and asks the student to answer
-    it themselves.
-
-### Assessments (sum to 100%)
-
-Each one asks for a different kind of evidence, and three of the four require
-looking at a real fridge rather than only reading about one.
-
-- **Fridge Ethnography — 40%.** Fieldwork plus analysis: observe an actual
-  fridge (their own, a shared house's, a workplace's) over a period, then read
-  it with the course's frameworks. The micro-politics movement (weeks 4–6) is
-  what makes this legible rather than anecdotal.
-- **Critical Essay — 30%.** Apply theory to one fridge-related phenomenon —
-  a date label, an advertisement, a design decision, a household rule. Draws
-  chiefly on weeks 7–9.
-- **"Counter-Fridge" Design Project — 20%.** Speculative design or a real
-  intervention: an appliance, a protocol, or a household practice that refuses
-  the thesis. Draws on weeks 10–12.
-- **Participation — 10%.** The seminar depends on people bringing what they
-  actually found in their own kitchens.
-
-**Settled dates** (Semester 1 2027; weeks 1–6 from Mon 22 Feb, teaching break,
-weeks 7–12 from Mon 12 Apr, ending Fri 28 May):
-
-| Assessment      | Weight | Week | Due         |
-| --------------- | ------ | ---- | ----------- |
-| Ethnography     | 40%    | 7    | Fri 16 Apr  |
-| Critical Essay  | 30%    | 10   | Fri 7 May   |
-| Counter-Fridge  | 20%    | 12   | Fri 28 May  |
-| Participation   | 10%    | 12   | Fri 28 May  |
-
-The ethnography's fieldwork period deliberately spans the mid-semester break —
-students need days in a real kitchen, not an afternoon.
+10. **Smart fridges and surveillance capitalism.** *Key question:* who is the
+    inventory really for? *Tutorial:* "Design the Dystopia" — build the
+    maximally exploitative Smart Fridge 2.0, then deconstruct it. *Reading:*
+    Zuboff.
+11. **The de-refrigerator movement and alternative food networks.** *Key
+    question:* can fermentation, ambient storage and shared provisioning
+    provide a real antidote? *Tutorial:* fermentation and sharing workshop —
+    make a quick pickle, or design a community pantry's rules. *Reading:*
+    Kallis, _Degrowth_; food sovereignty and AFN literature.
+12. **Final presentations and the unplugged celebration.** *Key question:* what
+    would you keep cold if cold were expensive? *Lecture:* fifteen minutes of
+    summary. *Tutorial:* five-minute final pitches, then a
+    refrigerator-independent picnic — the argument in embodied form.
 
 ### How this connects to the Assignment 2 brief and spec
 
 - **Niche and deep.** No real university runs this course, but every week
-  rests on real scholarship (Cowan, Douglas, Goffman, Zuboff, food-waste
-  policy literature). Twelve weeks does not run out of material, and the
-  theory load is the depth the brief asks for.
+  rests on real scholarship (Rees, Cowan, Freidberg, Twilley, Miller, Shove,
+  Douglas, Goffman, Stuart, Bauman, Evans, Zuboff, Kallis). Twelve weeks does
+  not run out of material, and the theory load is the depth the brief asks for.
+  Every citation on the site is a real book — if a reading cannot be verified
+  it does not get printed, because a marker may well check.
 - **One idea, not a themed grab bag.** "The fridge sells you time and the bill
   arrives as waste" is stated in week 1, proved in week 8, and answered by the
   student in week 12. Curricular coherence is the judged criterion no test can
@@ -162,6 +150,13 @@ Four fixed collections plus the platform's policies page. No new page types.
   from the week before, so the arc is visible while navigating rather than only
   in a syllabus table. Week 7 carries the **Label Decoder**; week 12 carries
   the **Unplugged Pledge**.
+- **Assessments** (4). Each names the module it draws on, so a reader sees the
+  thesis being tested rather than just graded.
+- **People.** Two instructors whose disciplines match the course's method —
+  Ravel reads objects (material culture, weeks 1–6 and 10–12), Nowak reads
+  systems (waste measurement and consumer psychology, weeks 7–9). That it takes
+  both is part of the pitch for why the course is worth taking.
+- **Policies.** Functional and real. Tone stays secondary to substance here.
 
 **The 24-page duplication risk, and the rule that manages it.** Twelve
 lectures alongside twelve tutorials is the structure most at risk of the
@@ -171,12 +166,6 @@ asks students to do something that tests it.** If a session page could be
 pasted into its lecture without anyone noticing, it hasn't been written yet.
 The division suits this course unusually well — it is about looking at real
 fridges, and the tutorials are where that looking happens.
-- **Assessments** (4). Each names the weeks it draws on, so a reader sees the
-  thesis being tested rather than just graded.
-- **People.** Instructors whose disciplines match the course's method — the
-  material needs someone who reads objects and someone who reads systems, and
-  saying so is part of the pitch for why the course is worth taking.
-- **Policies.** Functional and real. Tone stays secondary to substance here.
 
 ### The role of interaction
 
@@ -190,11 +179,12 @@ argument the prose can only assert; a widget that merely illustrates gets cut.
   buried in a week.
 - **Label Decoder** (week 7). Enter or pick a date label; see what it legally
   means, what it does not mean, and what the food is actually doing on that
-  date. Makes "tyranny of labels" concrete in the one place the course most
-  needs it to land.
+  date. The public version of the Label Forensics tutorial, in the one place
+  the course most needs the argument to land.
 - **Unplugged Pledge** (week 12). Commit to one item leaving the fridge. The
-  de-refrigeration movement's actual ask, made small enough to accept — the
-  course ending in an action rather than a conclusion.
+  de-refrigeration movement's actual ask, made small enough to accept — and the
+  page-level equivalent of the unplugged picnic, ending the course in an action
+  rather than a conclusion.
 
 Scope discipline: build the **Label Decoder first** (it's the deck week and
 the course's spine), then the **Audit**, then the **Pledge**. Any of the three

@@ -1,0 +1,76 @@
+---
+title: Final pitches and the unplugged picnic
+description:
+  Present your reconstruction proposal, then eat a meal that never needed a
+  fridge — the argument, in embodied form
+week: 12
+date: 2027-05-19
+teachers:
+  - simone-ravel
+  - casper-nowak
+spec:
+  - you have pitched your final project in five minutes and taken questions
+  - you have named who your proposal is for and what it asks them to give up
+  - you have brought something to the picnic that never saw the inside of a fridge
+related:
+  - lectures/week-12
+---
+
+**This week's question: what would you keep cold if cold were expensive, and what
+would you have to relearn to manage without it?**
+
+_Module 4 — Resistance and reconstruction._
+
+Inherited from week 11: preservation without a plug is possible, partial, and
+demands knowledge. This week you say where you think the line should sit.
+
+## Before the session
+
+**Prepare a five-minute pitch** on your reconstruction proposal — a spatial
+design, an art installation, a behavioural experiment report, a protocol, a
+policy, or an argued refusal. Not slides. Three things: the proposal, the argument
+for it, and the strongest objection you have not answered.
+
+**Bring food that needs no refrigeration.** Room-temperature bread, fresh fruit,
+ambient drinks, nuts, preserves, ferments from last week's jars if they are ready.
+Tell us about allergens.
+
+Reread your week 1 notes. Most people are surprised by them.
+
+## In the session
+
+- **Final pitches** (50 min). Five minutes each, questions from the room. The two
+  questions we always ask, so prepare for them:
+  - **Who is this for?** A proposal that only works for someone who can shop three
+    times a week and cook every night has answered an easier question than the one
+    asked.
+  - **What does it ask them to give up?** Every proposal trades something —
+    convenience, reassurance, money, time, or the freedom not to think about it.
+    A proposal that claims to cost nothing has not been finished.
+- **The objections, properly** (20 min). The strongest cases against everything
+  this course has argued: the medical and vaccine cold chain, reduced foodborne
+  illness, improved year-round nutrition, and the charge that blaming an appliance
+  for consumer capitalism is a category error. You should leave holding these
+  rather than having dodged them.
+
+## The unplugged celebration
+
+Then we stop talking and eat.
+
+Room-temperature bread, fruit, ambient drinks, last week's ferments. No cold chain,
+no fortress, one afternoon. It is not a stunt — it is the twelve-week argument in
+embodied form, and the most persuasive thing in the course, which is slightly
+humbling for those of us who spent eleven weeks making it in words.
+
+## Afterwards
+
+The [Final Project](/assessments/counter-fridge/) is due **Friday 28 May**, and
+[Participation](/assessments/participation/) is assessed to the same date.
+
+Then the course is over, and the thing it wanted was never really about
+refrigeration. It was about what a household is willing to hand to a machine, on
+whose terms, and what it stops knowing once it does.
+
+Thank you for a genuinely good semester. Both of us remain contactable — several
+final projects from previous years turned into theses, and two turned into
+objects.
