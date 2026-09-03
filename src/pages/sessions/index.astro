@@ -66,6 +66,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   is:global reaches .at-hero because it belongs to the theme's Hero markup,
   outside this component's own tree; scoped by construction to this file, so
   the home page's dark full-bleed hero is untouched.
+
+  `.at-hero-title` is pinned to a fixed dark ink in light mode rather than
+  `var(--at-text)`, since that token is light-dark()-aware and this cream
+  band doesn't move — flipped explicitly to white under [data-theme="dark"]
+  alongside the band itself, which goes to --at-black. The image is dimmed
+  in dark mode so its baked cream doesn't sit as a bright box on black.
 */
 }
 <style is:global>
@@ -81,8 +87,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     background: none;
   }
   .at-hero-title {
-    color: var(--at-text);
+    color: oklch(from var(--at-primary) 20% 0.01 h);
     text-shadow: none;
+  }
+  [data-theme="dark"] .at-hero {
+    background: var(--at-black);
+  }
+  [data-theme="dark"] .at-hero-title {
+    color: var(--at-white);
+  }
+  [data-theme="dark"] .at-hero-image {
+    filter: brightness(0.82) contrast(0.94);
   }
   @media (width < 48rem) {
     .at-hero-image {

@@ -8,6 +8,7 @@ date: 2027-05-17
 teachers:
   - simone-ravel
   - casper-nowak
+slides: /decks/week-12/
 related:
   - sessions/12-unplugged
 ---
@@ -44,6 +45,12 @@ Then we stop talking and eat.
 - the four strongest objections to it
 - what a defensible cold future would actually require
 - over to you
+
+## Slides
+
+The [week 12 deck](/decks/week-12/) is fifteen minutes long and says so on
+every slide. It exists to keep this lecture short — the recap, the thesis, the
+four objections, and then out of the way.
 
 ## The unplugged celebration
 

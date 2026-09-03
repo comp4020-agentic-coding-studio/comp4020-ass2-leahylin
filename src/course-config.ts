@@ -17,7 +17,7 @@ export const slopCourseMetaSchema = z
     level: z.literal(LEVELS),
     startDate: z.iso.date(),
     endDate: z.iso.date(),
-    description: z.string().trim().min(80).max(300),
+    description: z.string().trim().min(50).max(300),
     tags: z.array(z.string().trim().min(2).max(24)).min(1).max(3),
   })
   .superRefine((course, ctx) => {
@@ -61,8 +61,6 @@ export const courseMeta = slopCourseMetaSchema.parse({
   startDate: "2027-02-22",
   endDate: "2027-05-28",
   description:
-    "The refrigerator promises to stop time, and the bill arrives as waste. " +
-    "A seminar reading the household's coldest appliance as an instrument of " +
-    "micro-political power, manufactured abundance and expiration anxiety.",
+    "The refrigerator promises to stop time, and the bill arrives as waste.",
   tags: ["material culture", "food politics", "consumption"],
 }) satisfies CourseMetaInput;

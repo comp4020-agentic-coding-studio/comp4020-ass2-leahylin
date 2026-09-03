@@ -1,0 +1,108 @@
+---
+import { getPublishedCollection } from "astro-course-university/content";
+
+const shortLabels: Record<string, string> = {
+  participation: "Participation",
+  "fridge-ethnography": "Ethnography",
+  "critical-essay": "Essay",
+  "counter-fridge": "Counter-Fridge",
+};
+
+const assessments = await getPublishedCollection("assessments");
+const bars = assessments
+  .slice()
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((assessment) => ({
+    label: shortLabels[assessment.id] ?? assessment.data.title,
+    weight: assessment.data.weight,
+  }));
+const maxWeight = Math.max(...bars.map((bar) => bar.weight));
+const summary = bars.map((bar) => `${bar.label} ${bar.weight}%`).join(", ");
+---
+
+<div
+  class="weight-chart"
+  role="img"
+  aria-label={`Assessment weights, low to high: ${summary}.`}
+>
+  {
+    bars.map((bar) => (
+      <div class="weight-col">
+        <div class="weight-track">
+          <div
+            class="weight-fill"
+            style={`height: ${(bar.weight / maxWeight) * 100}%`}
+          />
+        </div>
+        <p class="weight-label">
+          <strong>{bar.weight}%</strong> {bar.label}
+        </p>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .weight-chart {
+    display: flex;
+    gap: 2px;
+    margin-block: var(--at-spacing-lg) var(--at-spacing-md);
+  }
+
+  .weight-col {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+  }
+
+  .weight-track {
+    position: relative;
+    height: 4.5rem;
+  }
+
+  .weight-fill {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .weight-col:nth-child(1) .weight-fill {
+    background: color-mix(in srgb, var(--at-primary) 30%, white);
+  }
+
+  .weight-col:nth-child(2) .weight-fill {
+    background: color-mix(in srgb, var(--at-primary) 55%, white);
+  }
+
+  .weight-col:nth-child(3) .weight-fill {
+    background: var(--at-primary);
+  }
+
+  .weight-col:nth-child(4) .weight-fill {
+    background: var(--at-secondary);
+  }
+
+  .weight-label {
+    margin: var(--at-spacing-xs) 0 0;
+    font-size: var(--at-font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--at-text-secondary);
+  }
+
+  .weight-label strong {
+    color: var(--at-text);
+  }
+
+  @media (max-width: 30rem) {
+    .weight-chart {
+      gap: var(--at-spacing-sm);
+    }
+
+    .weight-label {
+      font-size: 0.65rem;
+    }
+  }
+</style>

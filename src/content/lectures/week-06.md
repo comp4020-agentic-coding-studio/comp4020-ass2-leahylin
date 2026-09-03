@@ -55,4 +55,5 @@ work. This week is about what the exterior displays instead.
 
 The [tutorial](/sessions/06-fridge-door/) compares your fridge door with your
 social media feed, so bring both. It also doubles as the workshop for the
-[Fridge Ethnography](/assessments/fridge-ethnography/), due after the break.
+[Fridge Ethnography](/assessments/fridge-ethnography/), due this Friday, before
+the break.

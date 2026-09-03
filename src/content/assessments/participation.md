@@ -3,6 +3,7 @@ title: Participation
 description:
   Ten per cent for arriving with the thing the tutorial needs — because this
   seminar runs on your kitchen, not on the reading
+order: 1
 week: 12
 due: 2027-05-28T17:00:00+10:00
 weight: 10
@@ -41,21 +42,6 @@ evidence, which is exactly what this course is trying not to be.
 Hence ten per cent: small enough not to distort the marks, large enough to be
 worth your Wednesday.
 
-## How it is marked
-
-Holistically, on the pattern across twelve weeks rather than any single session.
-
-What counts:
-
-- **Arriving with the week's material.** This is most of it.
-- **Engaging with other people's.** Much of the course runs on comparison — pooled
-  advertisements, the shared power map, group label forensics, paired drawings.
-  Reading somebody else's fridge carefully is participation.
-- **Consistency.** Twelve adequate weeks beat three brilliant ones and nine
-  absences.
-
-What does not count: talking the most.
-
 ## If you cannot attend
 
 Email whoever is teaching that week in advance — Simone Ravel for weeks 1–6 and
@@ -68,3 +54,15 @@ once you know what the samples were.
 
 If something is going on that will affect a stretch of the semester, tell one of us
 early. We would much rather adjust than mark you down for it.
+
+## What counts
+
+Holistically, on the pattern across twelve weeks rather than any single session.
+
+- **Arriving with the week's material.** This is most of it.
+- **Engaging with other people's.** Much of the course runs on comparison — pooled
+  advertisements, the shared power map, group label forensics, paired drawings.
+  Reading somebody else's fridge carefully is participation.
+- **Consistency.** Twelve adequate weeks beat three brilliant ones and nine
+  absences.
+- **What does not count: talking the most.**

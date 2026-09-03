@@ -19,6 +19,12 @@ import PeopleGrid from "../../components/PeopleGrid.astro";
   #f5edd2 straight from this asset (nudged to #f7f3da per request — still
   close enough that no seam reappears), not the theme's --at-bg-alt token,
   for the same seam reason recorded on those pages.
+
+  `.at-hero-title` is pinned to a fixed dark ink in light mode rather than
+  `var(--at-text)`, since that token is light-dark()-aware and this cream
+  band doesn't move — flipped explicitly to white under [data-theme="dark"]
+  alongside the band itself, which goes to --at-black. The image is dimmed
+  in dark mode so its baked cream doesn't sit as a bright box on black.
 */}
 
 <style>
@@ -35,8 +41,17 @@ import PeopleGrid from "../../components/PeopleGrid.astro";
       background: none;
     }
     .at-hero-title {
-      color: var(--at-text);
+      color: oklch(from var(--at-primary) 20% 0.01 h);
       text-shadow: none;
+    }
+    [data-theme="dark"] .at-hero {
+      background: var(--at-black);
+    }
+    [data-theme="dark"] .at-hero-title {
+      color: var(--at-white);
+    }
+    [data-theme="dark"] .at-hero-image {
+      filter: brightness(0.82) contrast(0.94);
     }
     @media (width < 48rem) {
       .at-hero-image {

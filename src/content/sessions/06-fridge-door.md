@@ -60,11 +60,11 @@ Read Goffman's excerpts, including the chapter on performances.
 
 ## Afterwards
 
-The [Fridge Ethnography](/assessments/fridge-ethnography/) is due **Friday 16
-April**, after the break. Consultation runs through the break by email; the answer
-to "is this too small a thing to write about" is almost always no.
+The [Fridge Ethnography](/assessments/fridge-ethnography/) is due **this Friday,
+2 April** — before the break, not after. If you need a last consultation, email
+Simone Ravel today rather than over the break.
 
-The break is your fieldwork period. Do not tidy the fridge before observing it.
+Do not tidy the fridge before observing it.
 
 When we return, the register changes: Module 3 is where the argument stops being
 interpretive and becomes measurable.

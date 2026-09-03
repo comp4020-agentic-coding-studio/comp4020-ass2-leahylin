@@ -5,18 +5,23 @@ import CardGrid from "astro-theme-university/components/CardGrid.astro";
 import { formatCourseDate } from "../lib/dates";
 
 const assessments = await getPublishedCollection("assessments");
-const visible = assessments.sort((a, b) => a.data.week - b.data.week);
+const visible = assessments.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <CardGrid columns={2}>
   {
     visible.map((assessment) => (
-      <Card headingLevel="h2" title={assessment.data.title} href={`/assessments/${assessment.id}/`}>
+      <Card
+        headingLevel="h2"
+        title={assessment.data.title}
+        href={`/assessments/${assessment.id}/`}
+      >
         {assessment.data.description && <p>{assessment.data.description}</p>}
         {assessment.data.weight != null && (
           <p>
             <small>
-              Due {formatCourseDate(assessment.data.due)} · Weight: {assessment.data.weight}%{assessment.data.draft && " · Draft"}
+              Due {formatCourseDate(assessment.data.due)} · Weight:{" "}
+              {assessment.data.weight}%{assessment.data.draft && " · Draft"}
             </small>
           </p>
         )}

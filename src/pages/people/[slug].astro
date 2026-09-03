@@ -41,7 +41,7 @@ const description = person.data.description;
   heroImageAlt={photoAlt}
   {...siteConfig}
 >
-  <dl>
+  <dl class="person-meta">
     {
       roleLabel && (
         <>
@@ -101,7 +101,14 @@ const description = person.data.description;
 */
 }
 <style is:global>
-  .at-hero {
+  /* The theme's own hero rules use single-class selectors (.at-hero-title,
+     etc.), so an override at that same specificity is a coin flip: whichever
+     of this inline block and the theme's external stylesheet the browser
+     loads later wins the tie, regardless of which one a reader sees lower on
+     the page. That silently dropped the color/shadow override below in
+     practice. Every selector here is compounded with its parent so it always
+     outranks the theme's, independent of load order. */
+  section.at-hero {
     /* Sampled from the portraits themselves, not taken from --at-bg-alt. The
        token is a near-neutral computed off the primary (oklch 96.5% L, 0.006
        C) and the illustrations sit on a warmer cream, which left a visible
@@ -110,7 +117,7 @@ const description = person.data.description;
     background: #f5eede;
   }
 
-  .at-hero-image {
+  .at-hero .at-hero-image {
     object-fit: contain;
     object-position: right center;
     outline: none;
@@ -118,21 +125,80 @@ const description = person.data.description;
 
   /* No photograph underneath, so the scrim and the white-on-dark text
      treatment both come off. */
-  .at-hero-content {
+  .at-hero .at-hero-content {
     background: none;
   }
 
-  .at-hero-title {
-    color: var(--at-text);
+  .at-hero-content .at-hero-title {
+    /* Not `var(--at-text)`: that token is `light-dark()`, but the band above
+       it is the fixed cream `#f5eede`, not a token that flips with the
+       scheme. In dark mode `--at-text` resolves to a near-white value meant
+       for a dark page background, which reads as barely-there grey text on
+       this always-light band. Pin the light-mode reading directly instead. */
+    color: oklch(from var(--at-primary) 20% 0.01 h);
     text-shadow: none;
+  }
+
+  /* Dark mode: the band goes to black and the title flips to white
+     explicitly, since both are pinned to fixed light-mode values above
+     rather than a light-dark() token. The portrait is dimmed so its baked
+     cream doesn't sit as a bright box on black. */
+  [data-theme="dark"] section.at-hero {
+    background: var(--at-black);
+  }
+
+  [data-theme="dark"] .at-hero-content .at-hero-title {
+    color: var(--at-white);
+  }
+
+  [data-theme="dark"] .at-hero .at-hero-image {
+    filter: brightness(0.82) contrast(0.94);
   }
 
   /* Narrow screens: the contained image fills the width and the title would
      land on top of it, so stop overlapping and let the band be text only. */
   @media (width < 48rem) {
-    .at-hero-image {
+    .at-hero .at-hero-image {
       object-position: center top;
       opacity: 0.16;
+    }
+  }
+</style>
+
+<style>
+  .person-meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--at-spacing-lg);
+    row-gap: var(--at-spacing-sm);
+    align-items: baseline;
+    padding: var(--at-spacing-md) var(--at-spacing-lg);
+    margin-block: 0 var(--at-spacing-lg);
+    border: 1px solid var(--at-divider);
+    background: var(--at-bg-alt);
+  }
+
+  .person-meta dt {
+    font-size: var(--at-font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--at-text-secondary);
+  }
+
+  .person-meta dd {
+    margin: 0;
+    color: var(--at-text);
+  }
+
+  @media (max-width: 30rem) {
+    .person-meta {
+      grid-template-columns: 1fr;
+      row-gap: var(--at-spacing-xs);
+    }
+
+    .person-meta dd {
+      margin-block-end: var(--at-spacing-sm);
     }
   }
 </style>

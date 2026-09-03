@@ -59,8 +59,8 @@ If either drawing raised something heavier than coursework, the university's
 counselling service is free and confidential, and either of us will help you
 contact them. Say so and we will not make it a discussion.
 
-The [Critical Essay](/assessments/critical-essay/) is due **Friday 7 May**. Module
-3 is its territory, and this week is the one people write about least carefully,
+The [Critical Essay](/assessments/critical-essay/) is due **Friday 30 April** —
+this Friday. Module 3 is its territory, and this week is the one people write about least carefully,
 because writing about it means writing about themselves. If you use somebody
 else's drawing or account, you need their agreement and you anonymise them.
 

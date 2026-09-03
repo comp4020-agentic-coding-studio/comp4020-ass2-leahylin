@@ -1,0 +1,107 @@
+---
+interface Props {
+  due: Date;
+  week: number;
+  weight: number;
+  submit?: { value: string; detail: string };
+}
+
+const { due, week, weight, submit } = Astro.props;
+
+const dueTimeZone = "Etc/GMT-10";
+const dueDay = new Intl.DateTimeFormat("en-AU", {
+  day: "numeric",
+  month: "short",
+  timeZone: dueTimeZone,
+}).format(due);
+const dueWeekday = new Intl.DateTimeFormat("en-AU", {
+  weekday: "short",
+  timeZone: dueTimeZone,
+}).format(due);
+const dueTime = new Intl.DateTimeFormat("en-AU", {
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+  timeZone: dueTimeZone,
+}).format(due);
+---
+
+<div class="quick-facts">
+  <div class="quick-fact">
+    <p class="quick-fact-label">Due</p>
+    <p class="quick-fact-value">{dueDay}</p>
+    <p class="quick-fact-detail">
+      {dueTime}
+      {dueWeekday}, wk {week}
+    </p>
+  </div>
+  <div class="quick-fact">
+    <p class="quick-fact-label">Weight</p>
+    <p class="quick-fact-value quick-fact-value-accent">{weight}%</p>
+    <p class="quick-fact-detail">of the course</p>
+  </div>
+  {
+    submit && (
+      <div class="quick-fact">
+        <p class="quick-fact-label">Submit</p>
+        <p class="quick-fact-value">{submit.value}</p>
+        <p class="quick-fact-detail">{submit.detail}</p>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .quick-facts {
+    display: flex;
+    border: 1px solid var(--at-divider);
+    background: #fbf6e9;
+    margin-block: 0 var(--at-spacing-lg);
+  }
+
+  .quick-fact {
+    flex: 1 1 0;
+    padding: var(--at-spacing-md) var(--at-spacing-lg);
+  }
+
+  .quick-fact + .quick-fact {
+    border-inline-start: 1px solid var(--at-divider);
+  }
+
+  .quick-fact-label {
+    margin-block: 0 var(--at-spacing-xs);
+    font-size: var(--at-font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--at-text-secondary);
+  }
+
+  .quick-fact-value {
+    margin-block: 0 var(--at-spacing-xs);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--at-text);
+  }
+
+  .quick-fact-value-accent {
+    color: var(--at-primary);
+  }
+
+  .quick-fact-detail {
+    margin: 0;
+    color: var(--at-text-secondary);
+    font-size: var(--at-font-size-sm);
+  }
+
+  @media (max-width: 30rem) {
+    .quick-facts {
+      flex-direction: column;
+    }
+
+    .quick-fact + .quick-fact {
+      border-inline-start: none;
+      border-block-start: 1px solid var(--at-divider);
+    }
+  }
+</style>

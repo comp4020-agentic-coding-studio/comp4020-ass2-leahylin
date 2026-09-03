@@ -1,11 +1,15 @@
 ---
-title: Fridge Ethnography
+title: Assessment 1 - Fridge Ethnography
 description:
   Observe one real refrigerator as a micro-sociological site and read it as
   governed space — Module 2's method, applied to a kitchen you have access to
-week: 7
-due: 2027-04-16T17:00:00+10:00
-weight: 40
+order: 2
+week: 6
+due: 2027-04-02T17:00:00+10:00
+weight: 20
+submit:
+  value: 2500–3000
+  detail: words, PDF + appendix
 marking:
   mode: weighted
   criteria:
@@ -15,8 +19,23 @@ marking:
       weight: 40
     - name: Use of course frameworks
       weight: 25
+  note:
+    - >-
+      Markers read the PDF in one sitting: the argument first, then the
+      appendix behind it, then a check of whether Douglas, Goffman and the
+      power-mapping method are doing real work or only being named. A
+      submission that reads well aloud but leaves the marker unable to say
+      back what governs the fridge has failed on 'analytical argument'
+      regardless of how much fieldwork sits behind it.
+    - >-
+      'Quality of observation' and 'analytical argument' are not the same
+      axis: thin fieldwork with a sharp claim still loses marks for evidence,
+      and rich fieldwork with no claim caps out in the same range no matter
+      how detailed the appendix. The two move together only when the argument
+      is stated early and the fieldwork is what proves it, not what replaces
+      it.
 spec:
-  - submitted by 17:00 Friday 16 April, as a PDF
+  - submitted by 17:00 Friday 2 April, as a PDF
   - 2500–3000 words, plus field materials in an appendix that does not count towards the word limit
   - everyone identifiable has agreed to be written about, and is anonymised
   - it makes an argument, not only a description
@@ -63,8 +82,9 @@ A PDF, 2500–3000 words:
 
 ## Fieldwork and ethics
 
-Your fieldwork period runs through the **mid-semester break**, deliberately. You
-need days in a kitchen, not an afternoon.
+Your fieldwork window is weeks 4–6, and the assessment is due at the end of week
+6 — **before** the break, not during it. Three weeks is enough for a pattern to
+show; the break itself is not fieldwork time you can lean on.
 
 Two absolute requirements:
 
@@ -75,9 +95,8 @@ Two absolute requirements:
 
 The awkward part of this assessment is that the interesting findings are usually
 about people you live with. That is manageable, and it is better talked through
-than around — email Simone Ravel, who answers method and ethics questions through
-the break, and whose answer to "is this too small a thing to write about" is
-almost always no.
+than around — email Simone Ravel promptly, whose answer to "is this too small a
+thing to write about" is almost always no.
 
 **Do not tidy the fridge before you observe it.** Every year somebody does, and it
 costs them the best material they had.

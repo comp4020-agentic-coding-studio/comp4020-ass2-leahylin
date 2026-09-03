@@ -61,5 +61,5 @@ it is comfortable.
 
 The [tutorial](/sessions/09-stockpiling/) is psychological mapping — you will draw
 your ideal fridge and your anxious fridge. Nothing to prepare, but come willing to
-be honest. The [Critical Essay](/assessments/critical-essay/) is due after this
-week.
+be honest. The [Critical Essay](/assessments/critical-essay/) is due this
+Friday, at the end of this week.

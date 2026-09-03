@@ -14,6 +14,7 @@ heroImageAlt:
 
 import Callout from "astro-theme-university/components/Callout.astro";
 import AssessmentsGrid from "../../components/AssessmentsGrid.astro";
+import AssessmentWeightChart from "../../components/AssessmentWeightChart.astro";
 
 {/*
   Same contain/right-align override as the other index heroes: a vignette on
@@ -21,6 +22,12 @@ import AssessmentsGrid from "../../components/AssessmentsGrid.astro";
   straight from this asset (nudged to #fbf7de per request — still close
   enough to the sampled tone that no seam reappears), not the theme's
   --at-bg-alt token, for the same seam reason recorded on those pages.
+
+  `.at-hero-title` is pinned to a fixed dark ink in light mode rather than
+  `var(--at-text)`, since that token is light-dark()-aware and this cream
+  band doesn't move — flipped explicitly to white under [data-theme="dark"]
+  alongside the band itself, which goes to --at-black. The image is dimmed
+  in dark mode so its baked cream doesn't sit as a bright box on black.
 */}
 
 <style>
@@ -37,8 +44,17 @@ import AssessmentsGrid from "../../components/AssessmentsGrid.astro";
       background: none;
     }
     .at-hero-title {
-      color: var(--at-text);
+      color: oklch(from var(--at-primary) 20% 0.01 h);
       text-shadow: none;
+    }
+    [data-theme="dark"] .at-hero {
+      background: var(--at-black);
+    }
+    [data-theme="dark"] .at-hero-title {
+      color: var(--at-white);
+    }
+    [data-theme="dark"] .at-hero-image {
+      filter: brightness(0.82) contrast(0.94);
     }
     @media (width < 48rem) {
       .at-hero-image {
@@ -46,8 +62,25 @@ import AssessmentsGrid from "../../components/AssessmentsGrid.astro";
         opacity: 0.2;
       }
     }
+
+    /* Same left-border treatment as the home page's argument-verdict quote:
+       a plain-ink verdict, not a citation, sampled off the teal illustration
+       accent rather than the theme's default top-overbar blockquote. */
+    .assessment-verdict {
+      margin-inline: 0;
+      padding-inline-start: var(--at-spacing-md);
+      border-inline-start: 4px solid #3a575f;
+      color: var(--at-text);
+      font-weight: 400;
+    }
+
+    .assessment-verdict::before {
+      content: none;
+    }
   `}
 </style>
+
+<AssessmentWeightChart />
 
 Each assessment takes one module and asks you to do something with it rather
 than recall it. The [Fridge Ethnography](/assessments/fridge-ethnography/)
@@ -64,17 +97,21 @@ and 11 tutorials. Fieldwork can be borrowed in a way an argument cannot, so
 submitting observations you did not make is treated as fabrication rather than
 plagiarism — see [Policies](/policies/).
 
-You are not marked on agreeing with the course. The essay in particular rewards
-the student who presses the strongest objection — the vaccine cold chain,
-reduced foodborne illness, year-round nutrition, or the charge that blaming an
-appliance for consumer capitalism is a category error — above the one who agrees
-with the lectures fluently.
+<blockquote class="assessment-verdict">
+  <p>
+    You are not marked on agreeing with the course. The essay in particular rewards
+    the student who presses the strongest objection — the vaccine cold chain,
+    reduced foodborne illness, year-round nutrition, or the charge that blaming an
+    appliance for consumer capitalism is a category error — above the one who agrees
+    with the lectures fluently.
+  </p>
+</blockquote>
 
 <Callout type="info">
   <p>
-    **Plan for the mid-semester break.** The ethnography is due Friday 16 April,
-    which puts its fieldwork period across the break by design — you need days
-    in a kitchen, not an afternoon. Settle two things by
+    **Fieldwork happens before the break, not during it.** The ethnography is
+    due Friday 2 April, at the end of week 6 — three weeks of observation, no
+    break to lean on. Settle two things by
     [week 4](/sessions/04-fridge-archaeology/), not week 6: whether the people
     you live with consent to being written about, and whether you can observe
     without tidying first.

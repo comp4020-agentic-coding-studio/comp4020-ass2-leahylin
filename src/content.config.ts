@@ -14,6 +14,7 @@ const weightedMarking = z
     criteria: z
       .array(z.object({ name: z.string().trim().min(1), weight: z.number().positive() }))
       .min(1),
+    note: z.array(z.string().trim().min(1)).min(1).optional(),
   })
   .superRefine((marking, ctx) => {
     const total = marking.criteria.reduce((sum, criterion) => sum + criterion.weight, 0);
@@ -47,10 +48,17 @@ export const collections = {
     loader: courseNodeLoader("assessments"),
     schema: courseNodeSchema
       .extend({
+        order: z.coerce.number().int(),
         week: weekSchema,
         due: z.coerce.date(),
         weight: z.coerce.number().positive().max(100),
         marking: z.discriminatedUnion("mode", [weightedMarking, holisticMarking]).optional(),
+        submit: z
+          .object({
+            value: z.string().trim().min(1),
+            detail: z.string().trim().min(1),
+          })
+          .optional(),
       })
       .loose(),
   }),

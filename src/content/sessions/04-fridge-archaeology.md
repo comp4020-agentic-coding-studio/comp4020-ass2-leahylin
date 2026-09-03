@@ -68,9 +68,9 @@ Then:
 ## Afterwards
 
 The [Fridge Ethnography](/assessments/fridge-ethnography/) opens today and is due
-**Friday 16 April**, so your fieldwork runs through the mid-semester break. That
-is deliberate — you need days in a kitchen, not an afternoon. Today's map is a
-legitimate first artefact for it.
+**Friday 2 April**, at the end of this module. That gives you three weeks, not an
+afternoon — and the break afterwards is not fieldwork time you can lean on.
+Today's map is a legitimate first artefact for it.
 
 Settle two things this week rather than in week 6: whether the people you live
 with consent to being written about, and whether you can observe without tidying.

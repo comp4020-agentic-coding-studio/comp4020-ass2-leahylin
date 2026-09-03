@@ -51,7 +51,7 @@ asks who wrote the standard that competence is measured against.
 
 ## Slides
 
-The [week 7 deck](/decks/week-07/) is the only deck in this course. This argument
+The [week 7 deck](/decks/week-07/) is one of three in this course. This argument
 is mostly a matter of putting two labels side by side and watching a room realise
 it has never known the difference.
 

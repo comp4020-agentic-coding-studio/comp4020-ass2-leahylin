@@ -61,7 +61,7 @@
   <p class="audit-result" data-result hidden aria-live="polite"></p>
 
   <p class="audit-sting">
-    Now, without opening it: <strong
+    Now, without opening it: <strong class="audit-sting-emphasis"
       >what is at the back of the bottom shelf?</strong
     >
   </p>
@@ -170,6 +170,12 @@
   .audit-sting {
     margin-block-start: var(--at-spacing-lg);
     font-size: 1.15em;
+  }
+
+  .audit-sting-emphasis {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--at-primary);
   }
 
   .audit-close {

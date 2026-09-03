@@ -7,6 +7,7 @@ week: 1
 date: 2027-02-22
 teachers:
   - simone-ravel
+slides: /decks/week-01/
 related:
   - sessions/01-artificial-cold
 ---
@@ -43,6 +44,13 @@ arrives as waste.
 - Freon and the domestic compressor: manufacture replaces harvest
 - what happens to "season" once every month is available
 - what this course means by political economy when the unit is one appliance
+
+## Slides
+
+The [week 1 deck](/decks/week-01/) runs the full two hours, with the ice trade
+and the Freon story told at length. Week 1 gets a deck because it is the only
+lecture that has to do two jobs at once: introduce the course and make its
+argument.
 
 ## Reading
 

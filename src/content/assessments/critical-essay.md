@@ -1,10 +1,11 @@
 ---
-title: Critical Essay
+title: Assessment 2 - Critical Essay
 description:
   Apply the course's theory to one fridge-related phenomenon — and then tell me
   what the course gets wrong about it
-week: 10
-due: 2027-05-07T17:00:00+10:00
+order: 3
+week: 9
+due: 2027-04-30T17:00:00+10:00
 weight: 30
 marking:
   mode: weighted
@@ -15,8 +16,22 @@ marking:
       weight: 35
     - name: Engagement with theory
       weight: 25
+  note:
+    - >-
+      Markers read the essay once for the position, then again for whether
+      each quantitative claim states its method. A figure cited without a
+      method is marked as rhetoric, not evidence, regardless of how well the
+      surrounding paragraph reads.
+    - >-
+      'Argument' and 'evidence and method' pull in the same direction only
+      when the position is stated early and the numbers are what defend it,
+      not what decorate it. An essay that agrees fluently with the lectures
+      and surveys three views without holding one caps out on 'argument' no
+      matter how sound its method is elsewhere; one that presses a real
+      objection to the course's own claims, well-evidenced, can outscore an
+      essay that only restates them.
 spec:
-  - submitted by 17:00 Friday 7 May, as a PDF
+  - submitted by 17:00 Friday 30 April, as a PDF
   - 2000–2500 words
   - every quantitative claim states how it was measured
   - it takes a position, including against this course if that is where the argument goes

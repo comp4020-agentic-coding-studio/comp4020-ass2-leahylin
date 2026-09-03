@@ -3,9 +3,10 @@ title: Final Project — the Counter-Fridge
 description:
   A reconstruction proposal — spatial design, art installation, or behavioural
   experiment — that refuses the argument of this course, and defends the refusal
+order: 4
 week: 12
 due: 2027-05-28T17:00:00+10:00
-weight: 20
+weight: 40
 marking:
   mode: weighted
   criteria:
@@ -15,6 +16,19 @@ marking:
       weight: 40
     - name: Communication
       weight: 25
+  note:
+    - >-
+      Markers see the pitch before they read the rationale, so the five
+      minutes in week 12 set the frame the document then has to earn. A
+      striking artefact that cannot answer 'who is this for?' out loud loses
+      marks on 'the argument for it' before the write-up is even opened.
+    - >-
+      'The proposal' and 'the argument for it' are not interchangeable: a
+      beautiful artefact with a thin rationale still caps low, and a
+      well-argued refusal with no artefact is marked on the same scale, not a
+      lesser one. What lifts a submission is naming the trade nobody asked
+      about and the objection it cannot answer — the two things this course's
+      own artefacts, in weeks 6 and 10, were criticised for skipping.
 spec:
   - submitted by 17:00 Friday 28 May, in any medium, with a written rationale
   - the rationale is 1000–1500 words
