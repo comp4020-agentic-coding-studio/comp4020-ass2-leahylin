@@ -11,6 +11,10 @@ Carried forward from week 6 (crit5) — general working habits, not tied to any
 one stack:
 
 - Keep the dev server running (`pnpm dev`) so you see changes as you make them.
+- A dev server more than a session old is a liability, not a convenience —
+  restart it after any content-file edit that isn't showing up, and check
+  `lsof -iTCP -sTCP:LISTEN -P -n | grep node` for duplicate/stale servers from
+  earlier sessions before trusting what a given port shows.
 - Run `pnpm check` before you push.
 - Open the page in a browser and look at it. The rendered page is the truth;
   your mental model of it isn't.
@@ -69,6 +73,20 @@ file rather than a nicety.
   primary and does not match a baked raster's own background. A theme token
   cannot follow an image, so sample the colour out of the asset and set it
   literally when the two have to meet.
+- **A long-running dev server can silently go stale and render content
+  collections as empty, not wrong.** `getPublishedCollection` never throws on
+  stale data — it just returns whatever it last synced. A dev server left
+  running across a content-frontmatter edit (weight/date changes on the
+  assessments, in one case) kept serving an empty `AssessmentsGrid`/
+  `AssessmentWeightChart` — a real `<div class="at-card-grid"></div>` with
+  nothing inside, no error anywhere — while a freshly started server on the
+  same code showed the content correctly. `pnpm check` builds fresh every
+  time, so it can't see this; only a browser pointed at a long-lived `pnpm
+  dev` process can. If content looks missing (not malformed — genuinely
+  gone) and the source file is correct, suspect the dev server's age before
+  the code: check how long it's been running (`ps -o etime -p <pid>`) against
+  the content file's mtime, and restart it rather than debugging the
+  component.
 
 ## What the submission gate actually checks
 
