@@ -24,6 +24,10 @@ const dueTime = new Intl.DateTimeFormat("en-AU", {
   hourCycle: "h23",
   timeZone: dueTimeZone,
 }).format(due);
+// One expression, not two adjacent {dueTime}{dueWeekday} — the formatter puts
+// each brace on its own line, and JSX drops the whitespace-only text node
+// between them, silently gluing "17:00" and "Fri" together with no space.
+const dueTimeAndDay = `${dueTime} ${dueWeekday}`;
 ---
 
 <div class="quick-facts">
@@ -31,8 +35,7 @@ const dueTime = new Intl.DateTimeFormat("en-AU", {
     <p class="quick-fact-label">Due</p>
     <p class="quick-fact-value">{dueDay}</p>
     <p class="quick-fact-detail">
-      {dueTime}
-      {dueWeekday}, wk {week}
+      {dueTimeAndDay}, wk {week}
     </p>
   </div>
   <div class="quick-fact">
