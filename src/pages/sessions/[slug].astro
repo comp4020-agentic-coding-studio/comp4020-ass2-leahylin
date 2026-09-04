@@ -3,6 +3,7 @@ import { render } from "astro:content";
 import { getPublishedCollection } from "astro-course-university/content";
 import SpecList from "astro-course-university/components/SpecList.astro";
 import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
+import { withBase } from "astro-theme-university/url";
 import RelatedContent from "../../components/RelatedContent.astro";
 import TeachingTeam from "../../components/TeachingTeam.astro";
 import { formatCourseDate } from "../../lib/dates";
@@ -10,14 +11,33 @@ import { graphCollections, sessionLabels, siteConfig } from "../../site-config";
 
 export async function getStaticPaths() {
   const sessions = await getPublishedCollection("sessions");
-  return sessions.map((session) => ({
+  const byWeek = [...sessions].sort((a, b) => a.data.week - b.data.week);
+  return byWeek.map((session, index) => ({
     params: { slug: session.id },
-    props: { session },
+    props: {
+      session,
+      prevSession: byWeek[index - 1],
+      nextSession: byWeek[index + 1],
+    },
   }));
 }
 
-const { session } = Astro.props;
+const { session, prevSession, nextSession } = Astro.props;
 const { Content } = await render(session);
+
+const sessionNavLinks: { href: string; label: string }[] = [];
+if (prevSession) {
+  sessionNavLinks.push({
+    href: withBase(`/sessions/${prevSession.id}/`),
+    label: `← Week ${prevSession.data.week} session`,
+  });
+}
+if (nextSession) {
+  sessionNavLinks.push({
+    href: withBase(`/sessions/${nextSession.id}/`),
+    label: `Week ${nextSession.data.week} session →`,
+  });
+}
 ---
 
 <ContentLayout
@@ -45,7 +65,11 @@ const { Content } = await render(session);
     been met without asking you.
   </SpecList>
   <TeachingTeam teachers={session.data.teachers} />
-  <RelatedContent entry={session} collections={graphCollections} />
+  <RelatedContent
+    entry={session}
+    collections={graphCollections}
+    extraLinks={sessionNavLinks}
+  />
 </ContentLayout>
 
 <style>
@@ -72,11 +96,19 @@ const { Content } = await render(session);
     border-block-start: 1px solid var(--at-border);
   }
 
-  /* Every session opens with a bold "This week's question" paragraph. Give it
-     more visual weight than ordinary body text, the same way .lead does for
-     the description above the facts row. Scoped styles don't reach into
-     <Content />'s rendered output, hence :global(). */
+  /* Every session opens with a bold "This week's question" paragraph. Style
+     it as a callout card rather than plain bold prose — same gold-left-border
+     treatment as .lecture-intro > :global(p:first-child) in the lecture page.
+     Scoped styles don't reach into <Content />'s rendered output, hence
+     :global(). */
   .session-intro > :global(p:first-of-type) {
+    margin-block: 0 var(--at-spacing-lg);
+    padding: var(--at-spacing-md);
+    border-inline-start: 4px solid var(--at-primary);
+    background: light-dark(
+      rgb(from var(--at-primary) r g b / 8%),
+      rgb(from var(--at-primary) r g b / 16%)
+    );
     font-size: 1.25rem;
     line-height: 1.4;
   }

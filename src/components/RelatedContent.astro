@@ -15,9 +15,18 @@ interface Props {
   entry: GraphEntry;
   collections: string[];
   heading?: string;
+  // Sequential nav (e.g. previous/next session) that isn't part of the
+  // `related:` graph — rendered alongside the graph-derived links rather
+  // than as its own section.
+  extraLinks?: { href: string; label: string }[];
 }
 
-const { entry, collections, heading = "Related" } = Astro.props;
+const {
+  entry,
+  collections,
+  heading = "Related",
+  extraLinks = [],
+} = Astro.props;
 const related = await getRelatedEntries(entry, collections);
 const externalLinks =
   (entry.data as { links?: { label: string; url: string }[] }).links ?? [];
@@ -31,10 +40,15 @@ const relatedLabel = (e: (typeof related)[number]) => {
 ---
 
 {
-  (related.length > 0 || externalLinks.length > 0) && (
+  (related.length > 0 || externalLinks.length > 0 || extraLinks.length > 0) && (
     <aside class="related-content" aria-label={heading}>
       <h2>{heading}</h2>
       <ul>
+        {extraLinks.map((l) => (
+          <li>
+            <a href={l.href}>{l.label}</a>
+          </li>
+        ))}
         {related.map((e) => (
           <li>
             <a href={withBase(`/${e.collection}/${e.id}/`)}>

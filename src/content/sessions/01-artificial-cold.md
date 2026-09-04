@@ -36,19 +36,22 @@ Three samples of the same vegetable, unlabelled:
 - **B** — refrigerated for three days
 - **C** — freeze-dried and rehydrated
 
-- **Blind tasting** (25 min). Taste each and write a description of texture,
-  moisture, smell, colour and taste. Your own words, before any discussion. Do not
-  guess which is which — describe what is actually in your mouth.
-- **The reveal** (15 min). We collect the descriptions, then reveal the samples.
-  Two things usually happen: the room agrees strongly about texture and disagrees
-  completely about which one is "freshest," and several people find they preferred
-  a sample they would have rejected if it had been labelled.
-- **What is freshness?** (35 min). Working from those results. Is freshness a
-  measurable property of the food, or a claim made about it? Where did you learn
-  what fresh is supposed to feel like? Rees on the ice trade: at what point did
-  "fresh" start meaning "cold" rather than "recently harvested"?
-- **The semester ahead** (15 min). The thesis, and what would have to be true for
-  it to be wrong.
+**Blind tasting** (25 min). Taste each and write a description of texture,
+moisture, smell, colour and taste. Your own words, before any discussion. Do not
+guess which is which — describe what is actually in your mouth.
+
+**The reveal** (15 min). We collect the descriptions, then reveal the samples.
+Two things usually happen: the room agrees strongly about texture and disagrees
+completely about which one is "freshest," and several people find they preferred
+a sample they would have rejected if it had been labelled.
+
+**What is freshness?** (35 min). Working from those results. Is freshness a
+measurable property of the food, or a claim made about it? Where did you learn
+what fresh is supposed to feel like? Rees on the ice trade: at what point did
+"fresh" start meaning "cold" rather than "recently harvested"?
+
+**The semester ahead** (15 min). The thesis, and what would have to be true for
+it to be wrong.
 
 ## Afterwards
 
