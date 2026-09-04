@@ -19,8 +19,6 @@ related:
 **This week's question: to what extent is consumer behaviour the purchase of
 emotional value rather than use value?**
 
-_Module 3 — The tyranny of time._
-
 Inherited from week 8: the waste is structural and costed. This week asks why it
 is comfortable.
 

@@ -19,8 +19,6 @@ related:
 **This week's question: can fermentation, ambient storage and shared provisioning
 provide a real antidote — or only a comforting one?**
 
-_Module 4 — Resistance and reconstruction._
-
 Inherited from week 10: the appliance extracts in exchange for reassurance. This
 week asks how much of that reassurance was ever needed, and what could replace the
 rest.

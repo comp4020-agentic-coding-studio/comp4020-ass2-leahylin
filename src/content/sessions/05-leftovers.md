@@ -19,8 +19,6 @@ related:
 **This week's question: when does food become "leftovers," and when do leftovers
 become rubbish? Neither transition is about the food.**
 
-_Module 2 — Micropolitics._
-
 Inherited from week 4: shelf position determines what is seen. This week is about
 what being unseen does to a thing's category — and who gets to decide.
 

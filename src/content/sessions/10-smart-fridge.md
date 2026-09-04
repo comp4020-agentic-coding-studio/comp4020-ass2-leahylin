@@ -19,8 +19,6 @@ related:
 **This week's question: the fridge now watches its own contents, and you — who is
 that inventory really for?**
 
-_Module 4 — Resistance and reconstruction._
-
 Inherited from week 9: the fridge sells reassurance. This week is about what it
 has begun taking in exchange.
 

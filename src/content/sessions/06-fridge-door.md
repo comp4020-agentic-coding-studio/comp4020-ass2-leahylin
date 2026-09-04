@@ -19,8 +19,6 @@ related:
 **This week's question: what personas are we constructing in public digital space
 versus semi-private physical space — and why are they different?**
 
-_Module 2 — Micropolitics._
-
 Inherited from week 5: the interior conceals, and concealment does classificatory
 work. This week is about what the exterior displays instead.
 

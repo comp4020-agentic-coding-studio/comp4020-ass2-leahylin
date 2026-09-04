@@ -19,8 +19,6 @@ related:
 **This week's question: who holds the right to refrigerate — and how does vertical
 space map onto household power?**
 
-_Module 2 — Micropolitics._
-
 Inherited from week 3: the cold chain fills the box. Now we ask who governs it
 once it is full.
 

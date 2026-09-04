@@ -19,8 +19,6 @@ related:
 **This week's question: if the fridge preserves, why does the household throw away
 more than it did before?**
 
-_Module 3 — The tyranny of time._
-
 Inherited from week 7: the date label is the trigger. This week is the system the
 trigger sits inside — costed, in your own kitchen.
 

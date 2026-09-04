@@ -19,8 +19,6 @@ related:
 **This week's question: what is a refrigerator advertisement actually selling, if
 it is not selling refrigeration?**
 
-_Module 1 — Disenchantment._
-
 Inherited from week 1: cold became a purchasable commodity. This week is about how
 it was sold, and to whom.
 

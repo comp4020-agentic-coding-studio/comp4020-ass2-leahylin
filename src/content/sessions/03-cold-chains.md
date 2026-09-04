@@ -19,8 +19,6 @@ related:
 **This week's question: what does a kitchen lose when every ingredient is
 available in every month — and what does the availability cost?**
 
-_Module 1 — Disenchantment._
-
 Inherited from week 2: the appliance was sold as modernity. This week asks what
 had to be built behind it for the promise to work.
 
