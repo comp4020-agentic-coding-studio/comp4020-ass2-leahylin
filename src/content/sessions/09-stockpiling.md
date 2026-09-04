@@ -4,6 +4,7 @@ description:
   Draw the fridge you want and the fridge you have when things are bad, then ask
   what you were actually buying
 week: 9
+module: "Module 3 — The tyranny of time"
 date: 2027-04-28
 teachers:
   - casper-nowak

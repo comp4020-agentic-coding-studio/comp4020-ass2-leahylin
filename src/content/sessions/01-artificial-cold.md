@@ -4,6 +4,7 @@ description: >-
   Fresh, three days refrigerated, and freeze-dried — taste all three without
   knowing which is which, then argue about what "fresh" means
 week: 1
+module: "Module 1 — Disenchantment"
 date: 2027-02-24
 teachers:
   - simone-ravel
@@ -18,7 +19,10 @@ related:
 **This week's question: is "freshness" an objective physical state, or a cultural
 myth constructed by modern cold-chain technology?**
 
-_Module 1 — Disenchantment._
+_Module 1 — Disenchantment: the commodification of cold and the myth of
+modernity. The module's objective is to shatter the common-sense notion that the
+refrigerator is a natural necessity, and reveal it instead as a specific
+historical, technological and gendered construction._
 
 ## Before the session
 

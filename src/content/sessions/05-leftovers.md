@@ -4,6 +4,7 @@ description:
   A structured ethical debate on a share-house dispute — ownership, hygiene
   boundaries, and the contract nobody wrote down
 week: 5
+module: "Module 2 — Micropolitics"
 date: 2027-03-24
 teachers:
   - simone-ravel

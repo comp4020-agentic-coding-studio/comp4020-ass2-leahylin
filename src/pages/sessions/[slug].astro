@@ -25,8 +25,21 @@ const { Content } = await render(session);
   description={session.data.description}
   {...siteConfig}
 >
-  <p><strong>{formatCourseDate(session.data.date)}</strong></p>
-  <Content />
+  <p class="session-facts">
+    <strong>{formatCourseDate(session.data.date)}</strong>
+    {
+      session.data.module && (
+        <>
+          {" · "}
+          {session.data.module}
+        </>
+      )
+    }
+  </p>
+  <hr class="session-divider" />
+  <div class="session-intro">
+    <Content />
+  </div>
   <SpecList spec={session.data.spec}>
     What you bring to the session. Written so a reader can tell whether it has
     been met without asking you.
@@ -34,3 +47,27 @@ const { Content } = await render(session);
   <TeachingTeam teachers={session.data.teachers} />
   <RelatedContent entry={session} collections={graphCollections} />
 </ContentLayout>
+
+<style>
+  .session-facts {
+    margin-block: 0 var(--at-spacing-md);
+    color: var(--at-text-secondary);
+  }
+
+  .session-facts strong {
+    color: var(--at-text);
+  }
+
+  .session-divider {
+    margin-block: 0 var(--at-spacing-lg);
+  }
+
+  /* Every session opens with a bold "This week's question" paragraph. Give it
+     more visual weight than ordinary body text, the same way .lead does for
+     the description above the facts row. Scoped styles don't reach into
+     <Content />'s rendered output, hence :global(). */
+  .session-intro > :global(p:first-of-type) {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+</style>

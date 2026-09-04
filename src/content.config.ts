@@ -40,6 +40,7 @@ export const collections = {
         week: weekSchema,
         date: z.coerce.date(),
         teachers: teacherRefs.optional(),
+        module: z.string().trim().min(1).optional(),
       })
       .loose(),
   }),

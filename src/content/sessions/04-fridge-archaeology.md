@@ -4,6 +4,7 @@ description:
   Bring the interior of your own fridge and we will draw the power map together —
   authority zones, marginal zones, and the tragedy of the commons
 week: 4
+module: "Module 2 — Micropolitics"
 date: 2027-03-17
 teachers:
   - simone-ravel

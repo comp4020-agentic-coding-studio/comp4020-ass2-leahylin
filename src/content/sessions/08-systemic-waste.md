@@ -4,6 +4,7 @@ description:
   Record everything you throw out for a week, then cost it in money and calories.
   The illusory fortress, itemised.
 week: 8
+module: "Module 3 — The tyranny of time"
 date: 2027-04-21
 teachers:
   - casper-nowak

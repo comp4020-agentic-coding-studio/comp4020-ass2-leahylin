@@ -4,6 +4,7 @@ description:
   Make a quick pickle with your hands, or design the rules for a community
   pantry — preservation that does not need a plug
 week: 11
+module: "Module 4 — Resistance and reconstruction"
 date: 2027-05-12
 teachers:
   - simone-ravel

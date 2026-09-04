@@ -4,6 +4,7 @@ description:
   Build the most exploitative smart fridge you can imagine, in groups, and then
   take your own design apart
 week: 10
+module: "Module 4 — Resistance and reconstruction"
 date: 2027-05-05
 teachers:
   - simone-ravel

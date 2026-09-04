@@ -4,6 +4,7 @@ description:
   Photograph the three most off-season things in your fridge, then reverse-track
   where they came from and what it cost to bring them
 week: 3
+module: "Module 1 — Disenchantment"
 date: 2027-03-10
 teachers:
   - simone-ravel

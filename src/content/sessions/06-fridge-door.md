@@ -4,6 +4,7 @@ description:
   Compare the two surfaces you curate for other people — one physical and
   semi-private, one digital and public. They are not saying the same thing.
 week: 6
+module: "Module 2 — Micropolitics"
 date: 2027-03-31
 teachers:
   - simone-ravel

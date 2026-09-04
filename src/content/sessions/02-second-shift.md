@@ -4,6 +4,7 @@ description:
   A visual semiotics workshop on refrigerator advertising, 1950–1980 — who is
   operating the fridge, and what is the white enamel saying?
 week: 2
+module: "Module 1 — Disenchantment"
 date: 2027-03-03
 teachers:
   - simone-ravel
