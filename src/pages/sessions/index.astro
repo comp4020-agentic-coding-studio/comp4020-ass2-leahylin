@@ -19,18 +19,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   {...siteConfig}
 >
   <p>
-    The lectures make the argument. The sessions test it against evidence from a
-    real kitchen — usually yours. Almost every week asks you to arrive with
-    something you gathered beforehand: photographs, a drawing, a week of
-    records, ten date labels, a clean jar. The seminar runs on what the room
-    found, not on what the room read, and a session where half the group arrived
-    empty is a different and much worse class.
+    Lectures make the argument; sessions test it against evidence from a real
+    kitchen — usually yours. Almost every week asks you to arrive with something
+    gathered beforehand: photographs, a drawing, a week of records, ten date
+    labels, a clean jar. The seminar runs on what the room found, not on what
+    the room read, and a session where half the group arrived empty is a
+    different and much worse class.
   </p>
 
   <p>
     Sessions run <strong>Wednesdays 14:00–16:00</strong> in the Cold Storage Building
-    (7), Room 1.03. Week 11 meets in the teaching kitchen instead — it is a fermentation
-    workshop, and you will need a sink.
+    (7), Room 1.03.
   </p>
 
   <p>
@@ -41,13 +40,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   </p>
 
   <Callout type="warning">
+    <p class="at-callout__title">Exceptions to note</p>
     <p>
-      <strong>Two exercises cannot be made up later.</strong> The
-      <a href={`${base}/sessions/01-artificial-cold/`}>week 1 blind tasting</a> cannot
+      <strong>Week 11</strong> meets in the teaching kitchen instead of Room 1.03
+      — it's a fermentation workshop, and you'll need a sink.
+    </p>
+    <p>
+      <strong>Two exercises can't be made up later.</strong> The
+      <a href={`${base}/sessions/01-artificial-cold/`}>week 1 blind tasting</a> can't
       be repeated once you know what the samples were, and the
       <a href={`${base}/sessions/08-systemic-waste/`}>week 8 waste audit</a> depends
-      on records kept at the time. If you will miss either, tell us in advance and
-      we will arrange an alternative rather than write it off.
+      on records kept at the time. If you'll miss either, tell us in advance and we'll
+      arrange an alternative rather than write it off.
     </p>
   </Callout>
 
@@ -104,5 +108,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       object-position: center top;
       opacity: 0.2;
     }
+  }
+
+  /* Same house-gold callout treatment as the Lectures page: a left rule in
+     --at-primary instead of the theme's top rule in --at-warning (amber), and
+     a soft primary tint instead of the warning-amber one. */
+  .at-callout--warning {
+    --at-accent: var(--at-primary);
+    --at-accent-soft: light-dark(
+      rgb(from var(--at-primary) r g b / 8%),
+      rgb(from var(--at-primary) r g b / 16%)
+    );
+    border-block-start: none;
+    border-inline-start: 4px solid var(--at-accent);
   }
 </style>

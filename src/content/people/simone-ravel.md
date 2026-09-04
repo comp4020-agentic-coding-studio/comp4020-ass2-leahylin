@@ -1,8 +1,9 @@
 ---
 title: Dr Simone Ravel
-description:
-  The material culture of domestic storage — pantries, larders, and the
-  household knowledge that mechanical cooling made unnecessary.
+description: >-
+  Convenor of the course, and of its first, third and fourth modules. Her
+  research is on the material culture of domestic storage — pantries, larders,
+  and the household knowledge that mechanical cooling made unnecessary.
 affiliation: Slop University School of Domestic Infrastructure
 role: convenor
 photo: ./simone-ravel.avif
@@ -39,4 +40,4 @@ the essay.
 
 After each session, in the room, for as long as anyone stays. Otherwise by
 appointment — email with two or three times that suit you rather than asking
-what suits.
+what suits her.

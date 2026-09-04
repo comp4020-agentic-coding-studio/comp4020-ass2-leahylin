@@ -63,19 +63,18 @@ import AssessmentWeightChart from "../../components/AssessmentWeightChart.astro"
       }
     }
 
-    /* Same left-border treatment as the home page's argument-verdict quote:
-       a plain-ink verdict, not a citation, sampled off the teal illustration
-       accent rather than the theme's default top-overbar blockquote. */
-    .assessment-verdict {
-      margin-inline: 0;
-      padding-inline-start: var(--at-spacing-md);
-      border-inline-start: 4px solid #3a575f;
-      color: var(--at-text);
-      font-weight: 400;
-    }
-
-    .assessment-verdict::before {
-      content: none;
+    /* Same house-gold callout treatment as the Lectures and Sessions pages:
+       a left rule in --at-primary instead of the theme's top rule in
+       --at-info (a warm grey), and a soft primary tint instead of the
+       tertiary-grey one. */
+    .at-callout--info {
+      --at-accent: var(--at-primary);
+      --at-accent-soft: light-dark(
+        rgb(from var(--at-primary) r g b / 8%),
+        rgb(from var(--at-primary) r g b / 16%)
+      );
+      border-block-start: none;
+      border-inline-start: 4px solid var(--at-accent);
     }
   `}
 </style>
@@ -88,24 +87,21 @@ applies Module 2's micropolitics to a real household; the
 [Critical Essay](/assessments/critical-essay/) works in Module 3, where the
 argument becomes measurable; the
 [Counter-Fridge](/assessments/counter-fridge/) answers Module 4 by proposing
-something to build instead.
+something to build instead. Participation isn't tied to a single module — it's
+the 10% for showing up to every tutorial with the thing that week needs,
+Module 1 included.
 
 **Three of the four cannot be written from the library.** The ethnography needs
 a household that consented to being observed, the essay is strongest when it
 rests on your own audit data, and the design project grows out of the week 10
-and 11 tutorials. Fieldwork can be borrowed in a way an argument cannot, so
+and 11 tutorials. Fieldwork can be borrowed in a way an argument can't, so
 submitting observations you did not make is treated as fabrication rather than
-plagiarism — see [Policies](/policies/).
-
-<blockquote class="assessment-verdict">
-  <p>
-    You are not marked on agreeing with the course. The essay in particular rewards
-    the student who presses the strongest objection — the vaccine cold chain,
-    reduced foodborne illness, year-round nutrition, or the charge that blaming an
-    appliance for consumer capitalism is a category error — above the one who agrees
-    with the lectures fluently.
-  </p>
-</blockquote>
+plagiarism — see [Policies](/policies/). And none of the four are marked on
+agreeing with the course: the essay in particular rewards whoever presses the
+strongest objection — the vaccine cold chain, reduced foodborne illness,
+year-round nutrition, or the charge that blaming an appliance for consumer
+capitalism is a category error — over whoever agrees with the lectures
+fluently.
 
 <Callout type="info">
   <p>

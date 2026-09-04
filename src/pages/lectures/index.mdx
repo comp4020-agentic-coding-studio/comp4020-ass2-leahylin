@@ -72,20 +72,33 @@ import LecturesGrid from "../../components/LecturesGrid.astro";
         opacity: 0.2;
       }
     }
+
+    /* Theme's info callout is a top rule in --at-tertiary (a warm grey) ---
+       reads as neutral, not house colour. This site's identity gold is
+       --at-primary, already what every inline link on the page uses, so the
+       callout borrows it too: a left rule instead of a top one, and a soft
+       primary tint instead of the tertiary-grey one. */
+    .at-callout--info {
+      --at-accent: var(--at-primary);
+      --at-accent-soft: light-dark(
+        rgb(from var(--at-primary) r g b / 8%),
+        rgb(from var(--at-primary) r g b / 16%)
+      );
+      border-block-start: none;
+      border-inline-start: 4px solid var(--at-accent);
+    }
   `}
 </style>
 
-Every lecture runs to the same shape: the week's claim stated and defended, an
-outline of how it is built, the reading, and what to bring to the tutorial. Each
-one also names the argument it inherits from the week before, so the semester
-accumulates rather than resetting every Monday. [Week 1](/lectures/week-01/) is
-the pattern.
-
 Lectures run **Mondays 10:00–12:00** in the Cold Storage Building (7), Room
-2.11, each teaching week of the semester. They are recorded and the recordings
-appear on Cabinet — but the lecture is the smaller half of this course.
-[The tutorials](/sessions/) are where the argument meets evidence from your own
-kitchen, and those cannot be watched afterwards.
+2.11, and follow the same shape each week: the claim, the evidence behind it,
+and the reading that carries it forward. The course builds cumulatively — each
+week names the argument it inherits from the one before — so
+[week 1](/lectures/week-01/) sets the pattern for the rest.
+
+Lectures are recorded, but they're the smaller half of the course. The
+[tutorials](/sessions/) are where the argument meets evidence from your own
+kitchen — and that can't be caught on video.
 
 The twelve lectures fall into four modules, and reading them in order is the
 point:
@@ -100,14 +113,11 @@ point:
   the kitchen, degrowth, and what could be built instead.
 
 <Callout type="info">
-  This course runs in **Semester 1 2027**. Three lectures carry slide decks:
-  [week 1](/lectures/week-01/), which has to introduce the course and make its
-  argument in the same two hours; [week 7](/lectures/week-07/), on the tyranny
-  of date labels, because that argument is mostly a matter of putting two
-  labels side by side and watching a room realise it has never known the
-  difference; and [week 12](/lectures/week-12/), which is fifteen minutes and
-  built to stay that way. The other nine are delivered from the pages below,
-  and the reading list is what you take away.
+  Most weeks' readings are listed below — but [week 1](/lectures/week-01/),
+  [week 7](/lectures/week-07/) and [week 12](/lectures/week-12/) carry their
+  own slide decks and are worth attending live: week 1 frames the whole
+  course, week 7 turns the tyranny of time into something measurable, and
+  week 12 — just fifteen minutes — is built to stay with you.
 </Callout>
 
 <LecturesGrid />

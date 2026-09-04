@@ -1,8 +1,9 @@
 ---
 title: Dr Casper Nowak
-description:
-  Household food-waste measurement and the psychology of stockpiling — the
-  evidence behind the course's central claim.
+description: >-
+  Co-convenor, teaching weeks 7–9. Their research is on household food-waste
+  measurement and the psychology of stockpiling — the evidence behind the
+  course's central claim.
 affiliation: Slop University School of Domestic Infrastructure
 role: co-convenor
 photo: ./casper-nowak.avif
