@@ -60,6 +60,16 @@ const { Content } = await render(session);
 
   .session-divider {
     margin-block: 0 var(--at-spacing-lg);
+    /* The UA stylesheet gives <hr> `margin-inline: auto`. That's harmless in
+       normal block layout (the footer's hrs fill their container), but
+       .at-main is a grid and auto inline margins suppress a grid item's
+       default stretch — so the hr collapsed to fit-content, i.e. 0px wide,
+       and painted no line at all however dark its border colour was.
+       Zeroing the inline margins lets it stretch across the content column. */
+    margin-inline: 0;
+    /* The theme's default --at-divider is only 12% opaque; --at-border reads
+       as an actual line without being as heavy as body text. */
+    border-block-start: 1px solid var(--at-border);
   }
 
   /* Every session opens with a bold "This week's question" paragraph. Give it

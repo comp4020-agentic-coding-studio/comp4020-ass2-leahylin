@@ -87,6 +87,28 @@ file rather than a nicety.
   the code: check how long it's been running (`ps -o etime -p <pid>`) against
   the content file's mtime, and restart it rather than debugging the
   component.
+- **A bare `<hr>` is 0px wide as a direct child of `.at-main`.** The UA
+  stylesheet gives `hr` `margin-inline: auto`. In normal block layout that is
+  harmless — the footer's `<hr>`s fill their container — but `.at-main` is a
+  `display: grid` subgrid, and auto inline margins on a grid item suppress the
+  default `stretch`, so the element shrinks to fit-content: zero, for an empty
+  element. The border paints perfectly; there is just no width to paint across.
+  Nothing errors, the rule is right there in devtools, and darkening the border
+  colour changes nothing. Add `margin-inline: 0` (or `width: 100%`) to any `hr`
+  you put directly in `.at-main`. The same trap applies to any empty
+  block-level child of that grid.
+- **Reason about a CSS symptom for at most one round, then screenshot it.**
+  Three separate colour "fixes" went out on the theory that the line above was
+  too faint, because the served CSS kept looking correct — it *was* correct.
+  Chrome Canary is installed and headless-screenshots any dev URL:
+  `"/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
+  --headless --disable-gpu --screenshot=/tmp/shot.png --window-size=900,700
+  --virtual-time-budget=6000 <url>`, then Read the png. For computed styles,
+  add `--remote-debugging-port=9222 --user-data-dir=/tmp/cdpprofile` and drive
+  CDP from a node script over the global `WebSocket`; `getComputedStyle` plus
+  `getBoundingClientRect` on the element and its parent chain found this in one
+  shot. `curl` shows you the CSS that was *sent*, never the layout that
+  resulted — the two disagreeing is the whole bug class this section is about.
 
 ## What the submission gate actually checks
 

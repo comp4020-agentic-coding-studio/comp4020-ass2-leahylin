@@ -19,11 +19,6 @@ related:
 **This week's question: is "freshness" an objective physical state, or a cultural
 myth constructed by modern cold-chain technology?**
 
-_Module 1 — Disenchantment: the commodification of cold and the myth of
-modernity. The module's objective is to shatter the common-sense notion that the
-refrigerator is a natural necessity, and reveal it instead as a specific
-historical, technological and gendered construction._
-
 ## Before the session
 
 Read the Rees excerpts. Nothing else to prepare — the materials are supplied, and
