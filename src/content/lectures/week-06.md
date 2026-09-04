@@ -4,11 +4,14 @@ description:
   Magnets, children's drawings, expired coupons and travel souvenirs — the
   household's external performance, staged on an appliance
 week: 6
+module: "Module 2 — Micropolitics"
 date: 2027-03-29
 teachers:
   - simone-ravel
 related:
   - sessions/06-fridge-door
+  - week-05
+  - week-07
 ---
 
 _Module 2 — Micropolitics._

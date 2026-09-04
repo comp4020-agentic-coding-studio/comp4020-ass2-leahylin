@@ -4,11 +4,14 @@ description:
   Your fridge is the last mile of a planetary system. Chilean cherries, Norwegian
   salmon, and the carbon behind the cold chain.
 week: 3
+module: "Module 1 — Disenchantment"
 date: 2027-03-08
 teachers:
   - simone-ravel
 related:
   - sessions/03-cold-chains
+  - week-02
+  - week-04
 ---
 
 _Module 1 — Disenchantment._

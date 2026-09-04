@@ -1,27 +1,74 @@
 ---
 import { render } from "astro:content";
 import { getPublishedCollection } from "astro-course-university/content";
-import RelatedContent from "astro-course-university/components/RelatedContent.astro";
 import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
 import { withBase } from "astro-theme-university/url";
+import RelatedContent from "../../components/RelatedContent.astro";
 import TeachingTeam from "../../components/TeachingTeam.astro";
 import { formatCourseDate } from "../../lib/dates";
 import { graphCollections, siteConfig } from "../../site-config";
 
 export async function getStaticPaths() {
   const lectures = await getPublishedCollection("lectures");
-  return lectures.map((lecture) => ({ params: { slug: lecture.id }, props: { lecture } }));
+  return lectures.map((lecture) => ({
+    params: { slug: lecture.id },
+    props: { lecture },
+  }));
 }
 
 const { lecture } = Astro.props;
 const { Content } = await render(lecture);
 const title = `Week ${lecture.data.week}: ${lecture.data.title}`;
+// Single joined string, not adjacent {dateLabel}{module} expressions — the
+// project's formatter re-splits adjacent JSX expressions onto their own
+// lines and drops the whitespace-only text node between them (see the
+// AssessmentQuickFacts "17:00Fri" bug). One expression is immune to that.
+const factsPrefix = `${formatCourseDate(lecture.data.date)} · ${lecture.data.module}`;
 ---
 
-<ContentLayout title={title} description={lecture.data.description} {...siteConfig}>
-  <p><strong>{formatCourseDate(lecture.data.date)}</strong></p>
-  {lecture.data.slides && <p><a href={withBase(lecture.data.slides)}>Open the slides</a></p>}
-  <Content />
+<ContentLayout
+  title={title}
+  description={lecture.data.description}
+  {...siteConfig}
+>
+  <p class="lecture-facts">
+    {factsPrefix}
+    {
+      lecture.data.slides && (
+        <>
+          {" · "}
+          <a href={withBase(lecture.data.slides)}>Open the slides</a>
+        </>
+      )
+    }
+  </p>
+  <div class="lecture-intro">
+    <Content />
+  </div>
   <TeachingTeam teachers={lecture.data.teachers} />
   <RelatedContent entry={lecture} collections={graphCollections} />
 </ContentLayout>
+
+<style>
+  .lecture-facts {
+    margin-block: 0 var(--at-spacing-lg);
+    color: var(--at-text-secondary);
+  }
+
+  /* Every week's body opens with the same "_Module N — Name..._" italic
+     line (see the four-module breakdown on the lectures index). Style it as
+     a callout card rather than plain italic prose — same gold-left-border
+     treatment as the index pages' .at-callout--info override, applied
+     directly here since this paragraph comes from Markdown, not a
+     <Callout> component. Scoped styles don't reach into <Content />'s
+     rendered output, hence :global() on the descendant half only. */
+  .lecture-intro > :global(p:first-child) {
+    margin-block: 0 var(--at-spacing-lg);
+    padding: var(--at-spacing-md);
+    border-inline-start: 4px solid var(--at-primary);
+    background: light-dark(
+      rgb(from var(--at-primary) r g b / 8%),
+      rgb(from var(--at-primary) r g b / 16%)
+    );
+  }
+</style>

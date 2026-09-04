@@ -70,6 +70,11 @@ export const collections = {
         week: weekSchema,
         date: z.coerce.date(),
         teachers: teacherRefs.optional(),
+        // Short "Module N — Name" label, repeated on every week in the module.
+        // Kept as its own field (rather than parsed out of the body's italic
+        // intro paragraph) so the compact quick-facts line doesn't depend on
+        // scraping Markdown prose.
+        module: z.string().trim().min(1).optional(),
         slides: z
           .string()
           .regex(/^\/decks\/[a-z0-9-]+\/$/)

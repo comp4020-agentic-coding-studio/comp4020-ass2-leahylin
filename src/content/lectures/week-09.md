@@ -4,11 +4,14 @@ description:
   Why an empty fridge triggers existential anxiety, and how food hoarding works
   as a defence against a sense of lost control
 week: 9
+module: "Module 3 — The tyranny of time"
 date: 2027-04-26
 teachers:
   - casper-nowak
 related:
   - sessions/09-stockpiling
+  - week-08
+  - week-10
 ---
 
 _Module 3 — The tyranny of time._

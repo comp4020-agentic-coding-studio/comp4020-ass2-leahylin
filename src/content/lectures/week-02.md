@@ -4,11 +4,14 @@ description:
   Technology promised to liberate the housewife. It raised the standard instead,
   and bound her more tightly to the kitchen.
 week: 2
+module: "Module 1 — Disenchantment"
 date: 2027-03-01
 teachers:
   - simone-ravel
 related:
   - sessions/02-second-shift
+  - week-01
+  - week-03
 ---
 
 _Module 1 — Disenchantment._

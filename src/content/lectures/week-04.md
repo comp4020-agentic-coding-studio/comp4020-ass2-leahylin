@@ -4,11 +4,14 @@ description:
   Procurement, distribution and spatial politics — how the vertical space inside
   a fridge maps onto the power hierarchy of a household
 week: 4
+module: "Module 2 — Micropolitics"
 date: 2027-03-15
 teachers:
   - simone-ravel
 related:
   - sessions/04-fridge-archaeology
+  - week-03
+  - week-05
 ---
 
 _Module 2 — Micropolitics: power and symbols within domestic space. The module's

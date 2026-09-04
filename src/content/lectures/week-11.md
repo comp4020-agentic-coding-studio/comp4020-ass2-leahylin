@@ -4,11 +4,14 @@ description:
   Eco-Marxism, degrowth, community fridges and the revival of fermentation — is
   there an antidote to the fortress?
 week: 11
+module: "Module 4 — Resistance and reconstruction"
 date: 2027-05-10
 teachers:
   - simone-ravel
 related:
   - sessions/11-de-refrigeration
+  - week-10
+  - week-12
 ---
 
 _Module 4 — Resistance and reconstruction._

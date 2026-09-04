@@ -4,11 +4,14 @@ description:
   Why the same food is "meal prep" in a glass container and "dangerous leftovers"
   in a knotted plastic bag
 week: 5
+module: "Module 2 — Micropolitics"
 date: 2027-03-22
 teachers:
   - simone-ravel
 related:
   - sessions/05-leftovers
+  - week-04
+  - week-06
 ---
 
 _Module 2 — Micropolitics._

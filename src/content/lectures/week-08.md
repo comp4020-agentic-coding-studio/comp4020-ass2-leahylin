@@ -4,11 +4,14 @@ description:
   Bauman's liquid modernity, the sense of security the fridge sells, and the
   astonishing household waste that security produces
 week: 8
+module: "Module 3 — The tyranny of time"
 date: 2027-04-19
 teachers:
   - casper-nowak
 related:
   - sessions/08-systemic-waste
+  - week-07
+  - week-09
 ---
 
 _Module 3 — The tyranny of time._

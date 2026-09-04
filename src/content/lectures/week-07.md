@@ -4,12 +4,15 @@ description:
   Two labels, a blurred line, and a food industry that manufactures safety
   anxiety to accelerate turnover and evade responsibility
 week: 7
+module: "Module 3 — The tyranny of time"
 date: 2027-04-12
 teachers:
   - casper-nowak
 slides: /decks/week-07/
 related:
   - sessions/07-date-labels
+  - week-06
+  - week-08
 ---
 
 _Module 3 — The tyranny of time: anxiety, illusions, and complicity with capital.
