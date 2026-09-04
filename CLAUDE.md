@@ -109,6 +109,20 @@ file rather than a nicety.
   `getBoundingClientRect` on the element and its parent chain found this in one
   shot. `curl` shows you the CSS that was *sent*, never the layout that
   resulted — the two disagreeing is the whole bug class this section is about.
+- **A word followed by a newline followed by an inline tag loses its space.**
+  Plain prose text in `.astro` markup — not a `{}` expression, just
+  `word\n<a>...</a>` — renders as `wordlink` with no space, the same failure
+  as the documented adjacent-`{a}{b}`-expressions bug, just triggered by an
+  ordinary line wrap instead of two expressions. Worse, the project's
+  prettier-astro formatter (run by the `claude-format` PostToolUse hook) is
+  not idempotent around this pattern: repeated saves shuffled the space
+  between outside/inside the anchor tag and in/out of existence across
+  several formatting passes, so a "looks fine after one edit" check can still
+  be wrong post-format. Fix: wrap the space in an explicit `{" "}` next to
+  the tag rather than relying on a bare newline. Verify by reading the file
+  back *after* the formatter hook has run (its own PostToolUse note tells you
+  when it touched the file) and by screenshotting the rendered text, not just
+  the source.
 
 ## What the submission gate actually checks
 
