@@ -5,11 +5,28 @@ description:
   safety anxiety
 ---
 
-# The tyranny of labels
+import dateCodesImage from "./assets/week-07/date-codes.jpg";
 
-SLOP8364 · Week 7 · Dr Casper Nowak
+{/* _class: title-slide */}
 
-Best before, use by, and who decides
+<div className="title-body">
+  <span className="eyebrow">SLOP8364 · Week 7</span>
+  <div>
+    <h1>The tyranny of labels</h1>
+    <p className="title-sub">Best before, use by, and who decides</p>
+  </div>
+  <p className="title-by">Dr Casper Nowak</p>
+</div>
+
+<div
+  className="image-slot"
+  style={{
+    backgroundImage: `url(${dateCodesImage.src})`,
+    backgroundSize: "contain",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+/>
 
 ```notes
 **~2 min** (0:00)
@@ -32,11 +49,11 @@ Two hours, break at the hour.
 
 ---
 
-{/* _class: impact */}
+{/* _class: section-break */}
 
-## One of these is an instruction.
+<h2 style={{ fontSize: "3.5rem", lineHeight: 1.2, fontWeight: 600, margin: "0 0 1.75rem" }}>One of these is an instruction.</h2>
 
-## The other is an opinion.
+<h2 style={{ fontSize: "3.5rem", lineHeight: 1.2, fontWeight: 400, margin: 0, color: "var(--anu-gold)" }}>The other is an opinion.</h2>
 
 ```notes
 **~1 min** (0:02)
@@ -50,14 +67,18 @@ demonstrate it to them and it should land as evidence, not as embarrassment.
 
 ---
 
+<div className="slide-head"><span>Opening</span><span>SLOP8364 · WK 7</span></div>
+
 ## Four labels. Would you eat it?
 
-1. Plain **yoghurt**, opened two days ago — `BEST BEFORE 12 MAR`
-2. Washed **salad leaves**, unopened — `USE BY 12 MAR`
-3. Dried **pasta**, unopened — `BEST BEFORE MAR 2029`
-4. Hard **cheese**, wrapped — `BEST BEFORE 12 MAR`
-
 Every one of those dates has **passed**. Hands up for each: eat, or bin?
+
+<div className="item-cards">
+  <div><b>Plain yoghurt, opened two days ago</b><code className="datecode">BEST BEFORE 12 MAR</code></div>
+  <div><b>Washed salad leaves, unopened</b><code className="datecode">USE BY 12 MAR</code></div>
+  <div><b>Dried pasta, unopened</b><code className="datecode">BEST BEFORE MAR 2029</code></div>
+  <div><b>Hard cheese, wrapped</b><code className="datecode">BEST BEFORE 12 MAR</code></div>
+</div>
 
 ```notes
 **~7 min** (0:03)
@@ -85,14 +106,20 @@ Do not correct anybody yet. Let the wrong answers stand for fifteen minutes.
 
 ---
 
-## 1 · Yoghurt — `BEST BEFORE`
+<div className="slide-head"><span>Opening · The four verdicts</span><span>1 of 4</span></div>
 
-A **quality prediction**. Not a safety limit.
-
-Yoghurt is cultured and acidic — an environment actively hostile to the
-organisms that make people ill.
-
-Past this date it gets **tangier**, not dangerous.
+<div className="verdict">
+  <div>
+    <h2>Yoghurt</h2>
+    <code className="datecode">BEST BEFORE</code>
+    <span className="tag">A quality prediction</span>
+  </div>
+  <div>
+    <p className="lead">Not a safety limit.</p>
+    <p>Yoghurt is cultured and acidic — an environment actively hostile to the organisms that make people ill.</p>
+    <p className="lead">Past this date it gets <strong>tangier</strong>, not dangerous.</p>
+  </div>
+</div>
 
 ```notes
 **~3 min** (0:10)
@@ -111,15 +138,21 @@ was, because the printer never met this tub.
 
 ---
 
-## 2 · Salad leaves — `USE BY`
+<div className="slide-head"><span>Opening · The four verdicts</span><span>2 of 4</span></div>
 
-**Respect this one.**
-
-Ready-to-eat leaves are the genuine high-risk case:
-
-- nothing here will be **cooked** — there is no kill step
-- some pathogens grow at **refrigerator temperature**
-- the bag is a sealed, humid, ambient-nutrient environment
+<div className="verdict">
+  <div>
+    <h2>Salad leaves</h2>
+    <code className="datecode">USE BY</code>
+    <span className="tag dark">Respect this one</span>
+  </div>
+  <div>
+    <p>Ready-to-eat leaves are the genuine high-risk case:</p>
+    <span>Nothing here will be <strong>cooked</strong> — there is no kill step</span>
+    <span>Some pathogens grow at <strong>refrigerator temperature</strong></span>
+    <span>The bag is a sealed, humid, ambient-nutrient environment</span>
+  </div>
+</div>
 
 ```notes
 **~3 min** (0:13)
@@ -142,15 +175,19 @@ spending that authority on dried pasta is such an expensive mistake.
 
 ---
 
-## 3 · Dried pasta — `BEST BEFORE MAR 2029`
+<div className="slide-head"><span>Opening · The four verdicts</span><span>3 of 4</span></div>
 
-A **formality**.
-
-Shelf-stable, low moisture, close to inert. It will comfortably outlast the
-packet it came in.
-
-A date printed because the **format expects a date** — not because anything
-happens on it.
+<div className="verdict">
+  <div>
+    <h2>Dried pasta</h2>
+    <code className="datecode">BEST BEFORE MAR 2029</code>
+    <span className="tag">A formality</span>
+  </div>
+  <div>
+    <p>Shelf-stable, low moisture, close to inert. It will comfortably outlast the packet it came in.</p>
+    <p className="lead">A date printed because the <strong>format expects a date</strong> — not because anything happens on it.</p>
+  </div>
+</div>
 
 ```notes
 **~2 min** (0:16)
@@ -169,14 +206,20 @@ where uncertainty is, which is exactly where it does the most damage.
 
 ---
 
-## 4 · Hard cheese — `BEST BEFORE`
+<div className="slide-head"><span>Opening · The four verdicts</span><span>4 of 4</span></div>
 
-A quality prediction on a food that is **itself a preservation technology**.
-
-Low moisture. Salted. Deliberately aged.
-
-Ageing is the **point** of it. Surface mould cuts away, and the rest is
-cheese.
+<div className="verdict">
+  <div>
+    <h2>Hard cheese</h2>
+    <code className="datecode">BEST BEFORE</code>
+    <span className="tag">A date on a preservation technology</span>
+  </div>
+  <div>
+    <p>Low moisture. Salted. Deliberately aged.</p>
+    <p className="lead">Ageing is the <strong>point</strong> of it.</p>
+    <p>Surface mould cuts away, and the rest is cheese.</p>
+  </div>
+</div>
 
 ```notes
 **~2 min** (0:18)
@@ -197,8 +240,13 @@ moisture, different risk, and somebody will quote you at a dinner party.
 
 {/* _class: centered */}
 
-## Three of those four dates
-## told you nothing about safety.
+<div className="fraction">
+  <div><b>3</b><span>/4</span></div>
+  <div>
+    <h2>Three of those four dates told you nothing about safety.</h2>
+    <p>Same typeface. Same position. Same format. Same air of authority.</p>
+  </div>
+</div>
 
 ```notes
 **~3 min** (0:20)
@@ -219,13 +267,20 @@ that a design failure, or is it working?**
 
 ---
 
+<div className="slide-head"><span>Module 3 · The tyranny of time</span><span>SLOP8364 · WK 7</span></div>
+
 ## Where this week sits
 
-**Module 3 — The tyranny of time.**
-
-Inherited from week 6: the household **performs competence** on the door.
-
-This week: **who wrote the standard** that competence is measured against?
+<div className="compare">
+  <div>
+    <h6>Inherited from week 6</h6>
+    <p style={{ fontSize: "1.875rem", color: "#000", lineHeight: 1.35 }}>The household <strong>performs competence</strong> on the door.</p>
+  </div>
+  <div>
+    <h6>This week</h6>
+    <p style={{ fontSize: "1.875rem", color: "#000", lineHeight: 1.35 }}>Who <strong>wrote the standard</strong> that competence is measured against?</p>
+  </div>
+</div>
 
 ```notes
 **~3 min** (0:23)
@@ -248,11 +303,13 @@ week where the whole course's thesis either survives or does not.
 
 ---
 
-{/* _class: impact */}
+{/* _class: section-break tight */}
 
-# Part one
+###### Part one
 
 ## What the two labels actually mean
+
+<hr />
 
 ```notes
 **~1 min** (0:26)
@@ -263,14 +320,19 @@ and that the payoff is in part two.
 
 ---
 
+<div className="slide-head"><span>Part one · What the labels mean</span><span>SLOP8364 · WK 7</span></div>
+
 ## Best before
 
-A prediction about **quality**.
+<p style={{ fontSize: "2.125rem", color: "#000", lineHeight: 1.3 }}>A prediction about <strong>quality</strong>.</p>
 
-The manufacturer's estimate of when the product stops being at its best.
+<div className="rule-cards">
+  <div><b>“Estimate”</b><p>A forecast, not a measurement. Nobody tested this jar.</p></div>
+  <div><b>“The manufacturer’s”</b><p>The party estimating has a commercial interest in the answer.</p></div>
+  <div><b>“At its best”</b><p>An aesthetic judgement wearing a numeric costume.</p></div>
+</div>
 
-After this date, food is in the overwhelming majority of cases entirely
-edible.
+<p className="statement">After this date, food is in the overwhelming majority of cases entirely edible.</p>
 
 ```notes
 **~4 min** (0:27)
@@ -296,13 +358,24 @@ carries a date because the format demands one.
 
 ---
 
+<div className="slide-head"><span>Part one · What the labels mean</span><span>SLOP8364 · WK 7</span></div>
+
 ## Use by
 
-A statement about **safety**.
+<p style={{ fontSize: "2.125rem", color: "#000", lineHeight: 1.3 }}>A statement about <strong>safety</strong>.</p>
 
-Applies to a narrow category of genuinely high-risk foods.
+<div className="compare">
+  <div>
+    <h6>Not in it</h6>
+    <p>Dry goods, tinned goods, most preserves, hard cheese, most condiments, frozen food — the bulk of an ordinary pantry.</p>
+  </div>
+  <div>
+    <h6>In the category</h6>
+    <p>Washed salads, cut fruit, soft cheeses, pâté, cooked sliced meats, sandwiches, some smoked fish, fresh meat, poultry and fish.</p>
+  </div>
+</div>
 
-This is the one to treat as an instruction.
+<p className="statement" style={{ borderInlineStartColor: "#000" }}>The category is <strong>narrow</strong>. Inside it, treat the date as an instruction.</p>
 
 ```notes
 **~4 min** (0:31)
@@ -327,15 +400,20 @@ your senses genuinely cannot detect the hazard.
 
 ---
 
+<div className="slide-head"><span>Part one · What the labels mean</span><span>SLOP8364 · WK 7</span></div>
+
 ## What the law actually requires
 
 In **Australia and New Zealand**, the Food Standards Code separates the two,
-and the separation has teeth:
+and the separation has teeth.
 
-- it is an **offence** to sell food after its **use by** date
-- it is **legal** to sell food after its **best before** date, provided the
-  food is still fit
-- foods with a shelf life of **two years or more** need no date mark at all
+<div className="claim-rows">
+  <div><p>It is an <strong>offence</strong> to sell food after its <strong>use by</strong> date</p><b>Criminal liability</b></div>
+  <div><p>It is <strong>legal</strong> to sell food after its <strong>best before</strong> date, provided the food is still fit</p><b>No deadline</b></div>
+  <div><p>Foods with a shelf life of <strong>two years or more</strong> need no date mark at all</p><b>No mark required</b></div>
+</div>
+
+<p style={{ fontSize: "1.5rem" }}>FSANZ Food Standards Code, Standard 1.2.5. Check the current wording — it has been amended, and will be again.</p>
 
 ```notes
 **~5 min** (0:35)
@@ -343,15 +421,15 @@ and the separation has teeth:
 FSANZ Food Standards Code, Standard 1.2.5 — date marking. Check the current
 wording before you present; it has been amended and will be again.
 
-The second bullet is the one that stops the room, so pause on it. Selling
-food past its best before date is **lawful**. The date is not a legal
-deadline for anyone. And yet the near-universal retail practice is to pull
-and destroy that stock, which means an enormous volume of food is discarded
-in compliance with a rule that does not exist.
+The second row is the one that stops the room, so pause on it. Selling food
+past its best before date is **lawful**. The date is not a legal deadline for
+anyone. And yet the near-universal retail practice is to pull and destroy
+that stock, which means an enormous volume of food is discarded in compliance
+with a rule that does not exist.
 
-The third bullet is quietly devastating: the regulator's own view is that
-plenty of food does not need a date at all. Look at how much of it carries
-one anyway.
+The third row is quietly devastating: the regulator's own view is that plenty
+of food does not need a date at all. Look at how much of it carries one
+anyway.
 
 Two useful asides if there is time — bread with a short shelf life can be
 marked *baked on* or *baked for* instead, which is a date that describes
@@ -367,8 +445,14 @@ tutorial makes you look up. Do not take my summary as the citation.
 
 {/* _class: centered */}
 
-## The law distinguishes them sharply.
-## The packet does not.
+<h2 style={{ fontSize: "3rem", color: "var(--anu-unigrey)", fontWeight: 400, lineHeight: 1.2, margin: "0 0 0.875rem" }}>The law distinguishes them sharply.</h2>
+
+<h2 style={{ fontSize: "3rem", color: "#000", fontWeight: 600, lineHeight: 1.2, margin: "0 0 2.25rem" }}>The packet does not.</h2>
+
+<div className="item-cards">
+  <div><code className="datecode" style={{ fontSize: "1.5rem", color: "#000" }}>USE BY 12 MAR</code><span style={{ fontSize: "1.3125rem" }}>Safety instruction. Offence to sell past it.</span></div>
+  <div><code className="datecode" style={{ fontSize: "1.5rem", color: "#000" }}>BEST BEFORE 12 MAR</code><span style={{ fontSize: "1.3125rem" }}>Quality estimate. Legal to sell past it.</span></div>
+</div>
 
 ```notes
 **~3 min** (0:39)
@@ -394,10 +478,11 @@ That is part two.
 
 ---
 
-{/* _class: quote */}
+{/* _class: section-break */}
 
 > Legally distinct. Governed differently.
 > Read by almost everyone as the same thing:
+>
 > a deadline, printed by somebody who knows.
 
 ```notes
@@ -412,11 +497,13 @@ Part two takes all three assumptions apart.
 
 ---
 
-{/* _class: impact */}
+{/* _class: section-break */}
 
-# Part two
+###### Part two
 
 ## Follow the incentive
+
+<hr />
 
 ```notes
 **~1 min** (0:43)
@@ -427,15 +514,16 @@ or consequence.
 
 ---
 
-## Follow the incentive
+<div className="slide-head"><span>Part two · Follow the incentive</span><span>SLOP8364 · WK 7</span></div>
 
-Why print a date earlier than the food requires?
+## Why print a date earlier than the food requires?
 
-- limits **liability**
-- protects the **brand** — a customer eating something stale blames the
-  label's owner, not the calendar
-- supports **shelf-space negotiation** with retailers
-- accelerates **turnover** — discard on schedule, replace on schedule
+<div className="rule-cards" style={{ "--cols": 2 }}>
+  <div><b>Limits liability</b><p>A date too early costs nothing. A date too late is a claim, a recall, a headline.</p></div>
+  <div><b>Protects the brand</b><p>A customer eating something stale blames the label’s owner, not the calendar.</p></div>
+  <div><b>Supports shelf-space negotiation</b><p>Minimum-life-on-receipt terms ripple back up the chain from the retailer.</p></div>
+  <div><b>Accelerates turnover</b><p>Discard on schedule, replace on schedule. Nobody has to plan it.</p></div>
+</div>
 
 ```notes
 **~6 min** (0:44)
@@ -473,9 +561,11 @@ also why it is harder to argue with.
 
 ---
 
-{/* _class: centered */}
+{/* _class: big-lines xl */}
 
-## At no step is anyone paid to print it later.
+<h2>At no step is anyone paid to print it later.</h2>
+
+<p className="statement" style={{ fontSize: "1.875rem", marginBlockStart: "2rem" }}>A number with a systematic bias and no opposing party is not an estimate. It is a <strong>position</strong>.</p>
 
 ```notes
 **~2 min** (0:50)
@@ -497,13 +587,22 @@ is a **position**.
 
 ---
 
+<div className="slide-head"><span>Part two · Follow the incentive</span><span>SLOP8364 · WK 7</span></div>
+
 ## So what is the number, actually?
 
-It looks like a fact about **the food**.
+<div className="compare">
+  <div>
+    <h6>It looks like a fact about</h6>
+    <p style={{ fontSize: "2.375rem", lineHeight: 1.25 }}>The food</p>
+  </div>
+  <div>
+    <h6>It is a fact about</h6>
+    <p style={{ fontSize: "2.375rem", lineHeight: 1.25, color: "#000", fontWeight: 600 }}>Liability, brand management, and regulatory caution</p>
+  </div>
+</div>
 
-It is a fact about **liability, brand management, and regulatory caution**.
-
-And obeying it costs households money and costs the world food.
+<p style={{ fontSize: "1.875rem", color: "#000" }}>And obeying it costs households money and costs the world food.</p>
 
 ```notes
 **~4 min** (0:52)
@@ -525,11 +624,11 @@ Leave the counts from the opening on the board over the break.
 
 ---
 
-{/* _class: centered */}
+{/* _class: section-break loud */}
 
 ## Break — ten minutes.
 
-## We resume at the hour.
+###### We resume at the hour.
 
 ```notes
 **(0:56) — 10 min**
@@ -546,11 +645,13 @@ the break. If theirs was not ready, they email Simone now, not in week 9.
 
 ---
 
-{/* _class: impact */}
+{/* _class: section-break */}
 
-# Part three
+###### Part three
 
 ## Manufactured anxiety
+
+<hr />
 
 ```notes
 **~1 min** (1:06)
@@ -561,14 +662,20 @@ food, and every incentive points the same way.
 
 ---
 
+<div className="slide-head"><span>Part three · Manufactured anxiety</span><span>SLOP8364 · WK 7</span></div>
+
 ## The blur is not a bug
 
-Two categories, one presentation, decades of documented confusion, and a
-remedy that is **cheap and obvious**.
+The argument, as an inference — not as an accusation:
 
-Ambiguity is not a failure of the labelling system.
+<div className="num-rows">
+  <div><b>1</b><p>The confusion is well documented, and has been for decades</p></div>
+  <div><b>2</b><p>Remedies are cheap, obvious, and repeatedly proposed</p></div>
+  <div><b>3</b><p>The confusion produces turnover, which benefits the parties who control the presentation</p></div>
+  <div><b>4</b><p>Those parties have not adopted the remedies</p></div>
+</div>
 
-It is a **feature** of it.
+<p style={{ fontSize: "1.6875rem", color: "#000" }}>Not intent. <strong>Revealed preference</strong> — which is the stronger claim, because it does not depend on anybody’s state of mind.</p>
 
 ```notes
 **~4 min** (1:08)
@@ -576,13 +683,8 @@ It is a **feature** of it.
 Make the inference structure explicit, because this is the step a hostile
 reader will attack and the students need to see it done carefully.
 
-The argument is *not* "somebody designed the confusion." It is:
-
-1. the confusion is well documented and has been for decades
-2. remedies are cheap, obvious, and repeatedly proposed
-3. the confusion produces turnover, which benefits the parties who control
-   the presentation
-4. those parties have not adopted the remedies
+The argument is *not* "somebody designed the confusion." It is the four steps
+on the slide.
 
 You cannot get intent from that. You can get **revealed preference**, and
 revealed preference is the stronger claim anyway because it does not depend
@@ -596,14 +698,19 @@ of a forty-year delay it actually explains.
 
 ---
 
+<div className="slide-head"><span>Part three · Manufactured anxiety</span><span>SLOP8364 · WK 7</span></div>
+
 ## Anxiety, systematically produced
 
-Safety anxiety converts directly into **turnover**.
+<p style={{ fontSize: "2.125rem", color: "#000", lineHeight: 1.3 }}>Safety anxiety converts directly into <strong>turnover</strong>.</p>
 
-The confusion is **documented**, **quantified**, and **traceable**.
+<div className="term-row">
+  <span>Documented</span>
+  <span>Quantified</span>
+  <span>Traceable</span>
+</div>
 
-This is where the course stops being interpretive and starts being
-measurable.
+<p className="statement">This is where the course stops being interpretive and starts being measurable.</p>
 
 ```notes
 **~4 min** (1:12)
@@ -629,15 +736,19 @@ checked, and week 8 checks the biggest part of it.
 
 ---
 
+<div className="slide-head"><span>Part three · Manufactured anxiety</span><span>SLOP8364 · WK 7</span></div>
+
 ## How anxiety becomes turnover
 
-1. two labels, indistinguishable in presentation
-2. the household cannot tell which is which
-3. under uncertainty about **safety**, the rational move is to **discard**
-4. discarded food is **repurchased**
-5. repurchase is **revenue**
+<div className="step-chain">
+  <div><b>01</b><span>Two labels, indistinguishable in presentation</span></div>
+  <div><b>02</b><span>The household cannot tell which is which</span></div>
+  <div className="pivot"><b>03</b><span>Under uncertainty about safety, the rational move is to discard</span></div>
+  <div><b>04</b><span>Discarded food is repurchased</span></div>
+  <div><b>05</b><span>Repurchase is revenue</span></div>
+</div>
 
-No step requires anybody to act in bad faith.
+<p style={{ fontSize: "1.75rem", color: "#000" }}>No step requires anybody to act in bad faith.</p>
 
 ```notes
 **~5 min** (1:16)
@@ -662,14 +773,19 @@ property of the system.
 
 ---
 
+<div className="slide-head"><span>Part three · Manufactured anxiety</span><span>SLOP8364 · WK 7</span></div>
+
 ## Who absorbs the cost
 
-**The household** — food bought and not eaten, plus the labour of managing it
+<div className="rule-cards" style={{ "--cols": 2 }}>
+  <div><b>The household</b><p>Food bought and not eaten, plus the unpaid labour of managing it.</p></div>
+  <div><b>The environment</b><p>Production, transport and refrigeration — overwhelmingly upstream — plus methane from landfill.</p></div>
+</div>
 
-**The environment** — production, transport, refrigeration, and methane from
-landfill
-
-**Not** the manufacturer. **Not** the retailer.
+<div className="not-paid">
+  <span>The manufacturer</span>
+  <span>The retailer</span>
+</div>
 
 ```notes
 **~4 min** (1:21)
@@ -695,14 +811,19 @@ makes it durable.
 
 ---
 
-## Stuart on retail standards
+{/* _class: split-layout */}
 
-Waste is designed in **upstream**, long before a household sees the food.
-
-Cosmetic specifications. Minimum-life-on-receipt terms. Order forecasts that
-punish under-supply and forgive over-supply.
-
-The date label is the **last** of these mechanisms, not the only one.
+<div className="split-content">
+  <div className="slide-head"><span>Part three · The reading</span></div>
+  <h2>Stuart on retail standards</h2>
+  <p style={{ fontSize: "1.75rem", color: "#000", lineHeight: 1.35 }}>Waste is designed in <strong>upstream</strong>, long before a household sees the food.</p>
+  <div className="term-row" style={{ "--cols": 1, gap: "0.75rem" }}>
+    <span style={{ fontSize: "1.4375rem", fontWeight: 400, color: "var(--anu-unigrey)" }}>Cosmetic specifications</span>
+    <span style={{ fontSize: "1.4375rem", fontWeight: 400, color: "var(--anu-unigrey)" }}>Minimum-life-on-receipt terms</span>
+    <span style={{ fontSize: "1.4375rem", fontWeight: 400, color: "var(--anu-unigrey)" }}>Order forecasts that punish under-supply and forgive over-supply</span>
+  </div>
+  <p className="statement" style={{ fontSize: "1.625rem" }}>The date label is the <strong>last</strong> of these mechanisms, not the only one.</p>
+</div>
 
 ```notes
 **~4 min** (1:25)
@@ -730,11 +851,13 @@ change and worth them checking.
 
 ---
 
-{/* _class: impact */}
+{/* _class: section-break */}
 
-# Part four
+###### Part four
 
 ## What the date does not know
+
+<hr />
 
 ```notes
 **~1 min** (1:29)
@@ -744,14 +867,18 @@ Turn from the system to the individual jar. Pace picks up here.
 
 ---
 
+<div className="slide-head"><span>Part four · What the date does not know</span><span>SLOP8364 · WK 7</span></div>
+
 ## What the date does not know
 
-- how cold your fridge actually runs
-- whether the packet has been opened
-- how long it sat in a hot car
-- what your nose is telling you right now
+<div className="term-grid">
+  <span>How cold your fridge actually runs</span>
+  <span>Whether the packet has been opened</span>
+  <span>How long it sat in a hot car</span>
+  <span>What your nose is telling you right now</span>
+</div>
 
-Your senses have information the printer never had.
+<p className="statement">Your senses have information the printer never had.</p>
 
 ```notes
 **~4 min** (1:30)
@@ -779,15 +906,19 @@ quality; senses cannot see Listeria. Different question, different tool.
 
 ---
 
+<div className="slide-head"><span>Part four · The method</span><span>SLOP8364 · WK 7</span></div>
+
 ## The three questions
 
 For any date, on any package:
 
-1. Who wrote this number?
-2. What were they protecting?
-3. What happens to me if I ignore it?
+<div className="qa-rows">
+  <div><b>1</b><p>Who wrote this number?</p><em>Rarely a food scientist</em></div>
+  <div><b>2</b><p>What were they protecting?</p><em>Rarely my health</em></div>
+  <div><b>3</b><p>What happens to me if I ignore it?</p><em>Rarely illness</em></div>
+</div>
 
-The answers are rarely _a food scientist_, _my health_, and _illness_.
+<p style={{ fontSize: "1.5625rem" }}>Question 2 does the analytical work, and it is the one that gets skipped.</p>
 
 ```notes
 **~5 min** (1:35)
@@ -815,11 +946,13 @@ Same course, tighter instrument.
 
 ---
 
-{/* _class: impact */}
+{/* _class: section-break */}
 
-# Part five
+###### Part five
 
 ## The competence that was lost
+
+<hr />
 
 ```notes
 **~1 min** (1:40)
@@ -827,14 +960,20 @@ Same course, tighter instrument.
 
 ---
 
-## The competence that was lost
+<div className="slide-head"><span>Part five · The competence that was lost</span><span>SLOP8364 · WK 7</span></div>
 
-**Week 1** — households once knew how to judge whether food was good.
+<div className="compare">
+  <div>
+    <h6>Week 1</h6>
+    <p style={{ fontSize: "1.875rem", lineHeight: 1.3 }}>Households once knew how to judge whether food was good.</p>
+  </div>
+  <div>
+    <h6>Week 7</h6>
+    <p style={{ fontSize: "1.875rem", lineHeight: 1.3, color: "#000" }}>That judgement is outsourced to a number printed by someone with different incentives.</p>
+  </div>
+</div>
 
-**Week 7** — that judgement is outsourced to a number printed by someone with
-different incentives.
-
-The date label is where the forgetting became **infrastructure**.
+<p style={{ fontSize: "2.375rem", color: "#000", lineHeight: 1.3, textWrap: "pretty" }}>The date label is where the forgetting became <span className="mark">infrastructure</span>.</p>
 
 ```notes
 **~5 min** (1:41)
@@ -863,11 +1002,11 @@ and that nobody was told.
 
 ---
 
-{/* _class: quote */}
+{/* _class: section-break */}
 
 > The household did not stop being able to judge food.
 >
-> It stopped being **allowed to be the one who judges.**
+> It stopped being allowed to be the one who judges.
 
 ```notes
 **~2 min** (1:46)
@@ -878,14 +1017,18 @@ in a Critical Essay, and about three people a year do.
 
 ---
 
+<div className="slide-head"><span>Part five · A constructive turn</span><span>SLOP8364 · WK 7</span></div>
+
 ## What an honest label would say
 
 Not a date. A **statement of what is known**:
 
-- what this food actually is, microbiologically
-- what would make it unsafe, and whether you could tell
-- what will change first, and how you would notice
-- what the manufacturer does **not** know about your copy of it
+<div className="term-grid">
+  <span className="strong">What this food actually is, microbiologically</span>
+  <span className="strong">What would make it unsafe, and whether you could tell</span>
+  <span className="strong">What will change first, and how you would notice</span>
+  <span className="strong" style={{ borderBlockStartColor: "#000" }}>What the manufacturer does <strong>not</strong> know about your copy of it</span>
+</div>
 
 ```notes
 **~4 min** (1:48)
@@ -912,10 +1055,11 @@ authority is not usually given away. Which is the next slide.
 
 ---
 
-{/* _class: quote */}
+{/* _class: section-break */}
 
 > An honest label has to say what it knows,
 > what it does not know,
+>
 > and what you should actually check.
 
 ```notes
@@ -931,14 +1075,15 @@ next slide.
 
 ---
 
+<div className="slide-head"><span>Part five · A constructive turn</span><span>SLOP8364 · WK 7</span></div>
+
 ## Which honest labels would a lawyer refuse?
 
-That refusal is the **political economy of the week in one sentence**.
+<p style={{ fontSize: "1.8125rem", color: "#000", lineHeight: 1.35 }}>A label that admits uncertainty invites a claim.</p>
 
-A label that admits uncertainty invites a claim.
+<p style={{ fontSize: "1.8125rem", color: "#000", lineHeight: 1.35 }}>A label that transfers judgement to the customer transfers <strong>risk</strong> — in the direction nobody upstream wants it to go.</p>
 
-A label that transfers judgement to the customer transfers **risk** — in the
-direction nobody upstream wants it to go.
+<p className="statement loud" style={{ fontSize: "2.125rem", fontWeight: 400 }}>The label is optimised for the risk of the party who prints it, not for the decision of the party who reads it.</p>
 
 ```notes
 **~4 min** (1:54)
@@ -964,6 +1109,8 @@ those words. It is the most compressed version of the argument I have.
 
 ---
 
+<div className="slide-head"><span>Wednesday · Session 07</span><span>SLOP8364 · WK 7</span></div>
+
 ## Wednesday: label forensics
 
 Bring **5–10 items** with date labels, or clear photographs. Prioritise the
@@ -971,12 +1118,13 @@ Bring **5–10 items** with date labels, or clear photographs. Prioritise the
 
 Sort the pooled items into:
 
-- a **safety baseline**
-- a **peak of flavour**
-- a date that **should never have been printed**
+<div className="letter-cards">
+  <div><span style={{ fontSize: "1.625rem", fontWeight: 700 }}>A safety baseline</span></div>
+  <div><span style={{ fontSize: "1.625rem", fontWeight: 700 }}>A peak of flavour</span></div>
+  <div style={{ background: "var(--anu-gold)", borderColor: "var(--anu-gold)" }}><span style={{ fontSize: "1.625rem", fontWeight: 700 }}>A date that should never have been printed</span></div>
+</div>
 
-Then look up what the regulations actually require, and draft honest labels
-for three of them.
+<p style={{ fontSize: "1.5625rem", color: "#000" }}>Then look up what the regulations actually require, and draft honest labels for three of them.</p>
 
 ```notes
 **~5 min** (1:58)
@@ -1004,14 +1152,14 @@ labels are the evidence — that is why it is called forensics.
 
 ---
 
+<div className="slide-head"><span>Assessment</span><span>SLOP8364 · WK 7</span></div>
+
 ## Two notes on assessment
 
-The **Critical Essay** opens now, and Module 3 is its territory.
-
-Date labelling is the **most popular** phenomenon — and therefore the hardest
-to say something new about.
-
-Keep your honest labels. Several have become **Final Project** proposals.
+<div className="def-rows" style={{ "--def-term-width": "16rem" }}>
+  <div><b style={{ color: "var(--anu-gold)" }}>Critical Essay</b><p>Opens now, and Module 3 is its territory. Date labelling is the <strong>most popular</strong> phenomenon — and therefore the hardest to say something new about.</p></div>
+  <div><b style={{ color: "var(--anu-gold)" }}>Final Project</b><p>Keep your honest labels. Several have become Counter-Fridge proposals.</p></div>
+</div>
 
 ```notes
 **~3 min** (2:03)
@@ -1038,13 +1186,16 @@ in the course.
 
 ---
 
-{/* _class: impact */}
+{/* _class: section-break tight */}
 
-# Next week
+###### Next week · Week 8
 
 ## The illusion of preservation
 
-Bauman, and why the fortress fills the bin.
+Bauman, and why the fortress fills the bin. Where the course’s central thesis
+becomes a number — and where it could fail.
+
+<hr />
 
 ```notes
 **~2 min** (2:06)

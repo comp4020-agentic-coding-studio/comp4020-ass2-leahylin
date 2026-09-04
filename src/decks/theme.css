@@ -1,13 +1,870 @@
-/* The deck stylesheet. It is one import on purpose.
+/* The deck stylesheet.
  *
  * astro-theme-university's deck.css derives every colour it uses from the
- * same --at-* brand tokens the site's own styles derive from, and
- * `brandCss: "astro-theme-slop/slop.css"` in astro.config.ts puts the Slop
- * palette behind those tokens. So a deck already matches the site, and
- * restating a colour here is how the two start to disagree.
- *
- * Deck pages are dark surfaces and they don't load the site's stylesheets ---
- * only the brand CSS and this file. Add your own rules below the import: a
- * slide class you reach for (`_class: quote`), a code-heavy layout, a
- * background. */
+ * --at-* brand tokens, so colours are named in exactly one place below: the
+ * token block re-points the brand at the ANU palette for deck pages. The
+ * second block defines the layout primitives the week-01 deck composes from.
+ */
 @import url("astro-theme-university/styles/deck.css");
+
+/* ── ANU palette, deck pages only ───────────────────────────────────────── */
+:root {
+  --anu-gold: #be830e;
+  --anu-gold-tint: #f5edde;
+  --anu-unigrey: #333333;
+  --anu-black: #000000;
+  --anu-white: #ffffff;
+
+  --at-primary: var(--anu-gold);
+  --at-dark-grey: var(--anu-black);
+  --at-light-grey: var(--anu-unigrey);
+
+  color-scheme: light;
+  --r-background-color: var(--anu-gold-tint);
+  --r-main-color: var(--anu-unigrey);
+  --r-heading-color: var(--anu-black);
+  --at-divider: rgb(0 0 0 / 16%);
+  --at-text-secondary: var(--anu-unigrey);
+  --at-deck-table-header-text: var(--anu-black);
+}
+
+/* ── Layout primitives ──────────────────────────────────────────────────── */
+:where(.reveal .slides) section {
+  /* Running head: section name left, course right. */
+  & .slide-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-block-end: 1px solid var(--at-divider);
+    padding-block-end: 0.875rem;
+    margin-block-end: 2rem;
+    font-size: 1.1875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  & .slide-head > :first-child {
+    color: var(--at-primary);
+    font-weight: 700;
+  }
+  & .slide-head > :last-child {
+    color: var(--anu-unigrey);
+  }
+
+  /* Gold eyebrow above a heading on a light slide. */
+  & .eyebrow {
+    display: block;
+    margin-block-end: 0.75rem;
+    font-size: 1.25rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--at-primary);
+    font-weight: 700;
+  }
+  & .eyebrow.quiet {
+    color: var(--anu-unigrey);
+    font-weight: 400;
+    font-size: 1.375rem;
+  }
+
+  /* Emphasised closing line, rule at the left. */
+  & .statement {
+    border-inline-start: 4px solid var(--at-primary);
+    padding-inline-start: 1.625rem;
+    color: var(--anu-black);
+    font-size: 2rem;
+    line-height: 1.35;
+    text-wrap: pretty;
+  }
+  & .statement.loud {
+    font-size: 2.625rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  /* Inline treatments the deck relies on. */
+  & .mark {
+    background: var(--at-primary);
+    color: var(--anu-black);
+    padding: 0.04em 0.22em;
+    font-weight: 600;
+  }
+  & .struck {
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--at-primary);
+  }
+
+  /* Title slide: type left, image right. */
+  &.title-slide {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    place-content: stretch;
+    & > * {
+      margin-block-end: 0;
+    }
+    & .title-body {
+      padding: 4rem 3.5rem 4rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    & h1 {
+      font-size: 3.875rem;
+      margin: 0;
+    }
+    & .title-sub {
+      margin: 2.25rem 0 0;
+      font-size: 2rem;
+      line-height: 1.4;
+    }
+    & .title-by {
+      margin: 0;
+      font-size: 1.375rem;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  /* Numbered question rows. */
+  & .num-rows > div {
+    display: grid;
+    grid-template-columns: 5.75rem 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding-block: 1.375rem;
+    border-block-start: 1px solid var(--at-divider);
+  }
+  & .num-rows > div:last-child {
+    border-block-end: 1px solid var(--at-divider);
+  }
+  & .num-rows b {
+    color: var(--at-primary);
+    font-size: 3.25rem;
+    font-weight: 300;
+    line-height: 1;
+  }
+  & .num-rows p {
+    margin: 0;
+    font-size: 1.875rem;
+    line-height: 1.4;
+  }
+
+  /* Four numbered method questions, 2 × 2. */
+  & .num-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.375rem 2.75rem;
+    & > div {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 1.125rem;
+      align-items: start;
+      border-block-start: 1px solid var(--at-divider);
+      padding-block-start: 1rem;
+    }
+    & b {
+      color: var(--at-primary);
+      font-size: 2.5rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+    & p {
+      margin: 0;
+      font-size: 1.5625rem;
+      line-height: 1.35;
+      color: var(--anu-black);
+    }
+  }
+
+  /* Term / gloss rows. */
+  & .def-rows > div {
+    display: grid;
+    grid-template-columns: var(--def-term-width, 19rem) 1fr;
+    gap: 2rem;
+    align-items: baseline;
+    padding-block: 0.875rem;
+    border-block-start: 1px solid var(--at-divider);
+  }
+  & .def-rows > div:last-child {
+    border-block-end: 1px solid var(--at-divider);
+  }
+  & .def-rows b {
+    color: var(--anu-black);
+    font-size: 1.6875rem;
+  }
+  & .def-rows p {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  /* A row of bare terms under a hairline — no gloss. */
+  & .term-row {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), 1fr);
+    gap: 2rem;
+    & > span {
+      border-block-start: 1px solid var(--at-divider);
+      padding-block-start: 1rem;
+      font-size: 1.8125rem;
+      font-weight: 700;
+      color: var(--anu-black);
+      line-height: 1.2;
+    }
+  }
+
+  /* Claim / where-tested rows. */
+  & .claim-rows > div {
+    display: grid;
+    grid-template-columns: 1fr 9.375rem;
+    gap: 2rem;
+    align-items: baseline;
+    padding-block: 1.25rem;
+    border-block-start: 1px solid var(--at-divider);
+  }
+  & .claim-rows > div:last-child {
+    border-block-end: 1px solid var(--at-divider);
+  }
+  & .claim-rows p {
+    margin: 0;
+    font-size: 1.5625rem;
+    line-height: 1.4;
+  }
+  & .claim-rows b {
+    color: var(--at-primary);
+    font-size: 1.5rem;
+    text-align: end;
+  }
+
+  /* Card grid, rule on top. Set --cols. */
+  & .rule-cards {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), 1fr);
+    gap: 1.625rem 2.25rem;
+  }
+  & .rule-cards > div {
+    border-block-start: 4px solid var(--at-primary);
+    padding-block-start: 1.25rem;
+  }
+  & .rule-cards > div > span:first-child {
+    display: block;
+    margin-block-end: 0.875rem;
+    font-size: 1.25rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--anu-unigrey);
+  }
+  & .rule-cards b {
+    display: block;
+    color: var(--anu-black);
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-block-end: 0.75rem;
+  }
+  & .rule-cards p {
+    margin: 0;
+    font-size: 1.375rem;
+    line-height: 1.45;
+  }
+
+  /* Two-column old/new or before/after comparison. */
+  & .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-block-start: 1px solid var(--at-divider);
+  }
+  & .compare > div {
+    padding-block-start: 1rem;
+  }
+  & .compare > div:first-child {
+    padding-inline-end: 2.5rem;
+    border-inline-end: 1px solid var(--at-divider);
+  }
+  & .compare > div:last-child {
+    padding-inline-start: 2.5rem;
+  }
+  & .compare h6 {
+    margin: 0 0 1.375rem;
+    font-size: 1.25rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--anu-unigrey);
+    font-weight: 400;
+  }
+  & .compare > div:last-child h6 {
+    color: var(--at-primary);
+    font-weight: 700;
+  }
+  & .compare b {
+    display: block;
+    color: var(--anu-black);
+    font-size: 1.6875rem;
+  }
+  & .compare p {
+    margin: 0.25rem 0 1.25rem;
+    font-size: 1.375rem;
+    line-height: 1.35;
+  }
+
+  /* Horizontal timeline: dot, date, label, gloss. */
+  & .timeline {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), 1fr);
+    position: relative;
+  }
+  & .timeline::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 0.6875rem;
+    inset-inline: 0;
+    height: 2px;
+    background: var(--at-divider);
+  }
+  & .timeline > div {
+    padding-inline-end: 2.75rem;
+  }
+  & .timeline i {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--at-primary);
+    position: relative;
+  }
+  & .timeline > div:last-child i {
+    background: var(--anu-black);
+  }
+  & .timeline em {
+    display: block;
+    margin-block: 1.375rem 0.625rem;
+    color: var(--at-primary);
+    font-size: 2.375rem;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1;
+  }
+  & .timeline b {
+    display: block;
+    color: var(--anu-black);
+    font-size: 1.625rem;
+    line-height: 1.2;
+    margin-block-end: 0.625rem;
+  }
+  & .timeline p {
+    margin: 0;
+    font-size: 1.375rem;
+    line-height: 1.4;
+  }
+
+  /* Boxed sequence. The last link is the household's, unless .plain. */
+  & .chain {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 7), 1fr);
+    gap: 0.5rem;
+  }
+  & .chain > span {
+    background: var(--anu-white);
+    border: 1px solid var(--at-divider);
+    padding: 1rem 0.625rem;
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--anu-unigrey);
+  }
+  & .chain > span:last-child {
+    background: var(--at-primary);
+    border-color: var(--at-primary);
+    color: var(--anu-black);
+    font-weight: 700;
+  }
+  & .chain.plain > span {
+    text-align: start;
+    padding: 1.375rem 1.25rem;
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: var(--anu-black);
+  }
+  & .chain.plain > span:last-child {
+    background: var(--anu-white);
+    border-color: var(--at-divider);
+    color: var(--anu-black);
+  }
+
+  /* Big number beside its unit. */
+  & .figures {
+    display: flex;
+    flex-direction: column;
+    gap: 1.375rem;
+    border-inline-start: 1px solid var(--at-divider);
+    padding-inline-start: 2.5rem;
+  }
+  & .figures b {
+    display: block;
+    color: var(--at-primary);
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1;
+  }
+  & .figures span {
+    display: block;
+    margin-block-start: 0.375rem;
+    font-size: 1.25rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--anu-unigrey);
+  }
+  /* Inline variant: one figure with a caption beside it. */
+  & .figure-inline {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    margin-block-end: 1.5rem;
+    & b {
+      color: var(--at-primary);
+      font-size: 4.75rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+    & span {
+      font-size: 1.5rem;
+      line-height: 1.3;
+      color: var(--anu-unigrey);
+    }
+  }
+
+  /* The scale ladder: states, industries, classes, then one kitchen. */
+  & .ladder {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    border-inline-start: 1px solid var(--at-divider);
+    padding-inline-start: 2.5rem;
+    & h6 {
+      margin: 0 0 0.25rem;
+      font-size: 1.25rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--anu-unigrey);
+      font-weight: 400;
+    }
+    & span {
+      font-size: 1.625rem;
+      color: var(--anu-unigrey);
+      border-block-end: 1px solid rgb(0 0 0 / 12%);
+      padding-block-end: 0.625rem;
+    }
+    & span:last-child {
+      background: var(--at-primary);
+      color: var(--anu-black);
+      font-weight: 700;
+      font-size: 1.75rem;
+      border: 0;
+      padding: 0.75rem 1rem;
+      margin-block-start: 0.5rem;
+    }
+  }
+
+  /* Lettered sample cards (A/B/C). */
+  & .letter-cards {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), 1fr);
+    gap: 1.5rem;
+  }
+  & .letter-cards > div {
+    background: var(--anu-white);
+    border: 1px solid var(--at-divider);
+    padding: 1.375rem 1.5rem;
+  }
+  & .letter-cards b {
+    display: block;
+    color: var(--at-primary);
+    font-size: 2.75rem;
+    line-height: 1;
+    margin-block-end: 0.875rem;
+  }
+  & .letter-cards span {
+    font-size: 1.5rem;
+    color: var(--anu-black);
+    line-height: 1.3;
+  }
+
+  /* Property chips; the last is the one that matters later. */
+  & .chips {
+    display: flex;
+    gap: 0.75rem;
+    margin-block-end: 1.25rem;
+  }
+  & .chips > span {
+    border: 1px solid var(--at-primary);
+    padding: 0.5rem 0.875rem;
+    font-size: 1.3125rem;
+    color: var(--anu-black);
+  }
+  & .chips > span:last-child {
+    background: var(--at-primary);
+    font-weight: 700;
+  }
+
+  /* Where an image belongs but none has been supplied yet. */
+  & .image-slot {
+    background: repeating-linear-gradient(
+      135deg,
+      #ede3d0 0 14px,
+      var(--anu-gold-tint) 14px 28px
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 1.75rem;
+    font-family: var(--r-code-font);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--anu-unigrey);
+    border-inline-start: 1px solid var(--at-divider);
+  }
+  &.title-slide .image-slot,
+  & .split-layout > .image-slot:first-child {
+    border-inline: 0;
+  }
+  & .split-layout > .image-slot:first-child {
+    border-inline-end: 1px solid var(--at-divider);
+  }
+
+  /* Wider left column than the theme's even split. */
+  & .columns.wide-left {
+    grid-template-columns: 1.45fr 1fr;
+    gap: 3.5rem;
+  }
+
+  /* A slide that is nothing but three or four large lines. */
+  &.big-lines {
+    place-content: center;
+    & :is(h1, h2, h3) {
+      background: none;
+      color: var(--anu-unigrey);
+      display: block;
+      padding: 0;
+      text-transform: none;
+      font-weight: 400;
+      font-size: 3.25rem;
+      line-height: 1.25;
+      margin: 0 0 1.125rem;
+    }
+    & :is(h1, h2, h3) strong {
+      color: var(--anu-black);
+      font-weight: 700;
+    }
+    & :is(h1, h2, h3):last-of-type {
+      margin-block-end: 0;
+    }
+  }
+  &.big-lines.xl :is(h1, h2, h3) {
+    font-size: 3.625rem;
+    color: var(--anu-black);
+  }
+
+  /* Part-opening, break and closing slides: black ground, gold accents. */
+  &.section-break {
+    background: var(--anu-black);
+    color: var(--anu-white);
+    place-content: center;
+    & :is(h1, h2, h3, h4, h5, h6) {
+      color: var(--anu-white);
+      background: none;
+      padding: 0;
+      display: block;
+      text-transform: none;
+    }
+    & h6 {
+      margin: 0 0 0.5rem;
+      font-size: 1.375rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--at-primary);
+      font-weight: 700;
+    }
+    & h2 {
+      font-size: 4.5rem;
+      line-height: 1.1;
+      margin: 0 0 1.5rem;
+    }
+    & p {
+      color: var(--anu-white);
+      max-width: 52rem;
+      font-size: 1.75rem;
+    }
+    & hr {
+      inline-size: 7.5rem;
+      block-size: 4px;
+      margin-inline: 0;
+      border: 0;
+      background: var(--at-primary);
+    }
+    & blockquote {
+      color: var(--anu-white);
+      border-block-start: 2px solid var(--at-primary);
+      padding-block-start: 1.75rem;
+      inline-size: 100%;
+      & p {
+        max-width: none;
+        font-size: 2.625rem;
+        line-height: 1.3;
+      }
+      & p:last-of-type {
+        color: var(--at-primary);
+        font-size: 2rem;
+      }
+      & cite {
+        color: var(--at-primary);
+        font-size: 1.5rem;
+      }
+    }
+    /* Long part titles that need to lose a step. */
+    &.tight h2 {
+      font-size: 4.125rem;
+    }
+    /* The break slide. */
+    &.loud h2 {
+      font-size: 6rem;
+      margin-block-end: 1rem;
+    }
+    &.loud h6 {
+      font-size: 2.375rem;
+      letter-spacing: 0;
+      text-transform: none;
+      font-weight: 400;
+    }
+    /* The thesis quote. */
+    &.thesis blockquote p {
+      font-size: 3.5rem;
+    }
+    &.thesis blockquote p:last-of-type {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+/* ── Week 7: date labels ────────────────────────────────────────────────── */
+:where(.reveal .slides) section {
+  /* A printed date code, quoted as artefact. */
+  & .datecode {
+    display: block;
+    background: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    color: var(--anu-unigrey);
+    font-family: var(--r-code-font);
+    font-size: 1.3125rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* Verdict on one item: identity left, argument right. */
+  & .verdict {
+    display: grid;
+    grid-template-columns: 0.85fr 1.3fr;
+    gap: 3.5rem;
+    align-items: start;
+    & > div:last-child {
+      border-inline-start: 1px solid var(--at-divider);
+      padding-inline-start: 2.75rem;
+    }
+    & h2 {
+      font-size: 2.25rem;
+      margin: 0 0 1rem;
+    }
+    & .datecode {
+      margin-block-end: 1.375rem;
+    }
+    & p {
+      font-size: 1.625rem;
+      line-height: 1.45;
+      margin: 0 0 1.375rem;
+    }
+    & p.lead {
+      font-size: 1.75rem;
+      color: var(--anu-black);
+    }
+    & > div:last-child > span {
+      display: block;
+      border-block-start: 1px solid var(--at-divider);
+      padding-block-start: 0.875rem;
+      margin-block-end: 1.125rem;
+      font-size: 1.5625rem;
+      color: var(--anu-black);
+      line-height: 1.35;
+    }
+  }
+
+  /* One-phrase verdict, set as a block. */
+  & .tag {
+    display: inline-block;
+    background: var(--at-primary);
+    color: var(--anu-black);
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 0.75rem 1.125rem;
+  }
+  & .tag.dark {
+    background: var(--anu-black);
+    color: var(--anu-white);
+  }
+
+  /* Pantry items quoted with their printed codes. */
+  & .item-cards {
+    display: grid
+    ;
+    grid-template-columns: repeat(var(--cols, 2), 1fr);
+    gap: 1.125rem 2rem;
+    & > div {
+      background: var(--anu-white);
+      border: 1px solid var(--at-divider);
+      padding: 1.125rem 1.375rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+    & b {
+      font-size: 1.625rem;
+      color: var(--anu-black);
+    }
+    & .datecode {
+      font-size: 1.3125rem;
+    }
+  }
+
+  /* A single large ratio beside its sentence. */
+  & .fraction {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4rem;
+    align-items: center;
+    & > div:first-child {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    & b {
+      font-size: 10rem;
+      font-weight: 300;
+      color: var(--at-primary);
+      line-height: 0.9;
+    }
+    & b + span {
+      font-size: 4rem;
+      font-weight: 300;
+      color: var(--anu-unigrey);
+      line-height: 1;
+    }
+    & h2 {
+      font-size: 3.125rem;
+      line-height: 1.2;
+      margin: 0 0 1.375rem;
+      background: none;
+      color: var(--anu-black);
+      display: block;
+      padding: 0;
+      text-transform: none;
+      font-weight: 600;
+      text-wrap: pretty;
+    }
+    & p {
+      margin: 0;
+      font-size: 1.625rem;
+    }
+  }
+
+  /* Numbered mechanism, one box per step; mark the pivotal one. */
+  & .step-chain {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 5), 1fr);
+    gap: 0.625rem;
+    & > div {
+      background: var(--anu-white);
+      border: 1px solid var(--at-divider);
+      padding: 1.25rem 1rem;
+    }
+    & > div.pivot {
+      background: var(--at-primary);
+      border-color: var(--at-primary);
+      font-weight: 700;
+    }
+    & b {
+      display: block;
+      margin-block-end: 0.625rem;
+      font-size: 1.25rem;
+      color: var(--at-primary);
+    }
+    & > div.pivot b {
+      color: var(--anu-black);
+    }
+    & span {
+      font-size: 1.3125rem;
+      line-height: 1.3;
+      color: var(--anu-black);
+    }
+  }
+
+  /* Bare statements on a hairline grid, no gloss. */
+  & .term-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 2), 1fr);
+    gap: 1.375rem 2.75rem;
+    & > span {
+      border-block-start: 1px solid var(--at-divider);
+      padding-block-start: 1rem;
+      font-size: 1.6875rem;
+      color: var(--anu-black);
+      line-height: 1.3;
+    }
+    & > span.strong {
+      border-block-start-width: 4px;
+      border-block-start-color: var(--at-primary);
+      font-size: 1.625rem;
+    }
+  }
+
+  /* Question, then the answer it usually gets. */
+  & .qa-rows > div {
+    display: grid;
+    grid-template-columns: 5rem 1fr 20rem;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding-block: 1.25rem;
+    border-block-start: 1px solid var(--at-divider);
+  }
+  & .qa-rows > div:last-child {
+    border-block-end: 1px solid var(--at-divider);
+  }
+  & .qa-rows b {
+    font-size: 2.75rem;
+    font-weight: 300;
+    color: var(--at-primary);
+    line-height: 1;
+  }
+  & .qa-rows p {
+    margin: 0;
+    font-size: 1.75rem;
+    line-height: 1.3;
+    color: var(--anu-black);
+  }
+  & .qa-rows em {
+    font-size: 1.375rem;
+    line-height: 1.35;
+    color: var(--anu-unigrey);
+  }
+
+  /* Two costs nobody carries. */
+  & .not-paid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.75rem;
+    border-block-start: 1px solid var(--at-divider);
+    padding-block-start: 1.5rem;
+    & > span {
+      font-size: 1.875rem;
+      color: var(--anu-unigrey);
+      text-decoration: line-through;
+      text-decoration-thickness: 3px;
+      text-decoration-color: var(--at-primary);
+    }
+  }
+}
