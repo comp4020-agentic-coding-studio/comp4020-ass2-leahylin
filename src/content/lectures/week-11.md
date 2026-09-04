@@ -10,8 +10,6 @@ teachers:
   - simone-ravel
 related:
   - sessions/11-de-refrigeration
-  - week-10
-  - week-12
 ---
 
 _Module 4 — Resistance and reconstruction._

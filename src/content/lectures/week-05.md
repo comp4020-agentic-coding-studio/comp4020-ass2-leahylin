@@ -10,8 +10,6 @@ teachers:
   - simone-ravel
 related:
   - sessions/05-leftovers
-  - week-04
-  - week-06
 ---
 
 _Module 2 — Micropolitics._

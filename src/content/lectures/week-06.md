@@ -10,8 +10,6 @@ teachers:
   - simone-ravel
 related:
   - sessions/06-fridge-door
-  - week-05
-  - week-07
 ---
 
 _Module 2 — Micropolitics._

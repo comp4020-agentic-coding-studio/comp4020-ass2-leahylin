@@ -10,8 +10,6 @@ teachers:
   - simone-ravel
 related:
   - sessions/10-smart-fridge
-  - week-09
-  - week-11
 ---
 
 _Module 4 — Resistance and reconstruction: towards a post-refrigerator era. The

@@ -10,13 +10,18 @@ import { graphCollections, siteConfig } from "../../site-config";
 
 export async function getStaticPaths() {
   const lectures = await getPublishedCollection("lectures");
-  return lectures.map((lecture) => ({
+  const byWeek = [...lectures].sort((a, b) => a.data.week - b.data.week);
+  return byWeek.map((lecture, index) => ({
     params: { slug: lecture.id },
-    props: { lecture },
+    props: {
+      lecture,
+      prevLecture: byWeek[index - 1],
+      nextLecture: byWeek[index + 1],
+    },
   }));
 }
 
-const { lecture } = Astro.props;
+const { lecture, prevLecture, nextLecture } = Astro.props;
 const { Content } = await render(lecture);
 const title = `Week ${lecture.data.week}: ${lecture.data.title}`;
 // Single joined string, not adjacent {dateLabel}{module} expressions — the
@@ -24,6 +29,20 @@ const title = `Week ${lecture.data.week}: ${lecture.data.title}`;
 // lines and drops the whitespace-only text node between them (see the
 // AssessmentQuickFacts "17:00Fri" bug). One expression is immune to that.
 const factsPrefix = `${formatCourseDate(lecture.data.date)} · ${lecture.data.module}`;
+
+const lectureNavLinks: { href: string; label: string }[] = [];
+if (prevLecture) {
+  lectureNavLinks.push({
+    href: withBase(`/lectures/${prevLecture.id}/`),
+    label: `← Week ${prevLecture.data.week} lecture`,
+  });
+}
+if (nextLecture) {
+  lectureNavLinks.push({
+    href: withBase(`/lectures/${nextLecture.id}/`),
+    label: `Week ${nextLecture.data.week} lecture →`,
+  });
+}
 ---
 
 <ContentLayout
@@ -46,7 +65,11 @@ const factsPrefix = `${formatCourseDate(lecture.data.date)} · ${lecture.data.mo
     <Content />
   </div>
   <TeachingTeam teachers={lecture.data.teachers} />
-  <RelatedContent entry={lecture} collections={graphCollections} />
+  <RelatedContent
+    entry={lecture}
+    collections={graphCollections}
+    extraLinks={lectureNavLinks}
+  />
 </ContentLayout>
 
 <style>

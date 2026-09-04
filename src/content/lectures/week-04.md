@@ -10,8 +10,6 @@ teachers:
   - simone-ravel
 related:
   - sessions/04-fridge-archaeology
-  - week-03
-  - week-05
 ---
 
 _Module 2 — Micropolitics: power and symbols within domestic space. The module's

@@ -10,8 +10,6 @@ teachers:
   - simone-ravel
 related:
   - sessions/03-cold-chains
-  - week-02
-  - week-04
 ---
 
 _Module 1 — Disenchantment._

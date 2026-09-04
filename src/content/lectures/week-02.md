@@ -10,8 +10,6 @@ teachers:
   - simone-ravel
 related:
   - sessions/02-second-shift
-  - week-01
-  - week-03
 ---
 
 _Module 1 — Disenchantment._

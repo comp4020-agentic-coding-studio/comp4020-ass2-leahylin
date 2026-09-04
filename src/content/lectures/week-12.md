@@ -12,7 +12,6 @@ teachers:
 slides: /decks/week-12/
 related:
   - sessions/12-unplugged
-  - week-11
 ---
 
 _Module 4 — Resistance and reconstruction._

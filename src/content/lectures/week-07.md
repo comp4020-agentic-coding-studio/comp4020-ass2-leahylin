@@ -11,8 +11,6 @@ teachers:
 slides: /decks/week-07/
 related:
   - sessions/07-date-labels
-  - week-06
-  - week-08
 ---
 
 _Module 3 — The tyranny of time: anxiety, illusions, and complicity with capital.

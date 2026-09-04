@@ -10,8 +10,6 @@ teachers:
   - casper-nowak
 related:
   - sessions/09-stockpiling
-  - week-08
-  - week-10
 ---
 
 _Module 3 — The tyranny of time._

@@ -11,7 +11,6 @@ teachers:
 slides: /decks/week-01/
 related:
   - sessions/01-artificial-cold
-  - week-02
 ---
 
 _Module 1 — Disenchantment: the commodification of cold and the myth of

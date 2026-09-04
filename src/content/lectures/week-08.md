@@ -10,8 +10,6 @@ teachers:
   - casper-nowak
 related:
   - sessions/08-systemic-waste
-  - week-07
-  - week-09
 ---
 
 _Module 3 — The tyranny of time._
