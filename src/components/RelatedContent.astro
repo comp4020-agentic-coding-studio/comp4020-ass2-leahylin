@@ -1,0 +1,80 @@
+---
+// Same job as astro-course-university's own <RelatedContent>, but that
+// component always shows an entry's raw title with no indication of which
+// collection it's from. Lectures and sessions both carry a `week` number,
+// so a related lecture reads as "Week N lecture" and a related session as
+// "Session N: <title>" — everything else (assessments, people) keeps its
+// plain title.
+import {
+  getRelatedEntries,
+  type GraphEntry,
+} from "astro-course-university/content";
+import { withBase } from "astro-theme-university/url";
+
+interface Props {
+  entry: GraphEntry;
+  collections: string[];
+  heading?: string;
+}
+
+const { entry, collections, heading = "Related" } = Astro.props;
+const related = await getRelatedEntries(entry, collections);
+const externalLinks =
+  (entry.data as { links?: { label: string; url: string }[] }).links ?? [];
+
+const relatedLabel = (e: (typeof related)[number]) => {
+  const week = (e.data as { week?: number }).week;
+  if (e.collection === "lectures") return `Week ${week} lecture`;
+  if (e.collection === "sessions") return `Session ${week}: ${e.data.title}`;
+  return e.data.title;
+};
+---
+
+{
+  (related.length > 0 || externalLinks.length > 0) && (
+    <aside class="related-content" aria-label={heading}>
+      <h2>{heading}</h2>
+      <ul>
+        {related.map((e) => (
+          <li>
+            <a href={withBase(`/${e.collection}/${e.id}/`)}>
+              {relatedLabel(e)}
+            </a>
+          </li>
+        ))}
+        {externalLinks.map((l) => (
+          <li class="external">
+            <a href={l.url}>{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  )
+}
+
+<style>
+  .related-content {
+    margin-block-start: 3rem;
+    padding-block-start: 1rem;
+    border-block-start: 1px solid
+      color-mix(in srgb, currentColor 20%, transparent);
+  }
+
+  .related-content h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .related-content ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .related-content .external a::after {
+    content: " \2197";
+  }
+</style>
