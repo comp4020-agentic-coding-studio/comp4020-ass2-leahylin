@@ -5,6 +5,8 @@ description:
   strongest objections to it, and then the students' turn
 ---
 
+import picnicTableImage from "./assets/week-12/picnic-table.jpg";
+
 {/* _class: title-slide */}
 
 <div className="title-body">
@@ -16,7 +18,15 @@ description:
   <p className="title-by">Dr Simone Ravel and Dr Casper Nowak</p>
 </div>
 
-<div className="image-slot">image slot — full-bleed<br />the unplugged picnic table, ambient food</div>
+<div
+  className="image-slot"
+  style={{
+    backgroundImage: `url(${picnicTableImage.src})`,
+    backgroundSize: "contain",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+/>
 
 ```notes
 **~1 min** (0:00)
@@ -494,8 +504,6 @@ Final Project and Participation are both assessed to Friday 28 May.
   <p style={{ fontSize: "2rem", color: "#000", lineHeight: 1.3 }}>No cold chain, no fortress, one afternoon.</p>
   <p className="statement" style={{ fontSize: "1.625rem" }}>Not a stunt — the twelve-week argument in <strong>embodied form</strong>.</p>
 </div>
-
-<div className="image-slot">image slot — week 11 ferment jars, or the laid table</div>
 
 ```notes
 **~1 min** (0:16)
