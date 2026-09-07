@@ -1,8 +1,6 @@
 # Assignment 2 plan
 
-Working notes for building the SlopU course site. Not marked, not cited in
-`PROCESS.md` — scratch for sequencing the work, not the process evidence
-itself.
+Working notes for building the SlopU course site.
 
 ## Course concept: The Political Economy of the Refrigerator
 
