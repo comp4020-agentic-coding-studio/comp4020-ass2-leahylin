@@ -7,72 +7,16 @@
 
 ## How I got here
 
-I started by reading the brief, `README.md`, and the course-design material
-first. SLOP8364 is a twelve-week course with a lot of material to organise,
-so I treated the first risk as drift, not implementation: building
-immediately could let the agent accumulate content and features without a
-coherent semester-long argument. 
+## How I got here
 
-I first asked the agent to read the Assignment 2 brief and specification and create a planning document before implementation:
-> **Prompt**: “Read  Assignment 2  brief and spec. Create a `PLAN.md` in the project root. Do not modify the spec or any implementation files. Do not build yet.”
+I first read the Assignment 2 brief, specification, `README.md`, and course-design material to understand the task constraints. I then used **Qwen3.7-plus** to explore the course concept before implementation. I discussed possible directions, tested how the topic could develop across twelve weeks, and used the conversation to form a rough course narrative. This led to **“The Political Economy of the Refrigerator”**, centred on the thesis: **“The fridge sells you time, and the bill arrives as waste.”** At this stage, I was not trying to generate finished content. I wanted a clear enough argument to guide the implementation agent.
 
-This first pass established a planning boundary: the agent had to understand the requirements and produce a plan without prematurely committing to implementation. I then used a second pass to develop the chosen concept before any implementation began:
-> **Prompt**:“Now update the existing `PLAN.md` to incorporate the chosen course concept: Course title: The Political Economy of the Refrigerator. Add and clearly define the course's central thesis, the semester-long narrative progression, the key questions students investigate each week, the student-facing site structure, the role of interaction…”
+I then moved to **Claude Code**. Rather than immediately asking it to build the website, I first asked it to create a `PLAN.md` from the brief and specification without modifying implementation files. I then asked it to incorporate the chosen concept into the plan, including the central thesis, twelve-week progression, weekly questions, site structure, interaction, assessments, and scope. This established the course before implementation. The resulting structure divided the semester into four modules — **Disenchantment, Micropolitics, The Tyranny of Time, and Resistance and Reconstruction** — developing one argument rather than treating the refrigerator as a collection of unrelated topics. The assessments similarly progressed from observation to critique to proposal. [`911bd28`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/911bd28) and [`1da75d0`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/1da75d0) record this transition from concept to structured course.
 
-Recoded in [`911bd28`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/911bd28), this update fixed the thesis, the single idea the semester would unpack, the twelve-week progression, weekly questions, site structure, interaction, and scope. This gave the agent a coherent argument to work from rather than allowing implementation to determine the course structure.
+Once the direction was established, my focus shifted from telling the agent **what to build** to designing an environment that could guide it throughout implementation. I used `CLAUDE.md` as persistent guidance. One key principle was that **“the rendered page is the truth, not your mental model of it.”** I also required the agent to keep the development server available for inspection, run `pnpm check`, and never commit a red state. When I encountered recurring or easily missed failure modes, I added them to the guidance. For example, a `roleLabels` lookup could silently omit `co-convenor`, a `heroTitle` could have no visible effect without a matching `heroImage`, and a stale development server could serve old content after frontmatter changes. These rules were based on actual failures rather than hypothetical coding advice. [`0cb8557`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/0cb8557) and [`804462e`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/804462e) document this process.
 
-From that planning process I formed a working view of what makes a good
-university course: it should have a voice and a continuous argument rather
-than a set of content-shaped chunks, and its assessments should carry that
-argument into students' own coursework rather than test recall. I treated the
-website itself as part of the argument, using principles such as
-"Anti-abundance" and "Anti-convenience" rather than assuming more content
-or convenience makes a better course. The plan made this explicit:
-the course should be "one idea, not a themed grab bag", and the site
-should use restraint in both content and interaction.
+I used the automated harness for things that could be checked reliably. In `spec/course-spec.test.ts`, I added tests for requirements such as retaining the provisioned `364` course-code suffix, scheduling all twelve teaching weeks, linking at least one lecture to a real deck, and ensuring assessment weights summed to 100%. These checks were added before the final course details were settled, so they acted as constraints on the implementation rather than tests retrofitted to an existing result. [`f44511b`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/f44511b) records this stage.
 
-That position shaped the course around four modules —
-Disenchantment, Micropolitics, The Tyranny of Time, and Resistance and
-Reconstruction — developing one argument across the semester. The four assessments progress from observation to critique to
-proposal, so students move the course's argument into their own work
-rather than complete four interchangeable tasks.
-[`1da75d0`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/1da75d0)
-records the four-module syllabus, while
-[`911bd28`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/911bd28)
-settles the course code and dates — structure before checks.
+However, I deliberately left some decisions outside the harness. Whether the curriculum feels like one coherent argument, whether the writing has a voice, whether the interaction contributes meaningfully to learning, and whether the rendered site works visually still required human judgement. This became particularly clear when replacing placeholder images with real photography. [`abcc2d0`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/abcc2d0) and [`60ebc1d`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/60ebc1d) introduced redesigned decks, but an enlarged image slot caused neighbouring slide text to be clipped even though `pnpm check` remained green. The issue came from a fixed-height CSS grid row taking space from an adjacent `overflow: auto` panel. Only inspecting the rendered slide revealed the problem.
 
-The same philosophy changed how I directed the agent during
-implementation. I did not want it optimising only for a polished-looking
-site; it needed to work against what the rendered course actually did. I
-encoded working discipline in `CLAUDE.md`: "the rendered page is the
-truth, not your mental model of it," keep the dev server available for
-inspection, run `pnpm check`, never commit a red state. I also recorded
-failure modes the checks could not see: a `roleLabels` lookup missing
-`co-convenor` and silently rendering no role line, a `heroTitle` having no
-effect without a matching `heroImage`, a stale dev server serving old
-content collections after a frontmatter edit. Each became explicit agent
-guidance because it was easy to miss yet visible in the rendered site
-([`0cb8557`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/0cb8557),
-[`804462e`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/804462e)).
-
-I encoded a different class of decision in `spec/course-spec.test.ts`:
-facts checkable reliably. The tests require the course code to retain its
-provisioned `364` suffix, all twelve teaching weeks scheduled, at least one
-lecture linking a real deck, and assessment weights summing to 100%.
-[`f44511b`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/f44511b)
-adds these checks after the syllabus and course details were already
-settled, making them constraints on an existing design rather than targets
-written to pass.
-
-I deliberately left human judgments uncoded. As `PLAN.md` puts it, only a
-person can judge whether the curriculum holds together as one idea,
-whether a prospective student would want to take it, whether the prose has
-a voice or reads as content-shaped chunks, and whether the deployed site
-reads right at both marking viewports. The commit history shows why this
-mattered:
-[`804462e`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/804462e)
-records failures that stayed green, while
-[`ccc81ca`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/ccc81ca)
-fixes a heading-order accessibility violation across the decks. The
-harness caught some failures, but human judgment still had to interpret
-what checks meant and catch what the automated system could not.
+This shaped my final workflow: **Qwen3.7-plus for exploration, Claude Code for implementation, the harness for enforceable constraints, and human inspection for what automated checks could not judge**. The final fixes, including the interactive-explainer links and documentation refinements in [`74884a1`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/74884a1) and [`14fd6d2`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/14fd6d2), came from this iterative process. The main lesson was that effective agentic coding was not about giving the agent more detailed instructions, but about giving it a clear argument, persistent guidance, reliable checks, and a rendered result that could still be challenged by human judgement.
