@@ -51,8 +51,10 @@ begun taking in exchange.
 
 ## Reading
 
-- Shoshana Zuboff, _The Age of Surveillance Capitalism_ (2019) — excerpts, applied
-  to the smart home
+- Shoshana Zuboff,
+  [_The Age of Surveillance
+  Capitalism_](https://www.hachettebookgroup.com/titles/shoshana-zuboff/the-age-of-surveillance-capitalism/9781610395694/?lens=publicaffairs)
+  (2019) — excerpts, applied to the smart home
 
 ## Tutorial preparation
 

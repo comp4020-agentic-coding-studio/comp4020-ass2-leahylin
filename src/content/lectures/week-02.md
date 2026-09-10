@@ -45,8 +45,11 @@ asks what replaced that skill, and on whose time.
 
 ## Reading
 
-- Ruth Schwartz Cowan, _More Work for Mother: The Ironies of Household Technology
-  from the Open Hearth to the Microwave_ (1983) — excerpts
+- Ruth Schwartz Cowan,
+  [_More Work for Mother: The Ironies of Household Technology from the Open
+  Hearth to the
+  Microwave_](https://www.hachettebookgroup.com/titles/ruth-schwartz-cowan/more-work-for-mother/9780465047321/?lens=basic-books)
+  (1983) — excerpts
 
 ## Tutorial preparation
 

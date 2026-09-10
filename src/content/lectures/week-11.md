@@ -56,8 +56,9 @@ rest.
 
 ## Reading
 
-- Giorgos Kallis, _Degrowth_ (2018) — introduction and the chapters on
-  sufficiency
+- Giorgos Kallis,
+  [_Degrowth_](https://www.agendapub.com/book/detail/degrowth-by-giorgos-kallis/?k=9781911116806////)
+  (2018) — introduction and the chapters on sufficiency
 - Selected literature on food sovereignty and alternative food networks,
   distributed in class
 

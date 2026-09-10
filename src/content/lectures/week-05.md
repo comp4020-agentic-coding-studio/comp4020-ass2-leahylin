@@ -45,8 +45,11 @@ what being unseen does to a thing's category.
 
 ## Reading
 
-- Mary Douglas, _Purity and Danger_ (1966) — the chapters on dirt as matter out of
-  place and as the enemy of order
+- Mary Douglas,
+  [_Purity and
+  Danger_](https://www.routledge.com/Purity-and-Danger-An-Analysis-of-Concepts-of-Pollution-and-Taboo/Douglas/p/book/9780415289955)
+  (1966) — the chapters on dirt as matter out of place and as the enemy of
+  order
 
 ## Tutorial preparation
 

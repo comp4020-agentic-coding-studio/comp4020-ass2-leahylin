@@ -58,8 +58,10 @@ it has never known the difference.
 
 ## Reading
 
-- Tristram Stuart, _Waste: Uncovering the Global Food Scandal_ (2009) — excerpts,
-  particularly on date labelling and retail standards
+- Tristram Stuart,
+  [_Waste: Uncovering the Global Food
+  Scandal_](https://books.google.com/books/about/Waste_Uncovering_the_Global_Food_Scandal.html?id=Os2EpvTUrqYC)
+  (2009) — excerpts, particularly on date labelling and retail standards
 
 ## Tutorial preparation
 

@@ -53,7 +53,9 @@ it is comfortable.
 
 ## Reading
 
-- David Evans, _Food Waste: Home Consumption, Material Culture and Everyday Life_
+- David Evans,
+  [_Food Waste: Home Consumption, Material Culture and Everyday
+  Life_](https://books.google.com/books/about/Food_Waste.html?id=98cOBAAAQBAJ)
   (2014) — the chapters on anxiety and provisioning
 - Selected interdisciplinary papers on hoarding psychology and emotional
   geography, distributed in class

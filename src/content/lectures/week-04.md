@@ -50,10 +50,14 @@ it once it is full.
 
 ## Reading
 
-- Daniel Miller, _Material Culture and Mass Consumption_ (1987) — on domestic
-  objects and appropriation
-- Elizabeth Shove, _Comfort, Cleanliness and Convenience_ (2003) — the chapter on
-  ordinary practice
+- Daniel Miller,
+  [_Material Culture and Mass
+  Consumption_](https://archive.org/details/materialculturem0000mill) (1987) —
+  on domestic objects and appropriation
+- Elizabeth Shove,
+  [_Comfort, Cleanliness and
+  Convenience_](https://archive.org/details/comfortcleanline0000shov) (2003) —
+  the chapter on ordinary practice
 
 ## Tutorial preparation
 

@@ -55,8 +55,10 @@ argument.
 
 ## Reading
 
-- Jonathan Rees, _Refrigeration Nation: A History of Ice, Appliances, and
-  Enterprise in America_ (2013) — excerpts
+- Jonathan Rees,
+  [_Refrigeration Nation: A History of Ice, Appliances, and Enterprise in
+  America_](https://archive.org/details/refrigerationnat0000rees) (2013) —
+  excerpts
 
 ## Tutorial preparation
 

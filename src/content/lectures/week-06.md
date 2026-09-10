@@ -49,8 +49,10 @@ work. This week is about what the exterior displays instead.
 
 ## Reading
 
-- Erving Goffman, _The Presentation of Self in Everyday Life_ (1959) — excerpts,
-  including the chapter on performances
+- Erving Goffman,
+  [_The Presentation of Self in Everyday
+  Life_](https://www.penguin.co.uk/books/13511/the-presentation-of-self-in-everyday-life-by-erving-goffman/9780241547991)
+  (1959) — excerpts, including the chapter on performances
 
 ## Tutorial preparation
 

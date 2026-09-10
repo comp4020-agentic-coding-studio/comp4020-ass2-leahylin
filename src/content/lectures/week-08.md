@@ -51,8 +51,12 @@ trigger sits inside.
 
 ## Reading
 
-- Zygmunt Bauman, _Liquid Modernity_ (2000) — the chapters on consumerism
-- Tristram Stuart, _Waste_ (2009) — the household chapters
+- Zygmunt Bauman,
+  [_Liquid Modernity_](https://www.wiley.com/en-us/Liquid+Modernity-p-9780745624099)
+  (2000) — the chapters on consumerism
+- Tristram Stuart,
+  [_Waste_](https://books.google.com/books/about/Waste_Uncovering_the_Global_Food_Scandal.html?id=Os2EpvTUrqYC)
+  (2009) — the household chapters
 
 A caution on numbers, and it is assessed. Waste figures vary enormously with
 method, and anyone quoting a single global percentage without saying how it was

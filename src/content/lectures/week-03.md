@@ -47,10 +47,13 @@ that is always full. This week asks what fills it, and what had to be built.
 
 ## Reading
 
-- Susanne Freidberg, _Fresh: A Perishable History_ (2009) — introduction and one
-  commodity chapter of your choosing
-- Nicola Twilley, _Frostbite: How Refrigeration Changed Our Food, Our Planet, and
-  Ourselves_ (2024) — the cold chain chapters
+- Susanne Freidberg,
+  [_Fresh: A Perishable History_](https://books.google.com/books/about/Fresh.html?id=IRmBCU2yGaQC)
+  (2009) — introduction and one commodity chapter of your choosing
+- Nicola Twilley,
+  [_Frostbite: How Refrigeration Changed Our Food, Our Planet, and
+  Ourselves_](https://www.penguinrandomhouse.com/books/551601/frostbite-by-nicola-twilley/)
+  (2024) — the cold chain chapters
 
 Pick your Freidberg commodity chapter in advance and pick one nobody else will —
 the tutorial pools them.
