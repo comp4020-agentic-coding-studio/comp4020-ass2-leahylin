@@ -18,7 +18,7 @@ const visible = assessments.sort((a, b) => a.data.order - b.data.order);
       >
         {assessment.data.description && <p>{assessment.data.description}</p>}
         {assessment.data.weight != null && (
-          <p>
+          <p class="assessment-card-footer">
             <small>
               Due {formatCourseDate(assessment.data.due)} · Weight:{" "}
               {assessment.data.weight}%{assessment.data.draft && " · Draft"}
@@ -29,3 +29,20 @@ const visible = assessments.sort((a, b) => a.data.order - b.data.order);
     ))
   }
 </CardGrid>
+
+<style>
+  /* Rows in the grid stretch every card to equal height already (CSS grid
+     default), but the "Due …" line just follows the description in normal
+     flow, so a shorter description leaves it higher up than its row-mate.
+     Make the body a flex column and pin the footer to the bottom — scoped
+     to card bodies that actually hold this footer, so this doesn't touch
+     every other .at-card-body on the site (People, Sessions, etc). */
+  :global(.at-card-body:has(.assessment-card-footer)) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .assessment-card-footer {
+    margin-block-start: auto;
+  }
+</style>

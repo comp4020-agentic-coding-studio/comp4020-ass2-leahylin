@@ -12,10 +12,58 @@ marking:
   criteria:
     - name: Argument
       weight: 40
+      bands:
+        P: >-
+          A position is stated but arrives late or stays close to the brief —
+          asserted rather than argued, or so close to what a lecture already
+          says that dropping the phenomenon would leave the same paragraph.
+        CR: >-
+          A specific position, stated early and defended for the length of
+          the essay, though it stays within the course's own account rather
+          than testing it.
+        D: >-
+          A specific position that presses on a genuine limit of the
+          course's account rather than only applying it, with that pressure
+          stated early enough to organise the essay.
+        HD: >-
+          An argument that identifies where the course's account of this
+          phenomenon breaks down, presses a real objection to it, and
+          survives that objection by the end rather than only naming it.
     - name: Evidence and method
       weight: 35
+      bands:
+        P: >-
+          Figures or examples are used, but at least one quantitative claim
+          states no method, or states one the reader cannot judge.
+        CR: >-
+          Every claim states its method well enough to know who measured it
+          and how, but the evidence mostly illustrates a point already made
+          rather than testing it.
+        D: >-
+          Evidence, including at least one piece of the writer's own primary
+          material, is specific enough that its method's weaknesses are
+          visible and acknowledged rather than glossed over.
+        HD: >-
+          Evidence is used to genuinely test the argument rather than
+          illustrate it, including a moment where the writer's own material
+          complicates the position instead of confirming it.
     - name: Engagement with theory
       weight: 25
+      bands:
+        P: >-
+          Douglas, Goffman or another course framework is named and
+          correctly defined, but not applied to the phenomenon chosen.
+        CR: >-
+          A framework is applied to the specific phenomenon, though the
+          application mostly restates the framework in the phenomenon's
+          terms.
+        D: >-
+          A framework is used to reclassify or reinterpret the phenomenon in
+          a way that is not obvious from the framework's usual examples.
+        HD: >-
+          A framework is extended, combined with another, or pushed against a
+          case it does not obviously fit, doing analytical work the lectures
+          had not already done.
   note:
     - >-
       Markers read the essay once for the position, then again for whether

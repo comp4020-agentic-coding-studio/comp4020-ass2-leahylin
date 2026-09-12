@@ -6,17 +6,112 @@ import { formatCourseDate } from "../lib/dates";
 
 const sessions = await getPublishedCollection("sessions");
 const visible = sessions.sort((a, b) => a.data.week - b.data.week);
+
+// Same badge logic as LecturesGrid.astro: the colour comes from `week` (an
+// exact 3-weeks-per-module partition), not from parsing the frontmatter
+// string, so a value that fails to parse still gets a colour instead of
+// silently dropping it.
+function moduleBadge(moduleText: string | undefined, week: number) {
+  if (!moduleText) return undefined;
+  const index = Math.min(4, Math.ceil(week / 3));
+  if (index === 4) return { index, label: "M4·Resistance" };
+  const match = moduleText.match(/^Module\s+\d+\s*[—–-]\s*(.+)$/i);
+  const label = match ? `M${index} · ${match[1]}` : moduleText;
+  return { index, label };
+}
 ---
 
 <CardGrid columns={2}>
   {
-    visible.map((session) => (
-      <Card headingLevel="h2" title={session.data.title} href={`/sessions/${session.id}/`}>
-        {session.data.description && <p>{session.data.description}</p>}
-        <p>
-          <small>Week {session.data.week} · {formatCourseDate(session.data.date)}</small>
-        </p>
-      </Card>
-    ))
+    visible.map((session) => {
+      const badge = moduleBadge(session.data.module, session.data.week);
+      return (
+        <Card
+          headingLevel="h2"
+          title={session.data.title}
+          href={`/sessions/${session.id}/`}
+        >
+          {session.data.description && <p>{session.data.description}</p>}
+          <p class="at-card-footer">
+            <small>
+              Week {session.data.week} · {formatCourseDate(session.data.date)}
+              {badge && (
+                <>
+                  {" · "}
+                  <span class="at-card-badge" data-module={badge.index}>
+                    {badge.label}
+                  </span>
+                </>
+              )}
+            </small>
+          </p>
+        </Card>
+      );
+    })
   }
 </CardGrid>
+
+<style>
+  /* Rows in the grid stretch every card to equal height already (CSS grid
+     default), but the week/date/badge line just follows the description in
+     normal flow, so a shorter description leaves it higher up than its
+     row-mate. Make the body a flex column and pin the footer to the bottom
+     — scoped to card bodies that actually hold our badge, so this doesn't
+     touch every other .at-card-body on the site (People, Assessments, etc). */
+  :global(.at-card-body:has(.at-card-badge)) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .at-card-footer {
+    margin-block-start: auto;
+  }
+
+  .at-card-badge[data-module] {
+    --module-color: var(--at-primary);
+  }
+  .at-card-badge[data-module="2"] {
+    --module-color: oklch(from var(--at-primary) l c calc(h + 90));
+  }
+  .at-card-badge[data-module="3"] {
+    --module-color: oklch(from var(--at-primary) l c calc(h + 180));
+  }
+  .at-card-badge[data-module="4"] {
+    --module-color: oklch(from var(--at-primary) l c calc(h + 270));
+  }
+
+  .at-card-badge[data-module] {
+    background: light-dark(
+      rgb(from var(--module-color) r g b / 10%),
+      rgb(from var(--module-color) r g b / 18%)
+    );
+    border-color: light-dark(
+      rgb(from var(--module-color) r g b / 45%),
+      rgb(from var(--module-color) r g b / 55%)
+    );
+  }
+
+  /* Custom properties don't inherit upward from the badge to its ancestor
+     card, so give the card its own copy of the same 4-hue rotation — this
+     is what the hover tint below reads via var(--module-color). */
+  :global(.at-card:has(.at-card-badge[data-module="1"])) {
+    --module-color: var(--at-primary);
+  }
+  :global(.at-card:has(.at-card-badge[data-module="2"])) {
+    --module-color: oklch(from var(--at-primary) l c calc(h + 90));
+  }
+  :global(.at-card:has(.at-card-badge[data-module="3"])) {
+    --module-color: oklch(from var(--at-primary) l c calc(h + 180));
+  }
+  :global(.at-card:has(.at-card-badge[data-module="4"])) {
+    --module-color: oklch(from var(--at-primary) l c calc(h + 270));
+  }
+
+  :global(.at-card:hover),
+  :global(.at-card:focus-within) {
+    background: light-dark(
+      rgb(from var(--module-color) r g b / 8%),
+      rgb(from var(--module-color) r g b / 16%)
+    );
+  }
+</style>

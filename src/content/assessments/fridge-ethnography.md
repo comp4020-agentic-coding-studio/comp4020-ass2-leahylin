@@ -15,10 +15,56 @@ marking:
   criteria:
     - name: Quality of observation
       weight: 35
+      bands:
+        P: >-
+          Fieldwork is present but thin: a handful of observations, mostly
+          what was already expected going in, with little that could not
+          have been guessed from outside the fridge.
+        CR: >-
+          Sustained observation showing a clear pattern, but the description
+          leans on the obvious cues (labels, position) rather than the
+          harder-to-notice behavioural traces.
+        D: >-
+          Detailed, specific observation that surfaces something not visible
+          at a glance — a habit, a negotiation, a discrepancy between what
+          people say and what the fridge shows.
+        HD: >-
+          Fieldwork uncovers something genuinely unexpected and follows it
+          up rather than noting it in passing, with enough specificity that
+          a marker could reconstruct the household from the appendix alone.
     - name: Analytical argument
       weight: 40
+      bands:
+        P: >-
+          An argument is stated, but it stays close to description —
+          restating what was observed rather than explaining what governs
+          it.
+        CR: >-
+          A clear claim about what governs the fridge, stated early, that
+          mostly holds up against the evidence presented.
+        D: >-
+          A specific, defensible claim that accounts for the evidence and
+          addresses at least one obvious counter-reading of it.
+        HD: >-
+          An argument a reader could not have predicted from the brief
+          alone, sharpened against real counter-evidence, and stated early
+          enough to organise the whole submission around it.
     - name: Use of course frameworks
       weight: 25
+      bands:
+        P: >-
+          Douglas, Goffman or the power-mapping method are named and
+          briefly defined, but not applied to this fridge specifically.
+        CR: >-
+          At least one framework is applied to a specific observation,
+          though the connection is asserted more than demonstrated.
+        D: >-
+          Frameworks are used as tools to reclassify or reinterpret specific
+          evidence, not just cited alongside it.
+        HD: >-
+          Frameworks are put to work against each other, or extended to a
+          case they do not obviously fit, doing real analytical labour
+          rather than supplying vocabulary.
   note:
     - >-
       Markers read the PDF in one sitting: the argument first, then the

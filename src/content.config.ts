@@ -8,11 +8,30 @@ const courseNodeLoader = (dir: string) =>
   glob({ pattern: ["**/*.{md,mdx}", "!**/CLAUDE.md"], base: `src/content/${dir}` });
 const teacherRefs = z.array(reference("people")).min(1);
 
+const gradeBands = z.object({
+  P: z.string().trim().min(1),
+  CR: z.string().trim().min(1),
+  D: z.string().trim().min(1),
+  HD: z.string().trim().min(1),
+});
+
 const weightedMarking = z
   .object({
     mode: z.literal("weighted"),
     criteria: z
-      .array(z.object({ name: z.string().trim().min(1), weight: z.number().positive() }))
+      .array(
+        z.object({
+          name: z.string().trim().min(1),
+          weight: z.number().positive(),
+          // What a Pass/Credit/Distinction/High Distinction submission looks
+          // like against this criterion specifically. Optional: most
+          // assessments just show the weight table, but a rubric this
+          // detailed is worth the space for the ethnography, where "quality
+          // of observation" is otherwise hard for a first-time student to
+          // self-assess against.
+          bands: gradeBands.optional(),
+        }),
+      )
       .min(1),
     note: z.array(z.string().trim().min(1)).min(1).optional(),
   })

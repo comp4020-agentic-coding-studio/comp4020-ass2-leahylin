@@ -1,7 +1,14 @@
 ---
+interface GradeBands {
+  P: string;
+  CR: string;
+  D: string;
+  HD: string;
+}
+
 interface WeightedMarking {
   mode: "weighted";
-  criteria: { name: string; weight: number }[];
+  criteria: { name: string; weight: number; bands?: GradeBands }[];
   note?: string[];
 }
 
@@ -15,6 +22,9 @@ interface Props {
 }
 
 const { marking } = Astro.props;
+const hasBands =
+  marking.mode === "weighted" &&
+  marking.criteria.every((criterion) => criterion.bands);
 ---
 
 <section aria-labelledby="how-marked">
@@ -24,24 +34,42 @@ const { marking } = Astro.props;
       <p>{marking.description}</p>
     ) : (
       <>
-        <table>
-          <thead>
-            <tr>
-              <>
-                <th scope="col">Criterion</th>
-                <th scope="col">Weight</th>
-              </>
-            </tr>
-          </thead>
-          <tbody>
-            {marking.criteria.map((criterion) => (
+        <div class="at-table-wrap">
+          <table class:list={{ "marking-table--bands": hasBands }}>
+            <thead>
               <tr>
-                <td>{criterion.name}</td>
-                <td>{criterion.weight}%</td>
+                <>
+                  <th scope="col">Criterion</th>
+                  <th scope="col">Weight</th>
+                  {hasBands && (
+                    <>
+                      <th scope="col">High Distinction</th>
+                      <th scope="col">Distinction</th>
+                      <th scope="col">Credit</th>
+                      <th scope="col">Pass</th>
+                    </>
+                  )}
+                </>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {marking.criteria.map((criterion) => (
+                <tr>
+                  <td>{criterion.name}</td>
+                  <td>{criterion.weight}%</td>
+                  {hasBands && criterion.bands && (
+                    <>
+                      <td>{criterion.bands.HD}</td>
+                      <td>{criterion.bands.D}</td>
+                      <td>{criterion.bands.CR}</td>
+                      <td>{criterion.bands.P}</td>
+                    </>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         {marking.note?.map((paragraph) => (
           <p>{paragraph}</p>
         ))}
@@ -49,3 +77,27 @@ const { marking } = Astro.props;
     )
   }
 </section>
+
+<style>
+  /* The band columns hold a paragraph's worth of prose each; left at the
+     theme's default auto width they compress to one or two words per line,
+     which is what made this table hard to read. Give them room to breathe
+     and let the wrapper (the same .at-table-wrap the theme's own markdown
+     tables use for overflow) handle the horizontal scroll on narrow
+     viewports instead of squeezing the text further. */
+  .marking-table--bands th:nth-child(n + 3),
+  .marking-table--bands td:nth-child(n + 3) {
+    min-width: 14rem;
+    line-height: 1.5;
+  }
+
+  /* The theme's own .at-table-wrap uses overflow-x: auto, so the scrollbar
+     only appears once you start scrolling — easy to miss when the table is
+     this wide. Force it always visible as a standing hint that there's more
+     to see. (This element is written directly in this component, so the
+     scoped selector applies only to this table's wrapper, not every
+     .at-table-wrap on the site.) */
+  .at-table-wrap {
+    overflow-x: scroll;
+  }
+</style>

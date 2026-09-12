@@ -24,11 +24,10 @@ export async function getStaticPaths() {
 const { lecture, prevLecture, nextLecture } = Astro.props;
 const { Content } = await render(lecture);
 const title = `Week ${lecture.data.week}: ${lecture.data.title}`;
-// Single joined string, not adjacent {dateLabel}{module} expressions — the
-// project's formatter re-splits adjacent JSX expressions onto their own
-// lines and drops the whitespace-only text node between them (see the
-// AssessmentQuickFacts "17:00Fri" bug). One expression is immune to that.
-const factsPrefix = `${formatCourseDate(lecture.data.date)} · ${lecture.data.module}`;
+const factsPrefix = formatCourseDate(lecture.data.date);
+// Same 4-hue rotation as the lectures grid and homepage module cards, keyed
+// off week rather than parsing the module string — see LecturesGrid.astro.
+const moduleIndex = Math.min(4, Math.ceil(lecture.data.week / 3));
 
 const lectureNavLinks: { href: string; label: string }[] = [];
 if (prevLecture) {
@@ -61,7 +60,7 @@ if (nextLecture) {
       )
     }
   </p>
-  <div class="lecture-intro">
+  <div class="lecture-intro" data-module={moduleIndex}>
     <Content />
   </div>
   <TeachingTeam teachers={lecture.data.teachers} />
@@ -78,20 +77,38 @@ if (nextLecture) {
     color: var(--at-text-secondary);
   }
 
+  /* Same 4-hue rotation as LecturesGrid.astro / the homepage module cards,
+     keyed off the module index computed above. */
+  .lecture-intro[data-module="1"] {
+    --module-color: var(--at-primary);
+  }
+  .lecture-intro[data-module="2"] {
+    --module-color: oklch(from var(--at-primary) l c calc(h + 90));
+  }
+  .lecture-intro[data-module="3"] {
+    --module-color: oklch(from var(--at-primary) l c calc(h + 180));
+  }
+  .lecture-intro[data-module="4"] {
+    --module-color: oklch(from var(--at-primary) l c calc(h + 270));
+  }
+
   /* Every week's body opens with the same "_Module N — Name..._" italic
      line (see the four-module breakdown on the lectures index). Style it as
      a callout card rather than plain italic prose — same gold-left-border
      treatment as the index pages' .at-callout--info override, applied
      directly here since this paragraph comes from Markdown, not a
      <Callout> component. Scoped styles don't reach into <Content />'s
-     rendered output, hence :global() on the descendant half only. */
+     rendered output, hence :global() on the descendant half only.
+     --module-color is set on the ancestor .lecture-intro above and
+     inherits down to this child normally (unlike the card/badge case in
+     LecturesGrid.astro, this is inheriting downward, so no :has() needed). */
   .lecture-intro > :global(p:first-child) {
     margin-block: 0 var(--at-spacing-lg);
     padding: var(--at-spacing-md);
-    border-inline-start: 4px solid var(--at-primary);
+    border-inline-start: 4px solid var(--module-color);
     background: light-dark(
-      rgb(from var(--at-primary) r g b / 8%),
-      rgb(from var(--at-primary) r g b / 16%)
+      rgb(from var(--module-color) r g b / 8%),
+      rgb(from var(--module-color) r g b / 16%)
     );
   }
 </style>
