@@ -66,4 +66,36 @@ describe("Assignment 2 spec", () => {
       ).toBe(true);
     }
   });
+
+  // `module` on lectures/sessions is a free-text frontmatter string; the
+  // colour-coding and badge index everywhere on the site (LecturesGrid,
+  // SessionsGrid, homepage, both detail pages) are computed independently
+  // from `week` via Math.ceil(week / 3) and never read this string. Nothing
+  // in the schema ties the two together, so a week whose typed-out `module`
+  // text doesn't match its 3-week block, or that disagrees between a lecture
+  // and its session, would show the wrong colour with no build error.
+  it("keeps each week's module label consistent with its 3-week block", () => {
+    const expectedIndex = (week: number) => Math.min(4, Math.ceil(week / 3));
+    const byWeek = new Map<number, string>();
+
+    for (const node of [...byType("lectures"), ...byType("sessions")]) {
+      const week = Number(node.meta?.week);
+      const moduleLabel = String(node.meta?.module ?? "");
+      const index = expectedIndex(week);
+
+      expect(
+        moduleLabel.startsWith(`Module ${index}`),
+        `${node.id} (week ${week}) has module "${moduleLabel}", expected to start with "Module ${index}"`,
+      ).toBe(true);
+
+      const seen = byWeek.get(week);
+      if (seen) {
+        expect(moduleLabel, `${node.id} disagrees with another week-${week} node on module label`).toBe(
+          seen,
+        );
+      } else {
+        byWeek.set(week, moduleLabel);
+      }
+    }
+  });
 });
