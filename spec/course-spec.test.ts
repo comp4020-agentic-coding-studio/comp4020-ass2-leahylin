@@ -47,4 +47,23 @@ describe("Assignment 2 spec", () => {
     );
     expect(total).toBe(100);
   });
+
+  // MarkingModel.astro only renders the P/CR/D/HD band columns when every
+  // criterion has `bands` — one criterion missing them silently drops the
+  // whole rubric table back to Criterion/Weight, with no build or schema
+  // error. A weighted assessment that meant to publish a rubric but forgot
+  // one criterion's bands would ship silently broken.
+  it("gives every criterion bands, or none, on each weighted assessment", () => {
+    for (const node of byType("assessments")) {
+      const marking = node.meta?.marking as
+        | { mode: string; criteria: { name: string; bands?: unknown }[] }
+        | undefined;
+      if (marking?.mode !== "weighted") continue;
+      const withBands = marking.criteria.filter((c) => c.bands).length;
+      expect(
+        withBands === 0 || withBands === marking.criteria.length,
+        `${node.id} has bands on ${withBands}/${marking.criteria.length} criteria`,
+      ).toBe(true);
+    }
+  });
 });
