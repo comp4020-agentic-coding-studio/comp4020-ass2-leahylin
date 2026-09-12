@@ -7,10 +7,6 @@
 
 ## How I got here
 
-## How I got here
-
-## How I got here
-
 I first read the Assignment 2 brief, specification, `README.md`, and course-design material to understand the task constraints. I then used **Qwen3.7-plus** to explore the course concept before implementation. I discussed possible directions, tested how the topic could develop across twelve weeks, and used the conversation to form a rough course narrative. This led to **“The Political Economy of the Refrigerator”**, centred on the thesis: **“The fridge sells you time, and the bill arrives as waste.”** At this stage, I was not trying to generate finished content. I wanted a clear enough argument to guide the implementation agent.
 
 I then moved to **Claude Code**. Rather than immediately asking it to build the website, I first asked it to *'create a `PLAN.md` from the brief and specification without modifying implementation files'.* I then asked it to *'incorporate the chosen concept into the plan, including the central thesis, twelve-week progression, weekly questions, site structure, interaction, assessments, and scope.'* This established the course before implementation. The resulting structure divided the semester into four modules — **Disenchantment, Micropolitics, The Tyranny of Time, and Resistance and Reconstruction** — developing one argument rather than treating the refrigerator as a collection of unrelated topics. The assessments similarly progressed from observation to critique to proposal. [`911bd28`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/911bd28) and [`1da75d0`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-leahylin/commit/1da75d0)
