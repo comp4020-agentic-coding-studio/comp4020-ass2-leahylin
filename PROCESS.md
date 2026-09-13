@@ -4,7 +4,6 @@
 
 **SLOP8364 — *The Political Economy of the Refrigerator*** is a fictional Semester 1 2027 course about how the fridge shapes convenience, time, waste, and everyday life. It has twelve lectures and sessions across four modules: Disenchantment, Micropolitics, The Tyranny of Time, and Resistance and Reconstruction. The four assessments move from observing a real fridge, to analysing the course ideas, and finally designing an alternative. The website includes three Reveal.js lecture decks, three interactive activities — Waste Audit, Date-Label Decoder, and “Unplugged” Pledge — as well as People and Policies pages.
 
-
 ## How I got here
 
 I first read the Assignment 2 brief, specification, `README.md`, and course-design material to understand the task constraints. I then used **Qwen3.7-plus** to explore the course concept before implementation. I discussed possible directions, tested how the topic could develop across twelve weeks, and used the conversation to form a rough course narrative. This led to **“The Political Economy of the Refrigerator”**, centred on the thesis: **“The fridge sells you time, and the bill arrives as waste.”** At this stage, I was not trying to generate finished content. I wanted a clear enough argument to guide the implementation agent.
